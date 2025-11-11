@@ -1,0 +1,2217 @@
+<!doctype html>
+<html lang="es">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DataCloudly - Transformamos ideas en soluciones digitales</title>
+  <script src="/_sdk/element_sdk.js"></script>
+  <style>
+    body {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      overflow-x: hidden;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html, body {
+      height: 100%;
+    }
+
+    /* Navigation */
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      padding: 20px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 1000;
+      backdrop-filter: blur(10px);
+      transition: all 0.3s ease;
+    }
+
+    nav.scrolled {
+      box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+    }
+
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 1.5em;
+      font-weight: 800;
+    }
+
+    .nav-logo span {
+      background: linear-gradient(135deg, #8b5cf6 0%, #3b82f6 50%, #10b981 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .nav-logo img {
+      height: 45px;
+      width: auto;
+    }
+
+    .language-selector {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      cursor: pointer;
+      padding: 8px 15px;
+      border-radius: 25px;
+      transition: all 0.3s ease;
+      font-weight: 600;
+      font-size: 0.95em;
+    }
+
+    .language-selector:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+
+    .language-icon {
+      font-size: 1.4em;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 30px;
+      align-items: center;
+    }
+
+    .nav-link {
+      text-decoration: none;
+      font-weight: 500;
+      transition: all 0.3s ease;
+      cursor: pointer;
+    }
+
+    .nav-link:hover {
+      transform: translateY(-2px);
+    }
+
+    .nav-cta {
+      padding: 10px 25px;
+      border-radius: 25px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+
+    .nav-cta:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    }
+
+    /* Hero Section */
+    .hero {
+      min-height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 120px 20px 60px;
+      position: relative;
+      overflow: hidden;
+      background: #f3e8ff;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle, rgba(255,255,255,0.1) 1px, transparent 1px);
+      background-size: 50px 50px;
+      animation: moveGrid 20s linear infinite;
+      pointer-events: none;
+    }
+
+    @keyframes moveGrid {
+      0% { transform: translate(0, 0); }
+      100% { transform: translate(50px, 50px); }
+    }
+
+    .hero-content {
+      max-width: 900px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-logo {
+      width: 180px;
+      height: auto;
+      margin: 0 auto 30px auto;
+      display: block;
+      animation: floatLogo 4s ease-in-out infinite;
+      filter: drop-shadow(0 10px 30px rgba(139, 92, 246, 0.3));
+    }
+
+    @keyframes floatLogo {
+      0%, 100% { transform: translateY(0px) rotate(0deg); }
+      25% { transform: translateY(-15px) rotate(2deg); }
+      50% { transform: translateY(-10px) rotate(0deg); }
+      75% { transform: translateY(-15px) rotate(-2deg); }
+    }
+
+    .logo {
+      font-size: 3.5em;
+      font-weight: 800;
+      margin-bottom: 20px;
+      background: linear-gradient(135deg, #8b5cf6 0%, #3b82f6 50%, #10b981 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .slogan {
+      font-size: 1.8em;
+      margin-bottom: 30px;
+      opacity: 0.9;
+      line-height: 1.4;
+      white-space: nowrap;
+      display: inline-block;
+      position: relative;
+    }
+
+    .slogan::after {
+      content: '';
+      position: absolute;
+      right: 0;
+      top: 0;
+      bottom: 0;
+      width: 3px;
+      background: currentColor;
+    }
+
+    .slogan.typing::after {
+      animation: blink-caret 0.75s step-end infinite;
+    }
+
+    .slogan.blinking::after {
+      animation: blink-caret 0.75s step-end infinite;
+    }
+
+    @keyframes blink-caret {
+      from, to { opacity: 0; }
+      50% { opacity: 1; }
+    }
+
+    .hero-description {
+      font-size: 1.2em;
+      margin-bottom: 40px;
+      opacity: 0.8;
+      max-width: 700px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .cta-button {
+      display: inline-block;
+      padding: 18px 45px;
+      font-size: 1.1em;
+      font-weight: 600;
+      border: none;
+      border-radius: 50px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      text-decoration: none;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+      margin: 0 10px;
+    }
+
+    .cta-button:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+    }
+
+    .cta-secondary {
+      background: transparent;
+      border: 2px solid;
+    }
+
+    /* Stats Section */
+    .stats {
+      padding: 60px 20px;
+      text-align: center;
+    }
+
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 40px;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .stat-item {
+      padding: 20px;
+    }
+
+    .stat-number {
+      font-size: 3em;
+      font-weight: 800;
+      margin-bottom: 10px;
+      background: linear-gradient(135deg, #8b5cf6 0%, #a78bfa 50%, #c084fc 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .stat-label {
+      font-size: 1.1em;
+      opacity: 0.8;
+    }
+
+    /* About Section */
+    .about {
+      padding: 100px 20px;
+      background: #f3e8ff;
+    }
+
+    .about-content {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+    }
+
+    .about-text {
+      padding-right: 20px;
+    }
+
+    .about-title {
+      font-size: 3em;
+      font-weight: 800;
+      margin-bottom: 20px;
+      color: #1f2937;
+    }
+
+    .about-brand {
+      margin-bottom: 30px;
+    }
+
+    .about-brand-name {
+      font-size: 2.5em;
+      font-weight: 800;
+      background: linear-gradient(135deg, #8b5cf6 0%, #3b82f6 50%, #10b981 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      display: inline-block;
+    }
+
+    .about-description {
+      font-size: 1.15em;
+      line-height: 1.8;
+      margin-bottom: 25px;
+      opacity: 0.85;
+      color: #1f2937;
+    }
+
+    .about-values {
+      margin-top: 40px;
+      display: flex;
+      flex-direction: column;
+      gap: 25px;
+    }
+
+    .value-item {
+      display: flex;
+      gap: 20px;
+      align-items: flex-start;
+      padding: 25px;
+      background: white;
+      border-radius: 15px;
+      transition: all 0.3s ease;
+      border: 2px solid transparent;
+    }
+
+    .value-item:hover {
+      transform: translateX(10px);
+      border-color: #8b5cf6;
+      box-shadow: 0 10px 30px rgba(139, 92, 246, 0.15);
+    }
+
+    .value-icon {
+      font-size: 2.5em;
+      flex-shrink: 0;
+    }
+
+    .value-content {
+      flex: 1;
+    }
+
+    .value-title {
+      font-size: 1.3em;
+      font-weight: 700;
+      margin-bottom: 8px;
+      color: #1f2937;
+    }
+
+    .value-text {
+      font-size: 1em;
+      line-height: 1.6;
+      opacity: 0.8;
+      color: #1f2937;
+    }
+
+    .about-visual {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+
+    .about-logo-container {
+      position: relative;
+      width: 100%;
+      max-width: 400px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .about-logo {
+      width: 100%;
+      height: auto;
+      animation: floatAboutLogo 6s ease-in-out infinite;
+      filter: drop-shadow(0 20px 50px rgba(139, 92, 246, 0.4));
+    }
+
+    @keyframes floatAboutLogo {
+      0%, 100% { 
+        transform: translateY(0px) rotate(0deg) scale(1);
+      }
+      25% { 
+        transform: translateY(-20px) rotate(3deg) scale(1.05);
+      }
+      50% { 
+        transform: translateY(-15px) rotate(0deg) scale(1.08);
+      }
+      75% { 
+        transform: translateY(-20px) rotate(-3deg) scale(1.05);
+      }
+    }
+
+    /* Services Section */
+    .services {
+      padding: 100px 20px;
+      background: #f3e8ff;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .section-title {
+      text-align: center;
+      font-size: 2.8em;
+      font-weight: 700;
+      margin-bottom: 20px;
+    }
+
+    .section-subtitle {
+      text-align: center;
+      font-size: 1.3em;
+      opacity: 0.8;
+      margin-bottom: 60px;
+      max-width: 800px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 35px;
+    }
+
+    .service-card {
+      padding: 45px 35px;
+      border-radius: 20px;
+      transition: all 0.3s ease;
+      border: 2px solid transparent;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .service-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, #8b5cf6 0%, #a78bfa 50%, #c084fc 100%);
+      transform: scaleX(0);
+      transition: transform 0.3s ease;
+    }
+
+    .service-card:hover::before {
+      transform: scaleX(1);
+    }
+
+    .service-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.12);
+    }
+
+    .service-icon {
+      font-size: 3.5em;
+      margin-bottom: 25px;
+    }
+
+    .service-title {
+      font-size: 1.5em;
+      font-weight: 700;
+      margin-bottom: 15px;
+    }
+
+    .service-description {
+      opacity: 0.8;
+      line-height: 1.7;
+      margin-bottom: 20px;
+    }
+
+    .service-features {
+      list-style: none;
+      padding: 0;
+      margin: 20px 0 0 0;
+    }
+
+    .service-features li {
+      padding: 8px 0;
+      opacity: 0.8;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .service-features li::before {
+      content: '✓';
+      font-weight: bold;
+      color: #8b5cf6;
+    }
+
+    /* Pricing Section */
+    .pricing {
+      padding: 100px 20px;
+    }
+
+    .pricing-toggle {
+      text-align: center;
+      margin-bottom: 50px;
+    }
+
+    .toggle-label {
+      font-size: 1.2em;
+      font-weight: 600;
+      margin-bottom: 20px;
+    }
+
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 35px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .pricing-card {
+      padding: 45px 35px;
+      border-radius: 20px;
+      border: 2px solid;
+      transition: all 0.3s ease;
+      position: relative;
+    }
+
+    .pricing-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 25px 50px rgba(0,0,0,0.15);
+    }
+
+    .pricing-badge {
+      position: absolute;
+      top: -15px;
+      left: 50%;
+      transform: translateX(-50%);
+      padding: 8px 25px;
+      border-radius: 20px;
+      font-weight: 700;
+      font-size: 0.9em;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    }
+
+    .pricing-name {
+      font-size: 1.8em;
+      font-weight: 700;
+      margin-bottom: 15px;
+      text-align: center;
+    }
+
+    .pricing-price {
+      font-size: 3em;
+      font-weight: 800;
+      text-align: center;
+      margin-bottom: 10px;
+    }
+
+    .pricing-period {
+      text-align: center;
+      opacity: 0.7;
+      margin-bottom: 30px;
+    }
+
+    .pricing-features {
+      list-style: none;
+      padding: 0;
+      margin: 30px 0;
+    }
+
+    .pricing-features li {
+      padding: 12px 0;
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      line-height: 1.5;
+    }
+
+    .pricing-features li::before {
+      content: '✓';
+      font-weight: bold;
+      color: #8b5cf6;
+      flex-shrink: 0;
+    }
+
+    .pricing-button {
+      width: 100%;
+      padding: 15px;
+      border: none;
+      border-radius: 12px;
+      font-size: 1.1em;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .pricing-button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+    }
+
+    /* Contact Section */
+    .contact {
+      padding: 100px 20px;
+      background: #4a5568 !important;
+    }
+
+    .contact-wrapper {
+      max-width: 1000px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .contact-hero {
+      margin-bottom: 60px;
+    }
+
+    .contact-hero-title {
+      font-size: 3.5em;
+      font-weight: 800;
+      margin-bottom: 25px;
+      color: white;
+      line-height: 1.2;
+    }
+
+    .contact-hero-subtitle {
+      font-size: 1.4em;
+      color: rgba(255,255,255,0.8);
+      max-width: 700px;
+      margin: 0 auto 40px auto;
+      line-height: 1.6;
+    }
+
+    .contact-buttons {
+      display: flex;
+      gap: 20px;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-bottom: 60px;
+    }
+
+    .contact-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      padding: 18px 40px;
+      border-radius: 50px;
+      font-size: 1.15em;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      text-decoration: none;
+      border: none;
+    }
+
+    .contact-btn-primary {
+      background: #8b5cf6;
+      color: white;
+      box-shadow: 0 10px 30px rgba(139, 92, 246, 0.4);
+    }
+
+    .contact-btn-primary:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 15px 40px rgba(139, 92, 246, 0.6);
+      background: #7c3aed;
+    }
+
+    .contact-btn-whatsapp {
+      background: #25d366;
+      color: white;
+      box-shadow: 0 10px 30px rgba(37, 211, 102, 0.4);
+    }
+
+    .contact-btn-whatsapp:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 15px 40px rgba(37, 211, 102, 0.6);
+      background: #20bd5a;
+    }
+
+    .contact-info-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+      margin-bottom: 50px;
+    }
+
+    .contact-info-card {
+      padding: 25px 20px;
+      background: rgba(255,255,255,0.05);
+      border-radius: 15px;
+      border: 2px solid rgba(255,255,255,0.1);
+      transition: all 0.3s ease;
+    }
+
+    .contact-info-card:hover {
+      background: rgba(255,255,255,0.08);
+      border-color: rgba(139, 92, 246, 0.5);
+      transform: translateY(-5px);
+    }
+
+    .contact-info-icon {
+      font-size: 2em;
+      margin-bottom: 12px;
+    }
+
+    .contact-info-label {
+      font-size: 0.85em;
+      color: rgba(255,255,255,0.6);
+      margin-bottom: 6px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      font-weight: 600;
+    }
+
+    .contact-info-value {
+      font-size: 1em;
+      color: white;
+      font-weight: 600;
+    }
+
+    .contact-info-value a {
+      color: white;
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+
+    .contact-info-value a:hover {
+      color: #8b5cf6;
+    }
+
+    .contact-social {
+      padding-top: 50px;
+      border-top: 2px solid rgba(255,255,255,0.1);
+    }
+
+    .contact-social-title {
+      font-size: 1.3em;
+      color: rgba(255,255,255,0.8);
+      margin-bottom: 25px;
+      font-weight: 600;
+    }
+
+    .instagram-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      padding: 15px 35px;
+      background: rgba(255,255,255,0.1);
+      backdrop-filter: blur(10px);
+      border-radius: 50px;
+      color: white;
+      text-decoration: none;
+      font-size: 1.1em;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      border: 2px solid rgba(255,255,255,0.2);
+    }
+
+    .instagram-link:hover {
+      background: rgba(139, 92, 246, 0.3);
+      border-color: #8b5cf6;
+      transform: translateY(-3px);
+      box-shadow: 0 10px 25px rgba(139, 92, 246, 0.3);
+    }
+
+    .instagram-icon {
+      font-size: 1.4em;
+    }
+
+    /* Floating Elements */
+    .floating-phone {
+      position: fixed;
+      top: 80px;
+      right: 20px;
+      padding: 15px 28px;
+      border-radius: 50px;
+      font-weight: 600;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+      z-index: 999;
+      animation: float 3s ease-in-out infinite;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      font-size: 0.95em;
+    }
+
+    .floating-phone:hover {
+      transform: scale(1.05);
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-10px); }
+    }
+
+    .whatsapp-float {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      width: 65px;
+      height: 65px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2.2em;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+      z-index: 1000;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      animation: pulse 2s infinite;
+    }
+
+    .whatsapp-float:hover {
+      transform: scale(1.1);
+    }
+
+    @keyframes pulse {
+      0%, 100% { box-shadow: 0 10px 30px rgba(0,0,0,0.2); }
+      50% { box-shadow: 0 10px 40px rgba(37, 211, 102, 0.5); }
+    }
+
+    /* WhatsApp Modal */
+    .whatsapp-modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.6);
+      z-index: 2000;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .whatsapp-modal.active {
+      display: flex;
+    }
+
+    .modal-content {
+      border-radius: 25px;
+      padding: 45px;
+      max-width: 550px;
+      width: 100%;
+      position: relative;
+      box-shadow: 0 25px 70px rgba(0,0,0,0.3);
+    }
+
+    .modal-close {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      font-size: 1.5em;
+      cursor: pointer;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.3s ease;
+      font-weight: bold;
+    }
+
+    .modal-close:hover {
+      transform: rotate(90deg);
+    }
+
+    .modal-title {
+      font-size: 2em;
+      font-weight: 700;
+      margin-bottom: 35px;
+      text-align: center;
+    }
+
+    .whatsapp-option {
+      padding: 20px 28px;
+      margin-bottom: 15px;
+      border-radius: 15px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      font-weight: 500;
+      font-size: 1.05em;
+    }
+
+    .whatsapp-option:hover {
+      transform: translateX(10px);
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+
+    /* Footer */
+    footer {
+      padding: 60px 20px 30px;
+      text-align: center;
+      background: #1a202c !important;
+      color: white;
+    }
+
+    .footer-content {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 40px;
+      margin-bottom: 40px;
+      text-align: left;
+    }
+
+    .footer-section h4 {
+      font-size: 1.3em;
+      margin-bottom: 20px;
+      font-weight: 700;
+    }
+
+    .footer-links {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .footer-link {
+      text-decoration: none;
+      font-weight: 500;
+      transition: all 0.3s ease;
+      display: inline-block;
+    }
+
+    .footer-link:hover {
+      transform: translateX(5px);
+    }
+
+    .footer-bottom {
+      padding-top: 30px;
+      border-top: 2px solid;
+      opacity: 0.7;
+    }
+
+    /* Scroll to Top Button */
+    .scroll-to-top {
+      position: fixed;
+      bottom: 110px;
+      right: 30px;
+      width: 55px;
+      height: 55px;
+      background: #8b5cf6;
+      color: white;
+      border-radius: 50%;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.8em;
+      cursor: pointer;
+      z-index: 999;
+      transition: all 0.3s ease;
+      box-shadow: 0 5px 20px rgba(139, 92, 246, 0.4);
+    }
+
+    .scroll-to-top.visible {
+      display: flex;
+    }
+
+    .scroll-to-top:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 25px rgba(139, 92, 246, 0.6);
+    }
+
+    /* Mobile Menu */
+    .mobile-menu-button {
+      display: none;
+      font-size: 1.8em;
+      cursor: pointer;
+      padding: 5px;
+    }
+
+    /* Responsive */
+    @media (max-width: 968px) {
+      .nav-links {
+        display: none;
+      }
+
+      .mobile-menu-button {
+        display: block;
+      }
+
+      .contact-hero-title {
+        font-size: 2.2em;
+      }
+
+      .contact-hero-subtitle {
+        font-size: 1.1em;
+      }
+
+      .contact-buttons {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .contact-btn {
+        width: 100%;
+        justify-content: center;
+      }
+
+      .contact-info-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .footer-grid {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+
+      .footer-links {
+        align-items: center;
+      }
+
+      .about-content {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+
+      .about-text {
+        padding-right: 0;
+      }
+
+      .about-logo-container {
+        max-width: 300px;
+        margin: 0 auto;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .hero {
+        padding: 100px 20px 40px;
+      }
+
+      .hero-logo {
+        width: 100px;
+        margin-bottom: 20px;
+      }
+
+      .logo {
+        font-size: 2em;
+        margin-bottom: 15px;
+      }
+
+      .slogan {
+        font-size: 1.1em;
+        white-space: normal;
+        text-align: center;
+      }
+
+      .hero-description {
+        font-size: 0.95em;
+        margin-bottom: 30px;
+      }
+
+      .section-title {
+        font-size: 1.8em;
+      }
+
+      .section-subtitle {
+        font-size: 1em;
+        margin-bottom: 40px;
+      }
+
+      .floating-phone {
+        display: none;
+      }
+
+      .whatsapp-float {
+        bottom: 20px;
+        right: 20px;
+        width: 55px;
+        height: 55px;
+        font-size: 1.8em;
+      }
+
+      .services-grid {
+        grid-template-columns: 1fr;
+        gap: 25px;
+      }
+
+      .service-card {
+        padding: 30px 25px;
+      }
+
+      .service-icon {
+        font-size: 2.5em;
+        margin-bottom: 15px;
+      }
+
+      .service-title {
+        font-size: 1.3em;
+      }
+
+      .service-description {
+        font-size: 0.95em;
+      }
+
+      .pricing-grid {
+        grid-template-columns: 1fr;
+        gap: 25px;
+      }
+
+      .pricing-card {
+        padding: 35px 25px;
+      }
+
+      .pricing-name {
+        font-size: 1.5em;
+      }
+
+      .pricing-price {
+        font-size: 2.5em;
+      }
+
+      .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 25px;
+      }
+
+      .stat-number {
+        font-size: 2.5em;
+      }
+
+      .stat-label {
+        font-size: 0.95em;
+      }
+
+      .contact-info-grid {
+        grid-template-columns: 1fr;
+        gap: 15px;
+      }
+
+      .contact-info-card {
+        padding: 20px;
+      }
+
+      .contact-info-icon {
+        font-size: 1.8em;
+      }
+
+      .contact-info-value {
+        font-size: 0.95em;
+      }
+
+      .scroll-to-top {
+        bottom: 85px;
+        right: 20px;
+        width: 50px;
+        height: 50px;
+        font-size: 1.5em;
+      }
+
+      nav {
+        padding: 12px 20px;
+      }
+
+      .nav-logo {
+        font-size: 1.2em;
+      }
+
+      .nav-logo img {
+        height: 35px;
+      }
+
+      .cta-button {
+        padding: 14px 30px;
+        font-size: 0.95em;
+        margin: 5px;
+      }
+
+      .about {
+        padding: 60px 20px;
+      }
+
+      .about-title {
+        font-size: 1.8em;
+        margin-bottom: 15px;
+      }
+
+      .about-brand-name {
+        font-size: 1.6em;
+      }
+
+      .about-description {
+        font-size: 0.95em;
+        margin-bottom: 20px;
+      }
+
+      .about-logo-container {
+        max-width: 200px;
+      }
+
+      .about-values {
+        margin-top: 30px;
+        gap: 20px;
+      }
+
+      .value-item {
+        padding: 18px;
+        flex-direction: column;
+        text-align: center;
+        align-items: center;
+      }
+
+      .value-icon {
+        font-size: 2.2em;
+        margin-bottom: 10px;
+      }
+
+      .value-title {
+        font-size: 1.1em;
+      }
+
+      .value-text {
+        font-size: 0.9em;
+      }
+
+      .services, .pricing {
+        padding: 60px 20px;
+      }
+
+      .contact {
+        padding: 60px 20px;
+      }
+
+      .contact-hero {
+        margin-bottom: 40px;
+      }
+
+      .contact-hero-title {
+        font-size: 1.8em;
+        margin-bottom: 20px;
+      }
+
+      .contact-hero-subtitle {
+        font-size: 1em;
+        margin-bottom: 30px;
+      }
+
+      .contact-btn {
+        padding: 15px 30px;
+        font-size: 1em;
+      }
+
+      .contact-social {
+        padding-top: 40px;
+      }
+
+      .contact-social-title {
+        font-size: 1.1em;
+      }
+
+      .instagram-link {
+        padding: 12px 28px;
+        font-size: 1em;
+      }
+
+      footer {
+        padding: 40px 20px 20px;
+      }
+
+      .footer-section h4 {
+        font-size: 1.1em;
+      }
+
+      .modal-content {
+        padding: 30px 25px;
+        margin: 20px;
+      }
+
+      .modal-title {
+        font-size: 1.5em;
+        margin-bottom: 25px;
+      }
+
+      .whatsapp-option {
+        padding: 16px 20px;
+        font-size: 0.95em;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .hero-logo {
+        width: 80px;
+      }
+
+      .logo {
+        font-size: 1.6em;
+      }
+
+      .slogan {
+        font-size: 0.95em;
+      }
+
+      .hero-description {
+        font-size: 0.85em;
+      }
+
+      .section-title {
+        font-size: 1.5em;
+      }
+
+      .section-subtitle {
+        font-size: 0.9em;
+      }
+
+      .stats-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .stat-number {
+        font-size: 2em;
+      }
+
+      .about-title {
+        font-size: 1.5em;
+      }
+
+      .about-brand-name {
+        font-size: 1.4em;
+      }
+
+      .about-description {
+        font-size: 0.9em;
+      }
+
+      .value-item {
+        padding: 15px;
+      }
+
+      .value-icon {
+        font-size: 2em;
+      }
+
+      .value-title {
+        font-size: 1em;
+      }
+
+      .service-card {
+        padding: 25px 20px;
+      }
+
+      .service-icon {
+        font-size: 2em;
+      }
+
+      .service-title {
+        font-size: 1.2em;
+      }
+
+      .pricing-card {
+        padding: 30px 20px;
+      }
+
+      .pricing-name {
+        font-size: 1.3em;
+      }
+
+      .pricing-price {
+        font-size: 2em;
+      }
+
+      .contact-hero-title {
+        font-size: 1.5em;
+      }
+
+      .contact-hero-subtitle {
+        font-size: 0.9em;
+      }
+
+      .contact-btn {
+        padding: 12px 25px;
+        font-size: 0.9em;
+      }
+
+      .nav-logo {
+        font-size: 1em;
+      }
+
+      .nav-logo img {
+        height: 30px;
+      }
+
+      .cta-button {
+        padding: 12px 25px;
+        font-size: 0.9em;
+      }
+    }
+  </style>
+  <style>@view-transition { navigation: auto; }</style>
+  <script src="/_sdk/data_sdk.js" type="text/javascript"></script>
+  <script src="https://cdn.tailwindcss.com" type="text/javascript"></script>
+ </head>
+ <body>
+  <nav id="navbar"><a href="#hero" class="nav-logo" style="text-decoration: none; cursor: pointer;"> <img src="https://i.imgur.com/XJJUku6.png" alt="DataCloudly Logo" onerror="this.style.display='none';"> <span>DataCloudly</span> </a>
+   <div class="nav-links"><a href="#hero" class="nav-link" data-es="Inicio" data-en="Home">Inicio</a> <a href="#about" class="nav-link" data-es="Nosotros" data-en="About">Nosotros</a> <a href="#services" class="nav-link" data-es="Servicios" data-en="Services">Servicios</a> <a href="#pricing" class="nav-link" data-es="Precios" data-en="Pricing">Precios</a> <a href="#contact" class="nav-link" data-es="Contacto" data-en="Contact">Contacto</a>
+    <div class="language-selector" id="language-toggle"><span class="language-icon">🌐</span> <span class="language-text">ES</span>
+    </div><a href="#contact" class="nav-cta" data-es="Comenzar" data-en="Get Started">Comenzar</a>
+   </div>
+   <div class="mobile-menu-button">
+    ☰
+   </div>
+  </nav>
+  <main>
+   <section class="hero" id="hero">
+    <div class="hero-content"><img src="https://i.imgur.com/XJJUku6.png" alt="DataCloudly Logo" class="hero-logo" onerror="this.style.display='none';">
+     <h1 class="logo" id="site-title">DataCloudly</h1>
+     <div style="display: flex; justify-content: center; width: 100%;">
+      <p class="slogan" id="site-slogan" data-es="Transformamos ideas en soluciones digitales" data-en="We transform ideas into digital solutions">Transformamos ideas en soluciones digitales</p>
+     </div>
+     <p class="hero-description" data-es="Desarrollo web profesional, diseño UX/UI, e-commerce y marketing digital para impulsar tu negocio hacia el éxito" data-en="Professional web development, UX/UI design, e-commerce and digital marketing to drive your business to success">Desarrollo web profesional, diseño UX/UI, e-commerce y marketing digital para impulsar tu negocio hacia el éxito</p>
+     <div><a href="#contact" class="cta-button" id="hero-cta" data-es="Comienza tu proyecto" data-en="Start your project">Comienza tu proyecto</a> <a href="#services" class="cta-button cta-secondary" data-es="Ver servicios" data-en="View services">Ver servicios</a>
+     </div>
+    </div>
+   </section>
+   <section class="stats">
+    <div class="stats-grid">
+     <div class="stat-item">
+      <div class="stat-number">
+       50+
+      </div>
+      <div class="stat-label" data-es="Proyectos Completados" data-en="Completed Projects">
+       Proyectos Completados
+      </div>
+     </div>
+     <div class="stat-item">
+      <div class="stat-number">
+       100%
+      </div>
+      <div class="stat-label" data-es="Clientes Satisfechos" data-en="Satisfied Clients">
+       Clientes Satisfechos
+      </div>
+     </div>
+     <div class="stat-item">
+      <div class="stat-number">
+       24/7
+      </div>
+      <div class="stat-label" data-es="Soporte Disponible" data-en="Available Support">
+       Soporte Disponible
+      </div>
+     </div>
+     <div class="stat-item">
+      <div class="stat-number">
+       5+
+      </div>
+      <div class="stat-label" data-es="Años de Experiencia" data-en="Years of Experience">
+       Años de Experiencia
+      </div>
+     </div>
+    </div>
+   </section>
+   <section class="about" id="about">
+    <div class="container">
+     <div class="about-content">
+      <div class="about-text">
+       <h2 class="about-title" data-es="Sobre Nosotros" data-en="About Us">Sobre Nosotros</h2>
+       <div class="about-brand"><span class="about-brand-name">DataCloudly</span>
+       </div>
+       <p class="about-description" data-es="Somos un equipo apasionado de desarrolladores, diseñadores y estrategas digitales comprometidos con transformar ideas innovadoras en soluciones tecnológicas que impulsan el crecimiento de tu negocio." data-en="We are a passionate team of developers, designers and digital strategists committed to transforming innovative ideas into technological solutions that drive your business growth.">Somos un equipo apasionado de desarrolladores, diseñadores y estrategas digitales comprometidos con transformar ideas innovadoras en soluciones tecnológicas que impulsan el crecimiento de tu negocio.</p>
+       <p class="about-description" data-es="Con más de 5 años de experiencia en el mercado, hemos ayudado a decenas de empresas a establecer su presencia digital, optimizar sus procesos y alcanzar sus objetivos comerciales a través de tecnología de vanguardia y diseño centrado en el usuario." data-en="With over 5 years of experience in the market, we have helped dozens of companies establish their digital presence, optimize their processes and achieve their business goals through cutting-edge technology and user-centered design.">Con más de 5 años de experiencia en el mercado, hemos ayudado a decenas de empresas a establecer su presencia digital, optimizar sus procesos y alcanzar sus objetivos comerciales a través de tecnología de vanguardia y diseño centrado en el usuario.</p>
+       <div class="about-values">
+        <div class="value-item">
+         <div class="value-icon">
+          🎯
+         </div>
+         <div class="value-content">
+          <h4 class="value-title" data-es="Misión" data-en="Mission">Misión</h4>
+          <p class="value-text" data-es="Empoderar a las empresas con soluciones digitales innovadoras que generen resultados medibles y sostenibles." data-en="Empower businesses with innovative digital solutions that generate measurable and sustainable results.">Empoderar a las empresas con soluciones digitales innovadoras que generen resultados medibles y sostenibles.</p>
+         </div>
+        </div>
+        <div class="value-item">
+         <div class="value-icon">
+          🚀
+         </div>
+         <div class="value-content">
+          <h4 class="value-title" data-es="Visión" data-en="Vision">Visión</h4>
+          <p class="value-text" data-es="Ser el socio tecnológico de confianza que impulsa la transformación digital de empresas en toda Latinoamérica." data-en="Be the trusted technology partner that drives digital transformation of companies throughout Latin America.">Ser el socio tecnológico de confianza que impulsa la transformación digital de empresas en toda Latinoamérica.</p>
+         </div>
+        </div>
+        <div class="value-item">
+         <div class="value-icon">
+          💎
+         </div>
+         <div class="value-content">
+          <h4 class="value-title" data-es="Valores" data-en="Values">Valores</h4>
+          <p class="value-text" data-es="Innovación, excelencia, compromiso y transparencia en cada proyecto que desarrollamos." data-en="Innovation, excellence, commitment and transparency in every project we develop.">Innovación, excelencia, compromiso y transparencia en cada proyecto que desarrollamos.</p>
+         </div>
+        </div>
+       </div>
+      </div>
+      <div class="about-visual">
+       <div class="about-logo-container"><img src="https://i.imgur.com/XJJUku6.png" alt="DataCloudly Logo" class="about-logo" onerror="this.style.display='none';">
+       </div>
+      </div>
+     </div>
+    </div>
+   </section>
+   <section class="services" id="services">
+    <div class="container">
+     <h2 class="section-title" id="services-title" data-es="Servicios Profesionales" data-en="Professional Services">Servicios Profesionales</h2>
+     <p class="section-subtitle" data-es="Transformo tus ideas en soluciones digitales que impulsan tu negocio hacia el éxito" data-en="I transform your ideas into digital solutions that drive your business to success">Transformo tus ideas en soluciones digitales que impulsan tu negocio hacia el éxito</p>
+     <div class="services-grid">
+      <div class="service-card">
+       <div class="service-icon">
+        💻
+       </div>
+       <h3 class="service-title">Desarrollo Web</h3>
+       <p class="service-description">Sitios web modernos, responsivos y optimizados para SEO que convierten visitantes en clientes</p>
+       <ul class="service-features">
+        <li>HTML5, CSS3, JavaScript</li>
+        <li>WordPress &amp; CMS</li>
+        <li>Responsive Design</li>
+        <li>Optimización SEO</li>
+       </ul>
+      </div>
+      <div class="service-card">
+       <div class="service-icon">
+        🎨
+       </div>
+       <h3 class="service-title">UX/UI Design</h3>
+       <p class="service-description">Experiencias de usuario intuitivas y interfaces atractivas que mejoran la conversión</p>
+       <ul class="service-features">
+        <li>Investigación de usuarios</li>
+        <li>Prototipado interactivo</li>
+        <li>Design Systems</li>
+        <li>Testing de usabilidad</li>
+       </ul>
+      </div>
+      <div class="service-card">
+       <div class="service-icon">
+        🛒
+       </div>
+       <h3 class="service-title">E-commerce</h3>
+       <p class="service-description">Tiendas online completas con gestión de inventario, pagos seguros y analytics</p>
+       <ul class="service-features">
+        <li>WooCommerce &amp; Shopify</li>
+        <li>Pasarelas de pago</li>
+        <li>Gestión de inventario</li>
+        <li>Analytics &amp; reportes</li>
+       </ul>
+      </div>
+      <div class="service-card">
+       <div class="service-icon">
+        📱
+       </div>
+       <h3 class="service-title">Marketing Digital</h3>
+       <p class="service-description">Estrategias de contenido y campañas que aumentan tu visibilidad y engagement</p>
+       <ul class="service-features">
+        <li>Social Media Management</li>
+        <li>Content Marketing</li>
+        <li>SEO &amp; SEM</li>
+        <li>Email Marketing</li>
+       </ul>
+      </div>
+      <div class="service-card">
+       <div class="service-icon">
+        🖼️
+       </div>
+       <h3 class="service-title">Diseño Gráfico</h3>
+       <p class="service-description">Identidad visual completa que comunica los valores de tu marca de forma efectiva</p>
+       <ul class="service-features">
+        <li>Logos &amp; Branding</li>
+        <li>Material publicitario</li>
+        <li>Packaging design</li>
+        <li>Identidad corporativa</li>
+       </ul>
+      </div>
+      <div class="service-card">
+       <div class="service-icon">
+        🔧
+       </div>
+       <h3 class="service-title">Consultoría Tech</h3>
+       <p class="service-description">Asesoramiento estratégico para optimizar tus procesos digitales y tecnológicos</p>
+       <ul class="service-features">
+        <li>Auditoría digital</li>
+        <li>Estrategia tecnológica</li>
+        <li>Optimización de procesos</li>
+        <li>Transformación digital</li>
+       </ul>
+      </div>
+     </div>
+    </div>
+   </section>
+   <section class="pricing" id="pricing">
+    <div class="container">
+     <h2 class="section-title" id="pricing-title" data-es="Costos de Servicios" data-en="Service Costs">Costos de Servicios</h2>
+     <p class="section-subtitle" data-es="Escoja su plan a crédito o contado" data-en="Choose your plan on credit or cash">Escoja su plan a crédito o contado</p>
+     <div class="pricing-grid">
+      <div class="pricing-card">
+       <h3 class="pricing-name">Menú WiFi</h3>
+       <div class="pricing-price">
+        $200
+       </div>
+       <div class="pricing-period">
+        único pago
+       </div>
+       <ul class="pricing-features">
+        <li>Entrega en 48 horas</li>
+        <li>Diseño intuitivo y Profesional</li>
+        <li>Routerboard</li>
+        <li>Imágenes y colores sobrios</li>
+        <li>3 actualizaciones gratis (6 meses)</li>
+        <li>PayPal / Zinli / Binance</li>
+       </ul><button class="pricing-button">Seleccionar Plan</button>
+      </div>
+      <div class="pricing-card">
+       <div class="pricing-badge">
+        Más Popular
+       </div>
+       <h3 class="pricing-name">Menú QR</h3>
+       <div class="pricing-price">
+        $100
+       </div>
+       <div class="pricing-period">
+        único pago
+       </div>
+       <ul class="pricing-features">
+        <li>Entrega en 48 horas</li>
+        <li>Diseño intuitivo y Profesional</li>
+        <li>Imágenes y colores sobrios</li>
+        <li>Servicio Cloud 3 años</li>
+        <li>QR digital</li>
+        <li>3 actualizaciones gratis (6 meses)</li>
+        <li>PayPal / Zinli / Binance</li>
+       </ul><button class="pricing-button">Seleccionar Plan</button>
+      </div>
+      <div class="pricing-card">
+       <h3 class="pricing-name">Diseño Web, Dominio y Hosting</h3>
+       <div class="pricing-price">
+        $150
+       </div>
+       <div class="pricing-period">
+        único pago
+       </div>
+       <ul class="pricing-features">
+        <li>Entrega de 4 a 5 días</li>
+        <li>HTML5 &amp; CSS3</li>
+        <li>4 enlaces</li>
+        <li>Hosting y Dominio 1 año</li>
+        <li>Botón WhatsApp</li>
+        <li>PayPal / Zinli / Binance</li>
+       </ul><button class="pricing-button">Seleccionar Plan</button>
+      </div>
+     </div>
+    </div>
+   </section>
+   <section class="contact" id="contact">
+    <div class="contact-wrapper">
+     <div class="contact-hero">
+      <h2 class="contact-hero-title" id="contact-title" data-es="¿Listo para crear algo increíble?" data-en="Ready to create something amazing?">¿Listo para crear algo increíble?</h2>
+      <p class="contact-hero-subtitle" data-es="Transformemos tus ideas en realidad. Contáctanos y comencemos a trabajar juntos." data-en="Let's transform your ideas into reality. Contact us and let's start working together.">Transformemos tus ideas en realidad. Contáctanos y comencemos a trabajar juntos.</p>
+     </div>
+     <div class="contact-buttons"><a href="mailto:contacto@datacloudly.com" class="contact-btn contact-btn-primary"> <span>✉️</span> <span data-es="Enviar Email" data-en="Send Email">Enviar Email</span> </a> <button class="contact-btn contact-btn-whatsapp" id="contact-whatsapp-btn"> <span>💬</span> <span data-es="Chatear en WhatsApp" data-en="Chat on WhatsApp">Chatear en WhatsApp</span> </button>
+     </div>
+     <div class="contact-info-grid">
+      <div class="contact-info-card">
+       <div class="contact-info-icon">
+        📞
+       </div>
+       <div class="contact-info-label" data-es="Teléfono" data-en="Phone">
+        Teléfono
+       </div>
+       <div class="contact-info-value">
+        <a href="tel:+584147825840" id="contact-phone">+58 414 782 5840</a>
+       </div>
+      </div>
+      <div class="contact-info-card">
+       <div class="contact-info-icon">
+        ✉️
+       </div>
+       <div class="contact-info-label">
+        Email
+       </div>
+       <div class="contact-info-value">
+        <a href="mailto:contacto@datacloudly.com" id="contact-email">contacto@datacloudly.com</a>
+       </div>
+      </div>
+      <div class="contact-info-card">
+       <div class="contact-info-icon">
+        🌐
+       </div>
+       <div class="contact-info-label" data-es="Sitio Web" data-en="Website">
+        Sitio Web
+       </div>
+       <div class="contact-info-value">
+        <a href="https://danielmarcelo.info" target="_blank" rel="noopener noreferrer" id="contact-website">danielmarcelo.info</a>
+       </div>
+      </div>
+      <div class="contact-info-card">
+       <div class="contact-info-icon">
+        📍
+       </div>
+       <div class="contact-info-label" data-es="Ubicación" data-en="Location">
+        Ubicación
+       </div>
+       <div class="contact-info-value" id="contact-location">
+        Venezuela &amp; Estados Unidos
+       </div>
+      </div>
+     </div>
+     <div class="contact-social">
+      <h3 class="contact-social-title" data-es="Síguenos en Instagram" data-en="Follow us on Instagram">Síguenos en Instagram</h3><a href="https://www.instagram.com/datacloudly?igsh=anNjZzRhdjJ0YWs0" target="_blank" rel="noopener noreferrer" class="instagram-link"> <span class="instagram-icon">📷</span> <span>@datacloudly</span> </a>
+     </div>
+    </div>
+   </section>
+   <footer>
+    <div class="footer-content">
+     <div class="footer-grid">
+      <div class="footer-section">
+       <h4>DataCloudly</h4>
+       <p data-es="Transformamos ideas en soluciones digitales que impulsan tu negocio hacia el éxito." data-en="We transform ideas into digital solutions that drive your business to success.">Transformamos ideas en soluciones digitales que impulsan tu negocio hacia el éxito.</p>
+      </div>
+      <div class="footer-section">
+       <h4 data-es="Servicios" data-en="Services">Servicios</h4>
+       <div class="footer-links"><a href="#services" class="footer-link" data-es="Desarrollo Web" data-en="Web Development">Desarrollo Web</a> <a href="#services" class="footer-link">UX/UI Design</a> <a href="#services" class="footer-link">E-commerce</a> <a href="#services" class="footer-link" data-es="Marketing Digital" data-en="Digital Marketing">Marketing Digital</a>
+       </div>
+      </div>
+      <div class="footer-section">
+       <h4 data-es="Empresa" data-en="Company">Empresa</h4>
+       <div class="footer-links"><a href="#hero" class="footer-link" data-es="Inicio" data-en="Home">Inicio</a> <a href="#services" class="footer-link" data-es="Servicios" data-en="Services">Servicios</a> <a href="#pricing" class="footer-link" data-es="Precios" data-en="Pricing">Precios</a> <a href="#contact" class="footer-link" data-es="Contacto" data-en="Contact">Contacto</a>
+       </div>
+      </div>
+      <div class="footer-section">
+       <h4 data-es="Contacto" data-en="Contact">Contacto</h4>
+       <div class="footer-links"><a href="tel:+584147825840" class="footer-link">+58 414 782 5840</a> <a href="mailto:contacto@datacloudly.com" class="footer-link">contacto@datacloudly.com</a> <a href="https://danielmarcelo.info" target="_blank" rel="noopener noreferrer" class="footer-link">danielmarcelo.info</a>
+       </div>
+      </div>
+     </div>
+     <div class="footer-bottom">
+      <p data-es="© 2025 DataCloudly. Todos los derechos reservados. | Diseñado con ❤️ en Venezuela" data-en="© 2025 DataCloudly. All rights reserved. | Designed with ❤️ in Venezuela">© 2025 DataCloudly. Todos los derechos reservados. | Diseñado con ❤️ en Venezuela</p>
+     </div>
+    </div>
+   </footer>
+  </main>
+  <div class="floating-phone" id="floating-phone">
+   ¿Necesitas una app? 📱
+  </div>
+  <div class="whatsapp-float" id="whatsapp-button">
+   💬
+  </div>
+  <div class="scroll-to-top" id="scroll-to-top">
+   ↑
+  </div>
+  <div class="whatsapp-modal" id="whatsapp-modal">
+   <div class="modal-content">
+    <div class="modal-close" id="modal-close">
+     ✕
+    </div>
+    <h3 class="modal-title">¿En qué podemos ayudarte?</h3>
+    <div class="whatsapp-option" data-message="Hola, quiero información sobre un sitio web profesional">
+     🌐 Quiero info sobre un sitio web
+    </div>
+    <div class="whatsapp-option" data-message="Hola, estoy interesado en una tienda online">
+     🛒 Estoy interesado en una tienda online
+    </div>
+    <div class="whatsapp-option" data-message="Hola, necesito un menú QR para mi restaurante">
+     📱 Necesito un menú QR
+    </div>
+    <div class="whatsapp-option" data-message="Hola, necesito un menú WiFi">
+     📶 Necesito un menú WiFi
+    </div>
+    <div class="whatsapp-option" data-message="Hola, quiero automatizar mi negocio">
+     🤖 Quiero automatizar mi negocio
+    </div>
+    <div class="whatsapp-option" data-message="Hola, necesito información sobre tus servicios">
+     💬 Consulta general
+    </div>
+   </div>
+  </div>
+  <script>
+    const defaultConfig = {
+      background_color: '#f3e8ff',
+      surface_color: '#ffffff',
+      text_color: '#1f2937',
+      primary_action_color: '#8b5cf6',
+      secondary_action_color: '#25d366',
+      font_family: 'Inter',
+      font_size: 16,
+      site_title: 'DataCloudly',
+      site_slogan: 'Transformamos ideas en soluciones digitales',
+      hero_cta: 'Comienza tu proyecto',
+      services_title: 'Servicios Profesionales',
+      pricing_title: 'Costos de Servicios',
+      contact_title: '¿Listo para crear algo increíble?',
+      contact_phone: '+58 414 782 5840',
+      contact_email: 'contacto@datacloudly.com',
+      contact_website: 'danielmarcelo.info',
+      contact_location: 'Barcelona, Venezuela'
+    };
+
+    let config = { ...defaultConfig };
+
+    async function onConfigChange(newConfig) {
+      const baseFont = newConfig.font_family || defaultConfig.font_family;
+      const baseFontStack = `-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif`;
+      const baseSize = newConfig.font_size || defaultConfig.font_size;
+
+      document.body.style.fontFamily = `${baseFont}, ${baseFontStack}`;
+      document.body.style.fontSize = `${baseSize}px`;
+
+      const backgroundColor = newConfig.background_color || defaultConfig.background_color;
+      const surfaceColor = newConfig.surface_color || defaultConfig.surface_color;
+      const textColor = newConfig.text_color || defaultConfig.text_color;
+      const primaryColor = newConfig.primary_action_color || defaultConfig.primary_action_color;
+      const secondaryColor = newConfig.secondary_action_color || defaultConfig.secondary_action_color;
+
+      document.querySelector('.hero').style.background = backgroundColor;
+      document.querySelector('.stats').style.background = surfaceColor;
+      document.querySelector('.services').style.background = backgroundColor;
+      document.querySelector('.pricing').style.background = surfaceColor;
+      document.querySelector('footer').style.background = '#1a202c';
+      
+      document.body.style.color = textColor;
+
+      const navbar = document.getElementById('navbar');
+      navbar.style.background = `${surfaceColor}dd`;
+
+      document.querySelectorAll('.nav-link').forEach(link => {
+        link.style.color = textColor;
+      });
+
+      const navCta = document.querySelector('.nav-cta');
+      navCta.style.background = primaryColor;
+      navCta.style.color = surfaceColor;
+
+      document.querySelectorAll('.service-card').forEach(card => {
+        card.style.background = surfaceColor;
+        card.style.color = textColor;
+        card.style.borderColor = backgroundColor;
+      });
+
+      document.querySelectorAll('.pricing-card').forEach(card => {
+        card.style.background = surfaceColor;
+        card.style.color = textColor;
+        card.style.borderColor = primaryColor;
+      });
+
+      const pricingBadge = document.querySelector('.pricing-badge');
+      if (pricingBadge) {
+        pricingBadge.style.background = primaryColor;
+        pricingBadge.style.color = surfaceColor;
+      }
+
+      document.querySelectorAll('.pricing-button').forEach(button => {
+        button.style.background = primaryColor;
+        button.style.color = surfaceColor;
+      });
+
+      const ctaButton = document.querySelector('.cta-button');
+      ctaButton.style.background = primaryColor;
+      ctaButton.style.color = surfaceColor;
+
+      const ctaSecondary = document.querySelector('.cta-secondary');
+      ctaSecondary.style.borderColor = primaryColor;
+      ctaSecondary.style.color = primaryColor;
+
+      const floatingPhone = document.querySelector('.floating-phone');
+      floatingPhone.style.background = primaryColor;
+      floatingPhone.style.color = surfaceColor;
+
+      const whatsappFloat = document.querySelector('.whatsapp-float');
+      whatsappFloat.style.background = secondaryColor;
+
+      const modalContent = document.querySelector('.modal-content');
+      modalContent.style.background = surfaceColor;
+      modalContent.style.color = textColor;
+
+      const modalClose = document.querySelector('.modal-close');
+      modalClose.style.background = backgroundColor;
+      modalClose.style.color = textColor;
+
+      document.querySelectorAll('.whatsapp-option').forEach(option => {
+        option.style.background = backgroundColor;
+        option.style.color = textColor;
+      });
+
+      const submitButton = document.querySelector('.submit-button');
+      submitButton.style.background = primaryColor;
+      submitButton.style.color = surfaceColor;
+
+      document.querySelectorAll('.form-input, .form-textarea').forEach(input => {
+        input.style.borderColor = backgroundColor;
+        input.style.background = surfaceColor;
+        input.style.color = textColor;
+      });
+
+      document.querySelectorAll('.footer-link').forEach(link => {
+        link.style.color = primaryColor;
+      });
+
+      document.querySelector('footer').style.color = 'rgba(255,255,255,0.8)';
+      
+      document.querySelectorAll('.footer-section h4').forEach(heading => {
+        heading.style.color = 'white';
+      });
+
+      const footerBottom = document.querySelector('.footer-bottom');
+      footerBottom.style.borderColor = 'rgba(255,255,255,0.1)';
+      footerBottom.style.color = 'rgba(255,255,255,0.6)';
+
+      document.querySelector('.logo').style.fontSize = `${baseSize * 3.5}px`;
+      document.querySelector('.slogan').style.fontSize = `${baseSize * 1.8}px`;
+      document.querySelector('.hero-description').style.fontSize = `${baseSize * 1.2}px`;
+      document.querySelectorAll('.section-title').forEach(title => {
+        title.style.fontSize = `${baseSize * 2.8}px`;
+      });
+      document.querySelectorAll('.section-subtitle').forEach(subtitle => {
+        subtitle.style.fontSize = `${baseSize * 1.3}px`;
+      });
+
+      document.getElementById('site-title').textContent = newConfig.site_title || defaultConfig.site_title;
+      document.getElementById('site-slogan').textContent = newConfig.site_slogan || defaultConfig.site_slogan;
+      document.getElementById('hero-cta').textContent = newConfig.hero_cta || defaultConfig.hero_cta;
+      document.getElementById('services-title').textContent = newConfig.services_title || defaultConfig.services_title;
+      document.getElementById('pricing-title').textContent = newConfig.pricing_title || defaultConfig.pricing_title;
+      document.getElementById('contact-title').textContent = newConfig.contact_title || defaultConfig.contact_title;
+      document.getElementById('contact-phone').textContent = newConfig.contact_phone || defaultConfig.contact_phone;
+      document.getElementById('contact-email').textContent = newConfig.contact_email || defaultConfig.contact_email;
+      document.getElementById('contact-website').textContent = newConfig.contact_website || defaultConfig.contact_website;
+      document.getElementById('contact-location').textContent = newConfig.contact_location || defaultConfig.contact_location;
+
+      const phoneLink = document.querySelector('a[href^="tel:"]');
+      if (phoneLink) {
+        phoneLink.href = `tel:${newConfig.contact_phone || defaultConfig.contact_phone}`;
+      }
+
+      const emailLink = document.querySelector('a[href^="mailto:"]');
+      if (emailLink) {
+        emailLink.href = `mailto:${newConfig.contact_email || defaultConfig.contact_email}`;
+      }
+
+      const websiteLink = document.querySelector('a[href*="danielmarcelo"]');
+      if (websiteLink) {
+        const website = newConfig.contact_website || defaultConfig.contact_website;
+        websiteLink.href = website.startsWith('http') ? website : `https://${website}`;
+      }
+    }
+
+    function mapToCapabilities(config) {
+      return {
+        recolorables: [
+          {
+            get: () => config.background_color || defaultConfig.background_color,
+            set: (value) => {
+              config.background_color = value;
+              window.elementSdk.setConfig({ background_color: value });
+            }
+          },
+          {
+            get: () => config.surface_color || defaultConfig.surface_color,
+            set: (value) => {
+              config.surface_color = value;
+              window.elementSdk.setConfig({ surface_color: value });
+            }
+          },
+          {
+            get: () => config.text_color || defaultConfig.text_color,
+            set: (value) => {
+              config.text_color = value;
+              window.elementSdk.setConfig({ text_color: value });
+            }
+          },
+          {
+            get: () => config.primary_action_color || defaultConfig.primary_action_color,
+            set: (value) => {
+              config.primary_action_color = value;
+              window.elementSdk.setConfig({ primary_action_color: value });
+            }
+          },
+          {
+            get: () => config.secondary_action_color || defaultConfig.secondary_action_color,
+            set: (value) => {
+              config.secondary_action_color = value;
+              window.elementSdk.setConfig({ secondary_action_color: value });
+            }
+          }
+        ],
+        borderables: [],
+        fontEditable: {
+          get: () => config.font_family || defaultConfig.font_family,
+          set: (value) => {
+            config.font_family = value;
+            window.elementSdk.setConfig({ font_family: value });
+          }
+        },
+        fontSizeable: {
+          get: () => config.font_size || defaultConfig.font_size,
+          set: (value) => {
+            config.font_size = value;
+            window.elementSdk.setConfig({ font_size: value });
+          }
+        }
+      };
+    }
+
+    function mapToEditPanelValues(config) {
+      return new Map([
+        ['site_title', config.site_title || defaultConfig.site_title],
+        ['site_slogan', config.site_slogan || defaultConfig.site_slogan],
+        ['hero_cta', config.hero_cta || defaultConfig.hero_cta],
+        ['services_title', config.services_title || defaultConfig.services_title],
+        ['pricing_title', config.pricing_title || defaultConfig.pricing_title],
+        ['contact_title', config.contact_title || defaultConfig.contact_title],
+        ['contact_phone', config.contact_phone || defaultConfig.contact_phone],
+        ['contact_email', config.contact_email || defaultConfig.contact_email],
+        ['contact_website', config.contact_website || defaultConfig.contact_website],
+        ['contact_location', config.contact_location || defaultConfig.contact_location]
+      ]);
+    }
+
+    if (window.elementSdk) {
+      window.elementSdk.init({
+        defaultConfig,
+        onConfigChange,
+        mapToCapabilities,
+        mapToEditPanelValues
+      });
+    }
+
+    onConfigChange(config);
+
+    // Language Toggle System
+    let currentLanguage = 'es';
+
+    const translations = {
+      floatingMessages: {
+        es: [
+          '¿Necesitas una app? 📱',
+          '¿Buscas un sitio web profesional? 💻',
+          '¡Hablemos de tu proyecto! 🚀',
+          '¿Quieres automatizar tu negocio? ⚡',
+          '¿Necesitas un menú digital? 📋'
+        ],
+        en: [
+          'Need an app? 📱',
+          'Looking for a professional website? 💻',
+          'Let\'s talk about your project! 🚀',
+          'Want to automate your business? ⚡',
+          'Need a digital menu? 📋'
+        ]
+      }
+    };
+
+    let messageIndex = 0;
+
+    function updateFloatingMessage() {
+      const messages = translations.floatingMessages[currentLanguage];
+      document.getElementById('floating-phone').textContent = messages[messageIndex];
+      messageIndex = (messageIndex + 1) % messages.length;
+    }
+
+    setInterval(updateFloatingMessage, 4000);
+
+    function switchLanguage(lang) {
+      currentLanguage = lang;
+      
+      const languageToggle = document.getElementById('language-toggle');
+      const text = languageToggle.querySelector('.language-text');
+      
+      if (lang === 'en') {
+        text.textContent = 'EN';
+      } else {
+        text.textContent = 'ES';
+      }
+
+      document.querySelectorAll('[data-es][data-en]').forEach(element => {
+        if (element.tagName === 'INPUT' || element.tagName === 'TEXTAREA') {
+          element.placeholder = element.getAttribute(`data-${lang}`);
+        } else {
+          element.textContent = element.getAttribute(`data-${lang}`);
+        }
+      });
+
+      messageIndex = 0;
+      updateFloatingMessage();
+    }
+
+    document.getElementById('language-toggle').addEventListener('click', () => {
+      switchLanguage(currentLanguage === 'es' ? 'en' : 'es');
+    });
+
+    window.addEventListener('scroll', () => {
+      const navbar = document.getElementById('navbar');
+      if (window.scrollY > 50) {
+        navbar.classList.add('scrolled');
+      } else {
+        navbar.classList.remove('scrolled');
+      }
+    });
+
+    const whatsappButton = document.getElementById('whatsapp-button');
+    const whatsappModal = document.getElementById('whatsapp-modal');
+    const modalClose = document.getElementById('modal-close');
+
+    whatsappButton.addEventListener('click', () => {
+      whatsappModal.classList.add('active');
+    });
+
+    modalClose.addEventListener('click', () => {
+      whatsappModal.classList.remove('active');
+    });
+
+    whatsappModal.addEventListener('click', (e) => {
+      if (e.target === whatsappModal) {
+        whatsappModal.classList.remove('active');
+      }
+    });
+
+    document.querySelectorAll('.whatsapp-option').forEach(option => {
+      option.addEventListener('click', () => {
+        const message = option.getAttribute('data-message');
+        const encodedMessage = encodeURIComponent(message);
+        const whatsappUrl = `https://api.whatsapp.com/send?phone=+584147825840&text=${encodedMessage}`;
+        window.open(whatsappUrl, '_blank', 'noopener,noreferrer');
+      });
+    });
+
+    document.querySelectorAll('.pricing-button').forEach(button => {
+      button.addEventListener('click', () => {
+        const planName = button.closest('.pricing-card').querySelector('.pricing-name').textContent;
+        const message = `Hola, estoy interesado en el plan: ${planName}`;
+        const encodedMessage = encodeURIComponent(message);
+        const whatsappUrl = `https://api.whatsapp.com/send?phone=+584147825840&text=${encodedMessage}`;
+        window.open(whatsappUrl, '_blank', 'noopener,noreferrer');
+      });
+    });
+
+    const contactWhatsappBtn = document.getElementById('contact-whatsapp-btn');
+    contactWhatsappBtn.addEventListener('click', () => {
+      whatsappModal.classList.add('active');
+    });
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      });
+    });
+
+    // Scroll to Top Button
+    const scrollToTopBtn = document.getElementById('scroll-to-top');
+
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 500) {
+        scrollToTopBtn.classList.add('visible');
+      } else {
+        scrollToTopBtn.classList.remove('visible');
+      }
+    });
+
+    scrollToTopBtn.addEventListener('click', () => {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    });
+
+    // Typing effect for slogan
+    function startTypingEffect() {
+      const slogan = document.getElementById('site-slogan');
+      const text = slogan.getAttribute(`data-${currentLanguage}`) || slogan.textContent;
+      let charIndex = 0;
+      
+      // Clear text and start typing
+      slogan.textContent = '';
+      slogan.classList.add('typing');
+      
+      const typingInterval = setInterval(() => {
+        if (charIndex < text.length) {
+          slogan.textContent += text.charAt(charIndex);
+          charIndex++;
+        } else {
+          clearInterval(typingInterval);
+          slogan.classList.remove('typing');
+          slogan.classList.add('blinking');
+          
+          // Wait 2 seconds with blinking cursor, then restart
+          setTimeout(() => {
+            slogan.classList.remove('blinking');
+            startTypingEffect();
+          }, 2000);
+        }
+      }, 70); // 70ms per character
+    }
+
+    // Start the typing effect after page loads
+    setTimeout(() => {
+      startTypingEffect();
+    }, 500);
+  </script>
+ <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'99cf865f47bd473f',t:'MTc2Mjg4MjMwNC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
