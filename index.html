@@ -990,6 +990,68 @@
       font-size: 1.8em;
       cursor: pointer;
       padding: 5px;
+      z-index: 1001;
+    }
+
+    .mobile-menu {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.95);
+      z-index: 1000;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 30px;
+      padding: 20px;
+    }
+
+    .mobile-menu.active {
+      display: flex;
+    }
+
+    .mobile-menu .nav-link {
+      font-size: 1.5em;
+      color: white;
+      text-decoration: none;
+      font-weight: 600;
+      transition: all 0.3s ease;
+    }
+
+    .mobile-menu .nav-link:hover {
+      color: #8b5cf6;
+      transform: scale(1.1);
+    }
+
+    .mobile-menu .nav-cta {
+      font-size: 1.3em;
+      padding: 15px 40px;
+      background: #8b5cf6;
+      color: white;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: 700;
+    }
+
+    .mobile-menu .language-selector {
+      font-size: 1.3em;
+      color: white;
+      background: rgba(255, 255, 255, 0.1);
+      padding: 12px 30px;
+      border-radius: 50px;
+    }
+
+    .mobile-menu-close {
+      position: absolute;
+      top: 30px;
+      right: 30px;
+      font-size: 2.5em;
+      color: white;
+      cursor: pointer;
+      font-weight: bold;
     }
 
     /* Responsive */
@@ -1419,10 +1481,17 @@
     <div class="language-selector" id="language-toggle"><span class="language-icon">🌐</span> <span class="language-text">ES</span>
     </div><a href="#contact" class="nav-cta" data-es="Comenzar" data-en="Get Started">Comenzar</a>
    </div>
-   <div class="mobile-menu-button">
+   <div class="mobile-menu-button" id="mobile-menu-button">
     ☰
    </div>
   </nav>
+  <div class="mobile-menu" id="mobile-menu">
+   <div class="mobile-menu-close" id="mobile-menu-close">
+    ✕
+   </div><a href="#hero" class="nav-link" data-es="Inicio" data-en="Home">Inicio</a> <a href="#about" class="nav-link" data-es="Nosotros" data-en="About">Nosotros</a> <a href="#services" class="nav-link" data-es="Servicios" data-en="Services">Servicios</a> <a href="#pricing" class="nav-link" data-es="Precios" data-en="Pricing">Precios</a> <a href="#contact" class="nav-link" data-es="Contacto" data-en="Contact">Contacto</a>
+   <div class="language-selector" id="language-toggle-mobile"><span class="language-icon">🌐</span> <span class="language-text">ES</span>
+   </div><a href="#contact" class="nav-cta" data-es="Comenzar" data-en="Get Started">Comenzar</a>
+  </div>
   <main>
    <section class="hero" id="hero">
     <div class="hero-content"><img src="https://i.imgur.com/XJJUku6.png" alt="DataCloudly Logo" class="hero-logo" onerror="this.style.display='none';">
@@ -2101,6 +2170,41 @@
       switchLanguage(currentLanguage === 'es' ? 'en' : 'es');
     });
 
+    document.getElementById('language-toggle-mobile').addEventListener('click', () => {
+      switchLanguage(currentLanguage === 'es' ? 'en' : 'es');
+    });
+
+    // Mobile Menu Functionality
+    const mobileMenuButton = document.getElementById('mobile-menu-button');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const mobileMenuClose = document.getElementById('mobile-menu-close');
+
+    mobileMenuButton.addEventListener('click', () => {
+      mobileMenu.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    });
+
+    mobileMenuClose.addEventListener('click', () => {
+      mobileMenu.classList.remove('active');
+      document.body.style.overflow = 'auto';
+    });
+
+    // Close mobile menu when clicking on a link
+    document.querySelectorAll('.mobile-menu .nav-link, .mobile-menu .nav-cta').forEach(link => {
+      link.addEventListener('click', () => {
+        mobileMenu.classList.remove('active');
+        document.body.style.overflow = 'auto';
+      });
+    });
+
+    // Close mobile menu when clicking outside
+    mobileMenu.addEventListener('click', (e) => {
+      if (e.target === mobileMenu) {
+        mobileMenu.classList.remove('active');
+        document.body.style.overflow = 'auto';
+      }
+    });
+
     window.addEventListener('scroll', () => {
       const navbar = document.getElementById('navbar');
       if (window.scrollY > 50) {
@@ -2213,5 +2317,5 @@
       startTypingEffect();
     }, 500);
   </script>
- <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'99cf865f47bd473f',t:'MTc2Mjg4MjMwNC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+ <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'99cfa784305e473f',t:'MTc2Mjg4MzY2MS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
