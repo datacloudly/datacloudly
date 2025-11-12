@@ -1264,7 +1264,7 @@
     /* Floating Elements */
     .floating-phone {
       position: fixed;
-      top: 80px;
+      top: 140px;
       right: 20px;
       padding: 15px 28px;
       border-radius: 50px;
@@ -1275,6 +1275,8 @@
       cursor: pointer;
       transition: all 0.3s ease;
       font-size: 0.95em;
+      white-space: nowrap;
+      line-height: 1.4;
     }
 
     .floating-phone:hover {
@@ -1441,28 +1443,35 @@
       position: fixed;
       bottom: 110px;
       right: 30px;
-      width: 55px;
-      height: 55px;
+      width: 60px;
+      height: 60px;
       background: #8b5cf6;
       color: white;
       border-radius: 50%;
-      display: none;
+      display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 1.8em;
+      font-size: 2em;
+      font-weight: bold;
       cursor: pointer;
-      z-index: 999;
+      z-index: 1001;
       transition: all 0.3s ease;
-      box-shadow: 0 5px 20px rgba(139, 92, 246, 0.4);
+      box-shadow: 0 8px 25px rgba(139, 92, 246, 0.5);
+      opacity: 0;
+      pointer-events: none;
+      transform: scale(0.8);
     }
 
     .scroll-to-top.visible {
-      display: flex;
+      opacity: 1;
+      pointer-events: auto;
+      transform: scale(1);
     }
 
     .scroll-to-top:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 8px 25px rgba(139, 92, 246, 0.6);
+      transform: scale(1.1) translateY(-3px);
+      box-shadow: 0 12px 30px rgba(139, 92, 246, 0.7);
+      background: #7c3aed;
     }
 
     /* Mobile Menu */
@@ -1643,7 +1652,10 @@
       }
 
       .floating-phone {
-        display: none;
+        top: 120px;
+        right: 15px;
+        padding: 12px 20px;
+        font-size: 0.85em;
       }
 
       .whatsapp-float {
@@ -1978,6 +1990,14 @@
       .cta-button {
         padding: 12px 25px;
         font-size: 0.9em;
+      }
+
+      .floating-phone {
+        top: 110px;
+        right: 10px;
+        padding: 10px 16px;
+        font-size: 0.75em;
+        max-width: 180px;
       }
     }
   </style>
@@ -2369,7 +2389,10 @@
      </div>
     </div>
    </footer>
-  </main><!-- Cart Float Button -->
+  </main><!-- Floating Anchor -->
+  <div class="floating-phone" id="floating-phone">
+   ¿Necesitas una app? 📱
+  </div><!-- Cart Float Button -->
   <div class="cart-float" id="cart-float-btn">
    🛒 
    <div class="cart-badge" id="cart-badge" style="display: none;">
@@ -2409,9 +2432,6 @@
     <div class="back-to-cart"><button class="back-to-cart-btn" id="back-to-cart-btn">← Volver al carrito</button>
     </div>
    </div>
-  </div>
-  <div class="floating-phone" id="floating-phone">
-   ¿Necesitas una app? 📱
   </div>
   <div class="whatsapp-float" id="whatsapp-button">
    💬
@@ -3137,5 +3157,5 @@
       startTypingEffect();
     }, 500);
   </script>
- <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'99d01ef7b5a5473f',t:'MTc2Mjg4ODU1NC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+ <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'99d1c08a754fc294',t:'MTc2MjkwNTY1OC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
