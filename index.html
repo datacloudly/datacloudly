@@ -50,6 +50,40 @@
       width: auto;
     }
 
+    .nav-cart-icon {
+      position: relative;
+      font-size: 1.5em;
+      cursor: pointer;
+      padding: 8px 12px;
+      border-radius: 50%;
+      transition: all 0.3s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .nav-cart-icon:hover {
+      transform: scale(1.1);
+      background: rgba(139, 92, 246, 0.1);
+    }
+
+    .nav-cart-badge {
+      position: absolute;
+      top: -2px;
+      right: -2px;
+      background: #ef4444;
+      color: white;
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.5em;
+      font-weight: 700;
+      border: 2px solid white;
+    }
+
     .language-selector {
       display: flex;
       align-items: center;
@@ -669,47 +703,7 @@
       background: #7c3aed;
     }
 
-    /* Cart Float Button */
-    .cart-float {
-      position: fixed;
-      bottom: 110px;
-      left: 30px;
-      width: 65px;
-      height: 65px;
-      background: #8b5cf6;
-      color: white;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 2em;
-      box-shadow: 0 10px 30px rgba(139, 92, 246, 0.4);
-      z-index: 1000;
-      cursor: pointer;
-      transition: all 0.3s ease;
-    }
 
-    .cart-float:hover {
-      transform: scale(1.1);
-      box-shadow: 0 15px 40px rgba(139, 92, 246, 0.6);
-    }
-
-    .cart-badge {
-      position: absolute;
-      top: -5px;
-      right: -5px;
-      background: #ef4444;
-      color: white;
-      width: 28px;
-      height: 28px;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 0.5em;
-      font-weight: 700;
-      border: 3px solid white;
-    }
 
     /* Cart Modal */
     .cart-modal {
@@ -1607,13 +1601,7 @@
         margin: 0 auto;
       }
 
-      .cart-float {
-        bottom: 90px;
-        left: 20px;
-        width: 55px;
-        height: 55px;
-        font-size: 1.8em;
-      }
+
     }
 
     @media (max-width: 768px) {
@@ -1632,9 +1620,10 @@
       }
 
       .slogan {
-        font-size: 1.1em;
+        font-size: 0.95em;
         white-space: normal;
         text-align: center;
+        line-height: 1.3;
       }
 
       .hero-description {
@@ -1652,10 +1641,11 @@
       }
 
       .floating-phone {
-        top: 120px;
+        top: 90px;
         right: 15px;
-        padding: 12px 20px;
-        font-size: 0.85em;
+        padding: 10px 16px;
+        font-size: 0.75em;
+        max-width: 160px;
       }
 
       .whatsapp-float {
@@ -1895,7 +1885,8 @@
       }
 
       .slogan {
-        font-size: 0.95em;
+        font-size: 0.85em;
+        line-height: 1.3;
       }
 
       .hero-description {
@@ -2008,10 +1999,22 @@
  <body>
   <nav id="navbar"><a href="#hero" class="nav-logo" style="text-decoration: none; cursor: pointer;"> <img src="https://i.imgur.com/XJJUku6.png" alt="DataCloudly Logo" loading="lazy" onerror="this.style.display='none';"> <span>DataCloudly</span> </a>
    <div class="nav-links"><a href="#hero" class="nav-link" data-es="Inicio" data-en="Home">Inicio</a> <a href="#about" class="nav-link" data-es="Nosotros" data-en="About">Nosotros</a> <a href="#services" class="nav-link" data-es="Servicios" data-en="Services">Servicios</a> <a href="#shop" class="nav-link" data-es="Tienda" data-en="Shop">Tienda</a> <a href="#contact" class="nav-link" data-es="Contacto" data-en="Contact">Contacto</a>
+    <div class="nav-cart-icon" id="nav-cart-icon">
+     🛒 
+     <div class="nav-cart-badge" id="nav-cart-badge" style="display: none;">
+      0
+     </div>
+    </div>
     <div class="language-selector" id="language-toggle"><span class="language-icon">🌐</span> <span class="language-text">ES</span>
     </div><a href="#contact" class="nav-cta" data-es="Comenzar" data-en="Get Started">Comenzar</a>
    </div>
    <div class="mobile-header-right">
+    <div class="nav-cart-icon" id="nav-cart-icon-mobile">
+     🛒 
+     <div class="nav-cart-badge" id="nav-cart-badge-mobile" style="display: none;">
+      0
+     </div>
+    </div>
     <div class="language-selector" id="language-toggle-mobile"><span class="language-icon">🌐</span> <span class="language-text">ES</span>
     </div>
     <div class="mobile-menu-button" id="mobile-menu-button">
@@ -2090,7 +2093,7 @@
         </div>
         <div class="value-item">
          <div class="value-icon">
-          🚀
+          ���
          </div>
          <div class="value-content">
           <h4 class="value-title" data-es="Visión" data-en="Vision">Visión</h4>
@@ -2287,7 +2290,7 @@
        <p class="product-description" data-es="Menú digital con código QR. Servicio cloud por 3 años incluido." data-en="Digital menu with QR code. 3-year cloud service included.">Menú digital con código QR. Servicio cloud por 3 años incluido.</p>
        <div class="product-price">
         $100
-       </div><button class="add-to-cart-btn" data-product-id="menu-qr" data-product-name="Menú QR" data-product-price="100" data-product-icon="📱"> <span>🛒</span> <span data-es="Agregar al Carrito" data-en="Add to Cart">Agregar al Carrito</span> </button>
+       </div><button class="add-to-cart-btn" data-product-id="menu-qr" data-product-name="Menú QR" data-product-price="100" data-product-icon="���"> <span>🛒</span> <span data-es="Agregar al Carrito" data-en="Add to Cart">Agregar al Carrito</span> </button>
       </div>
       <div class="product-card">
        <div class="product-icon">
@@ -2308,7 +2311,7 @@
       <h2 class="contact-hero-title" id="contact-title" data-es="¿Listo para crear algo increíble?" data-en="Ready to create something amazing?">¿Listo para crear algo increíble?</h2>
       <p class="contact-hero-subtitle" data-es="Transformemos tus ideas en realidad. Contáctanos y comencemos a trabajar juntos." data-en="Let's transform your ideas into reality. Contact us and let's start working together.">Transformemos tus ideas en realidad. Contáctanos y comencemos a trabajar juntos.</p>
      </div>
-     <div class="contact-buttons"><a href="mailto:contacto@datacloudly.com" class="contact-btn contact-btn-primary"> <span>✉️</span> <span data-es="Enviar Email" data-en="Send Email">Enviar Email</span> </a> <button class="contact-btn contact-btn-whatsapp" id="contact-whatsapp-btn"> <span>💬</span> <span data-es="Chatear en WhatsApp" data-en="Chat on WhatsApp">Chatear en WhatsApp</span> </button>
+     <div class="contact-buttons"><a href="mailto:datacloudly@gmail.com" class="contact-btn contact-btn-primary"> <span>✉️</span> <span data-es="Enviar Email" data-en="Send Email">Enviar Email</span> </a> <button class="contact-btn contact-btn-whatsapp" id="contact-whatsapp-btn"> <span>💬</span> <span data-es="Chatear en WhatsApp" data-en="Chat on WhatsApp">Chatear en WhatsApp</span> </button>
      </div>
      <div class="contact-info-grid">
       <div class="contact-info-card">
@@ -2330,7 +2333,7 @@
         Email
        </div>
        <div class="contact-info-value">
-        <a href="mailto:contacto@datacloudly.com" id="contact-email">contacto@datacloudly.com</a>
+        <a href="mailto:datacloudly@gmail.com" id="contact-email">datacloudly@gmail.com</a>
        </div>
       </div>
       <div class="contact-info-card">
@@ -2380,7 +2383,7 @@
       </div>
       <div class="footer-section">
        <h4 data-es="Contacto" data-en="Contact">Contacto</h4>
-       <div class="footer-links"><a href="tel:+584147825840" class="footer-link">+58 414 782 5840</a> <a href="mailto:contacto@datacloudly.com" class="footer-link">contacto@datacloudly.com</a> <a href="https://danielmarcelo.info" target="_blank" rel="noopener noreferrer" class="footer-link">danielmarcelo.info</a>
+       <div class="footer-links"><a href="tel:+584147825840" class="footer-link">+58 414 782 5840</a> <a href="mailto:datacloudly@gmail.com" class="footer-link">datacloudly@gmail.com</a> <a href="https://danielmarcelo.info" target="_blank" rel="noopener noreferrer" class="footer-link">danielmarcelo.info</a>
        </div>
       </div>
      </div>
@@ -2392,12 +2395,6 @@
   </main><!-- Floating Anchor -->
   <div class="floating-phone" id="floating-phone">
    ¿Necesitas una app? 📱
-  </div><!-- Cart Float Button -->
-  <div class="cart-float" id="cart-float-btn">
-   🛒 
-   <div class="cart-badge" id="cart-badge" style="display: none;">
-    0
-   </div>
   </div><!-- Cart Modal -->
   <div class="cart-modal" id="cart-modal">
    <div class="cart-modal-content">
@@ -2429,7 +2426,7 @@
     </div>
     <div class="checkout-divider"><span class="checkout-divider-text" data-es="O paga con Zinli/Binance" data-en="Or pay with Zinli/Binance">O paga con Zinli/Binance</span>
     </div><button class="checkout-btn checkout-btn-whatsapp" id="checkout-whatsapp-btn"> <span>💬</span> <span data-es="Coordinar pago por WhatsApp" data-en="Coordinate payment via WhatsApp">Coordinar pago por WhatsApp</span> </button>
-    <div class="back-to-cart"><button class="back-to-cart-btn" id="back-to-cart-btn" data-es="← Volver al carrito" data-en="← Back to cart">← Volver al carrito</button>
+    <div class="back-to-cart"><button class="back-to-cart-btn" id="back-to-cart-btn" data-es="�� Volver al carrito" data-en="← Back to cart">← Volver al carrito</button>
     </div>
    </div>
   </div>
@@ -2437,7 +2434,7 @@
    💬
   </div>
   <div class="scroll-to-top" id="scroll-to-top">
-   ↑
+   ��
   </div>
   <div class="whatsapp-modal" id="whatsapp-modal">
    <div class="modal-content">
@@ -2449,7 +2446,7 @@
     </div>
     <div class="whatsapp-option" data-message="Hola, estoy interesado en una tienda online"><span data-es="🛒 Estoy interesado en una tienda online" data-en="🛒 I'm interested in an online store">🛒 Estoy interesado en una tienda online</span>
     </div>
-    <div class="whatsapp-option" data-message="Hola, necesito un menú QR para mi restaurante"><span data-es="📱 Necesito un menú QR" data-en="📱 I need a QR menu">📱 Necesito un menú QR</span>
+    <div class="whatsapp-option" data-message="Hola, necesito un menú QR para mi restaurante"><span data-es="📱 Necesito un menú QR" data-en="📱 I need a QR menu">�� Necesito un menú QR</span>
     </div>
     <div class="whatsapp-option" data-message="Hola, necesito un menú WiFi"><span data-es="📶 Necesito un menú WiFi" data-en="📶 I need a WiFi menu">📶 Necesito un menú WiFi</span>
     </div>
@@ -2475,7 +2472,7 @@
       pricing_title: 'Costos de Servicios',
       contact_title: '¿Listo para crear algo increíble?',
       contact_phone: '+58 414 782 5840',
-      contact_email: 'contacto@datacloudly.com',
+      contact_email: 'datacloudly@gmail.com',
       contact_website: 'danielmarcelo.info',
       contact_location: 'Barcelona, Venezuela'
     };
@@ -2709,14 +2706,18 @@
     let cart = [];
 
     function updateCartBadge() {
-      const badge = document.getElementById('cart-badge');
+      const badge = document.getElementById('nav-cart-badge');
+      const badgeMobile = document.getElementById('nav-cart-badge-mobile');
       const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
       
       if (totalItems > 0) {
         badge.textContent = totalItems;
         badge.style.display = 'flex';
+        badgeMobile.textContent = totalItems;
+        badgeMobile.style.display = 'flex';
       } else {
         badge.style.display = 'none';
+        badgeMobile.style.display = 'none';
       }
     }
 
@@ -2959,7 +2960,11 @@
     }
 
     // Event Listeners
-    document.getElementById('cart-float-btn').addEventListener('click', () => {
+    document.getElementById('nav-cart-icon').addEventListener('click', () => {
+      document.getElementById('cart-modal').classList.add('active');
+    });
+
+    document.getElementById('nav-cart-icon-mobile').addEventListener('click', () => {
       document.getElementById('cart-modal').classList.add('active');
     });
 
@@ -3071,7 +3076,7 @@
 
     // Close mobile menu when clicking on a link
     document.querySelectorAll('.mobile-menu .nav-link, .mobile-menu .nav-cta').forEach(link => {
-      link.addEventListener('click', () => {
+      link.addEventListener('click', (e) => {
         mobileMenu.classList.remove('active');
       });
     });
@@ -3143,13 +3148,38 @@
       whatsappModal.classList.add('active');
     });
 
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-      anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
-        if (target) {
-          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        }
+    // Smooth scroll for all navigation links - Setup after DOM is ready
+    document.addEventListener('DOMContentLoaded', () => {
+      // Get all links that start with #
+      const navLinks = document.querySelectorAll('a[href^="#"]');
+      
+      navLinks.forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+          const targetId = this.getAttribute('href');
+          
+          // Skip if it's just "#" without a target
+          if (!targetId || targetId === '#') return;
+          
+          const target = document.querySelector(targetId);
+          if (target) {
+            e.preventDefault();
+            
+            // Close mobile menu if open
+            const mobileMenu = document.getElementById('mobile-menu');
+            if (mobileMenu) {
+              mobileMenu.classList.remove('active');
+            }
+            
+            // Scroll to target with offset for fixed navbar
+            const navbarHeight = 80;
+            const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - navbarHeight;
+            
+            window.scrollTo({
+              top: targetPosition,
+              behavior: 'smooth'
+            });
+          }
+        });
       });
     });
 
@@ -3204,5 +3234,5 @@
       startTypingEffect();
     }, 500);
   </script>
- <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'99d1d3d4d328c294',t:'MTc2MjkwNjQ0OC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+ <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9a4b4e363552b504',t:'MTc2NDE4MDIzOC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
