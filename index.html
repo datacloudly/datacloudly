@@ -220,6 +220,7 @@
     @media (max-width: 968px) {
       nav {
         padding: 15px 20px;
+        flex-wrap: wrap;
       }
 
       .nav-center {
@@ -228,25 +229,43 @@
 
       .mobile-menu-btn {
         display: flex;
+        order: 3;
       }
 
-      .nav-right .language-selector {
-        display: none;
-      }
-
-      .nav-right {
-        display: flex;
-        align-items: center;
-        gap: 15px;
-      }
-
-      .nav-cta {
-        padding: 10px 20px;
-        font-size: 0.9em;
+      .nav-logo {
+        order: 1;
+        flex: 0 0 auto;
+        font-size: 1.2em;
       }
 
       .nav-logo img {
-        height: 40px !important;
+        height: 35px !important;
+      }
+
+      .nav-logo span {
+        font-size: 1em;
+      }
+
+      .nav-right {
+        order: 2;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        flex: 1;
+        justify-content: flex-end;
+        margin-right: 15px;
+      }
+
+      .nav-right .language-selector {
+        display: flex;
+        padding: 6px 12px;
+        font-size: 0.85em;
+      }
+
+      .nav-cta {
+        padding: 8px 16px;
+        font-size: 0.85em;
+        white-space: nowrap;
       }
     }
 
@@ -968,18 +987,18 @@
   <script src="https://cdn.tailwindcss.com" type="text/javascript"></script>
  </head>
  <body><!-- Navigation -->
-  <nav id="navbar"><a href="#home" class="nav-logo"> <img src="https://i.imgur.com/XJJUku6.png" alt="DataCloudly Logo" style="height: 50px; width: auto; animation: float 3s ease-in-out infinite;" onerror="this.style.display='none';"> <span style="animation: float 3s ease-in-out infinite;">DataCloudly</span> </a>
-   <div class="nav-center"><a href="#home" class="nav-link" data-i18n="nav-home">Inicio</a> <a href="#shop" class="nav-link" data-i18n="nav-shop">Tienda</a> <a href="#services" class="nav-link" data-i18n="nav-services">Servicios</a> <a href="#about" class="nav-link" data-i18n="nav-about">Nosotros</a> <a href="#blog" class="nav-link" data-i18n="nav-blog">Blog</a> <a href="#contact" class="nav-link" data-i18n="nav-contact">Contacto</a>
+  <nav id="navbar"><a href="#home" class="nav-logo" onclick="scrollToSection(event, 'home')"> <img src="https://i.imgur.com/XJJUku6.png" alt="DataCloudly Logo" style="height: 50px; width: auto; animation: float 3s ease-in-out infinite;" onerror="this.style.display='none';"> <span style="animation: float 3s ease-in-out infinite;">DataCloudly</span> </a>
+   <div class="nav-center"><a href="#home" class="nav-link" onclick="scrollToSection(event, 'home')" data-i18n="nav-home">Inicio</a> <a href="#shop" class="nav-link" onclick="scrollToSection(event, 'shop')" data-i18n="nav-shop">Tienda</a> <a href="#services" class="nav-link" onclick="scrollToSection(event, 'services')" data-i18n="nav-services">Servicios</a> <a href="#about" class="nav-link" onclick="scrollToSection(event, 'about')" data-i18n="nav-about">Nosotros</a> <a href="#blog" class="nav-link" onclick="showBlogList(event)" data-i18n="nav-blog">Blog</a> <a href="#contact" class="nav-link" onclick="scrollToSection(event, 'contact')" data-i18n="nav-contact">Contacto</a>
    </div>
    <div class="nav-right">
     <div class="language-selector" id="languageSelector"><span class="language-icon">🌐</span> <span id="currentLang">ES</span>
-    </div><a href="#contact" class="nav-cta" data-i18n="nav-cta">Comenzar Ahora</a>
+    </div><a href="#contact" class="nav-cta" onclick="scrollToSection(event, 'contact')" data-i18n="nav-cta">Comenzar Ahora</a>
    </div>
    <div class="mobile-menu-btn" id="mobileMenuBtn"><span></span> <span></span> <span></span>
    </div>
   </nav><!-- Mobile Navigation -->
   <div class="mobile-nav" id="mobileNav">
-   <div class="mobile-nav-links"><a href="#home" class="mobile-nav-link" data-i18n="nav-home">Inicio</a> <a href="#shop" class="mobile-nav-link" data-i18n="nav-shop">Tienda</a> <a href="#services" class="mobile-nav-link" data-i18n="nav-services">Servicios</a> <a href="#about" class="mobile-nav-link" data-i18n="nav-about">Nosotros</a> <a href="#blog" class="mobile-nav-link" data-i18n="nav-blog">Blog</a> <a href="#contact" class="mobile-nav-link" data-i18n="nav-contact">Contacto</a>
+   <div class="mobile-nav-links"><a href="#home" class="mobile-nav-link" onclick="scrollToSection(event, 'home')" data-i18n="nav-home">Inicio</a> <a href="#shop" class="mobile-nav-link" onclick="scrollToSection(event, 'shop')" data-i18n="nav-shop">Tienda</a> <a href="#services" class="mobile-nav-link" onclick="scrollToSection(event, 'services')" data-i18n="nav-services">Servicios</a> <a href="#about" class="mobile-nav-link" onclick="scrollToSection(event, 'about')" data-i18n="nav-about">Nosotros</a> <a href="#blog" class="mobile-nav-link" onclick="showBlogList(event)" data-i18n="nav-blog">Blog</a> <a href="#contact" class="mobile-nav-link" onclick="scrollToSection(event, 'contact')" data-i18n="nav-contact">Contacto</a>
     <div class="language-selector mobile-lang-selector" id="mobileLangSelector"><span class="language-icon">🌐</span> <span id="mobileLang">Español</span>
     </div>
    </div>
@@ -991,7 +1010,7 @@
     </div>
     <h1 data-i18n="hero-title">Transformamos tu Visión en Realidad Digital</h1>
     <p data-i18n="hero-subtitle">Desarrollamos soluciones tecnológicas personalizadas que impulsan el crecimiento de tu negocio en el mundo digital</p>
-    <div class="hero-buttons"><a href="#contact" class="btn-primary" data-i18n="hero-cta1">Comenzar Proyecto</a> <a href="#services" class="btn-secondary" data-i18n="hero-cta2">Ver Servicios</a>
+    <div class="hero-buttons"><a href="#contact" class="btn-primary" onclick="scrollToSection(event, 'contact')" data-i18n="hero-cta1">Comenzar Proyecto</a> <a href="#services" class="btn-secondary" onclick="scrollToSection(event, 'services')" data-i18n="hero-cta2">Ver Servicios</a>
     </div>
    </div>
   </section><!-- About Section -->
@@ -1003,7 +1022,7 @@
      <div style="background: rgba(255, 255, 255, 0.03); padding: 50px 40px; border-radius: 25px; border: 2px solid rgba(139, 92, 246, 0.3); backdrop-filter: blur(10px); box-shadow: 0 5px 25px rgba(0, 0, 0, 0.4);">
       <p style="font-size: 1.2em; line-height: 1.9; color: #e8edf5; margin-bottom: 30px;" data-i18n="about-p1"><strong style="background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 50%, #10b981 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-size: 1.3em;">DataCloudly</strong> nació de la visión de democratizar la tecnología, haciendo que soluciones digitales de clase mundial estén al alcance de emprendedores y empresas en Latinoamérica y Estados Unidos.</p>
       <p style="font-size: 1.2em; line-height: 1.9; color: #e8edf5; margin-bottom: 30px;" data-i18n="about-p2">Somos un equipo apasionado de desarrolladores, diseñadores y estrategas digitales comprometidos con transformar ideas en experiencias digitales excepcionales. Especializados en <strong style="color: #e8edf5;">menús digitales</strong>, <strong style="color: #e8edf5;">portales WiFi</strong>, <strong style="color: #e8edf5;">desarrollo web</strong> y <strong style="color: #e8edf5;">aplicaciones móviles</strong>.</p>
-      <p style="font-size: 1.2em; line-height: 1.9; color: #e8edf5;" data-i18n="about-p3">Con presencia en <strong style="color: #10b981;">🇻🇪 Venezuela</strong> y <strong style="color: #3b82f6;">🇺������ Estados Unidos</strong>, hemos ayudado a más de 150 negocios a digitalizarse, aumentando su eficiencia operativa y alcance de mercado. Tu éxito es nuestra misión.</p>
+      <p style="font-size: 1.2em; line-height: 1.9; color: #e8edf5;" data-i18n="about-p3">Con presencia en <strong style="color: #10b981;">Venezuela 🌎</strong> y <strong style="color: #3b82f6;">Estados Unidos 🌎</strong>, hemos ayudado a más de 150 negocios a digitalizarse, aumentando su eficiencia operativa y alcance de mercado. Tu éxito es nuestra misión.</p>
      </div>
      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 30px; margin-top: 50px;">
       <div style="background: rgba(255, 255, 255, 0.03); padding: 30px 20px; border-radius: 20px; border: 2px solid rgba(139, 92, 246, 0.3); box-shadow: 0 5px 25px rgba(0, 0, 0, 0.4); transition: all 0.3s ease;">
@@ -1050,7 +1069,7 @@
     <div class="services-grid">
      <div class="service-card">
       <div class="service-icon">
-       ��
+       💻
       </div>
       <h3 data-i18n="service1-title">Desarrollo Web</h3>
       <p data-i18n="service1-desc">Creamos sitios web modernos, responsivos y optimizados para convertir visitantes en clientes.</p>
@@ -1064,7 +1083,7 @@
      </div>
      <div class="service-card">
       <div class="service-icon">
-       ��️
+       ☁️
       </div>
       <h3 data-i18n="service3-title">Cloud Solutions</h3>
       <p data-i18n="service3-desc">Implementamos infraestructura en la nube escalable, segura y eficiente para tu negocio.</p>
@@ -1119,7 +1138,7 @@
        <li data-i18n="shop-wifi-f2">✓ Routerboard incluido</li>
        <li data-i18n="shop-wifi-f3">✓ Imágenes y colores sobrios</li>
        <li data-i18n="shop-wifi-f4">✓ 3 actualizaciones gratis (6 meses)</li>
-       <li data-i18n="shop-wifi-f5">💳 Integración PayPhone</li>
+       <li data-i18n="shop-wifi-f5">✓ Soporte técnico incluido</li>
       </ul><button class="btn-add-cart" data-whatsapp="Hola! Me interesa el *Menú WiFi* 📶" data-i18n="shop-paynow">Pagar Ahora</button>
      </div>
      <div class="shop-card popular" data-service="qr-menu">
@@ -1145,7 +1164,7 @@
        <li data-i18n="shop-qr-f3">✓ Servicio Cloud 3 años</li>
        <li data-i18n="shop-qr-f4">🎯 QR digital personalizado</li>
        <li data-i18n="shop-qr-f5">✓ 3 actualizaciones gratis (6 meses)</li>
-       <li data-i18n="shop-qr-f6">✓ Integración PayPhone</li>
+       <li data-i18n="shop-qr-f6">✓ Soporte técnico incluido</li>
       </ul><button class="btn-add-cart" data-whatsapp="Hola! Me interesa el *Menú QR Digital* 📱" data-i18n="shop-paynow">Pagar Ahora</button>
      </div>
      <div class="shop-card" data-service="website">
@@ -1164,12 +1183,12 @@
       </div>
       <ul class="features-list">
        <li data-i18n="shop-web-f1">✓ HTML5 &amp; CSS3 moderno</li>
-       <li data-i18n="shop-web-f2">✓ 4 enlaces/páginas</li>
+       <li data-i18n="shop-web-f2">✓ 4 enlaces/p��ginas</li>
        <li data-i18n="shop-web-f3">✓ Hosting y Dominio 1 año</li>
        <li data-i18n="shop-web-f4">✓ Botón WhatsApp integrado</li>
        <li data-i18n="shop-web-f5">✓ Diseño responsivo</li>
        <li data-i18n="shop-web-f6">✓ Integración PayPhone</li>
-      </ul><button class="btn-add-cart" data-whatsapp="Hola! Me interesa el *Diseño Web Completo* 🌐" data-i18n="shop-paynow">Pagar Ahora</button>
+      </ul><button class="btn-add-cart" data-whatsapp="Hola! Me interesa el *Diseño Web Completo* ��" data-i18n="shop-paynow">Pagar Ahora</button>
      </div>
     </div>
    </div>
@@ -1190,7 +1209,7 @@
         <h3 style="font-size: 1.5em; font-weight: 700; color: #ffffff; margin-bottom: 15px; line-height: 1.3;" data-i18n="blog-post1-title">Cómo los Menús Digitales Aumentan tus Ventas en 40%</h3>
         <p style="color: #e8edf5; line-height: 1.7; margin-bottom: 20px;" data-i18n="blog-post1-desc">Descubre cómo restaurantes exitosos están implementando menús QR para mejorar la experiencia del cliente y aumentar significativamente sus ingresos.</p>
         <div style="display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 20px;"><span style="background: rgba(99, 102, 241, 0.2); color: #a5b4fc; padding: 5px 12px; border-radius: 15px; font-size: 0.85em;" data-i18n="blog-post1-tag1">Restaurantes</span> <span style="background: rgba(99, 102, 241, 0.2); color: #a5b4fc; padding: 5px 12px; border-radius: 15px; font-size: 0.85em;" data-i18n="blog-post1-tag2">Menú QR</span>
-        </div><a href="#blog-post-1" class="blog-link" style="display: inline-block; padding: 12px 25px; background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%); color: white; text-decoration: none; border-radius: 20px; font-weight: 600; transition: all 0.3s ease;" data-i18n="blog-readmore">Leer más ���</a>
+        </div><a href="#blog-post-1" class="blog-link" onclick="showBlogPost(event, 1)" style="display: inline-block; padding: 12px 25px; background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%); color: white; text-decoration: none; border-radius: 20px; font-weight: 600; transition: all 0.3s ease;" data-i18n="blog-readmore">Leer más →</a>
        </div>
       </article><!-- Blog Post 2 -->
       <article style="background: rgba(255, 255, 255, 0.03); padding: 0; border-radius: 25px; border: 2px solid rgba(99, 102, 241, 0.3); overflow: hidden; transition: all 0.4s ease; box-shadow: 0 5px 25px rgba(0, 0, 0, 0.4);">
@@ -1203,7 +1222,7 @@
         <h3 style="font-size: 1.5em; font-weight: 700; color: #ffffff; margin-bottom: 15px; line-height: 1.3;" data-i18n="blog-post2-title">Portales WiFi: Marketing Inteligente para tu Negocio</h3>
         <p style="color: #e8edf5; line-height: 1.7; margin-bottom: 20px;" data-i18n="blog-post2-desc">Aprende cómo convertir tu WiFi gratuito en una poderosa herramienta de marketing que captura clientes potenciales mientras les das acceso a internet.</p>
         <div style="display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 20px;"><span style="background: rgba(16, 185, 129, 0.2); color: #10b981; padding: 5px 12px; border-radius: 15px; font-size: 0.85em;" data-i18n="blog-post2-tag1">WiFi</span> <span style="background: rgba(16, 185, 129, 0.2); color: #10b981; padding: 5px 12px; border-radius: 15px; font-size: 0.85em;" data-i18n="blog-post2-tag2">Marketing</span>
-        </div><a href="#blog-post-2" class="blog-link" style="display: inline-block; padding: 12px 25px; background: linear-gradient(135deg, #10b981 0%, #059669 100%); color: white; text-decoration: none; border-radius: 20px; font-weight: 600; transition: all 0.3s ease;" data-i18n="blog-readmore">Leer más ��</a>
+        </div><a href="#blog-post-2" class="blog-link" onclick="showBlogPost(event, 2)" style="display: inline-block; padding: 12px 25px; background: linear-gradient(135deg, #10b981 0%, #059669 100%); color: white; text-decoration: none; border-radius: 20px; font-weight: 600; transition: all 0.3s ease;" data-i18n="blog-readmore">Leer más →</a>
        </div>
       </article><!-- Blog Post 3 -->
       <article style="background: rgba(255, 255, 255, 0.03); padding: 0; border-radius: 25px; border: 2px solid rgba(99, 102, 241, 0.3); overflow: hidden; transition: all 0.4s ease; box-shadow: 0 5px 25px rgba(0, 0, 0, 0.4);">
@@ -1213,25 +1232,25 @@
         <div style="font-size: 0.85em; color: #a5b4fc; margin-bottom: 10px;" data-i18n="blog-date3">
          5 Enero 2025
         </div>
-        <h3 style="font-size: 1.5em; font-weight: 700; color: #ffffff; margin-bottom: 15px; line-height: 1.3;" data-i18n="blog-post3-title">¿Por qu�� tu Negocio Necesita un Sitio Web en 2025?</h3>
+        <h3 style="font-size: 1.5em; font-weight: 700; color: #ffffff; margin-bottom: 15px; line-height: 1.3;" data-i18n="blog-post3-title">¿Por qué tu Negocio Necesita un Sitio Web en 2025?</h3>
         <p style="color: #e8edf5; line-height: 1.7; margin-bottom: 20px;" data-i18n="blog-post3-desc">En la era digital, no tener presencia en línea significa perder clientes. Te explicamos por qué un sitio web profesional es una inversión, no un gasto.</p>
         <div style="display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 20px;"><span style="background: rgba(139, 92, 246, 0.2); color: #a78bfa; padding: 5px 12px; border-radius: 15px; font-size: 0.85em;" data-i18n="blog-post3-tag1">Diseño Web</span> <span style="background: rgba(139, 92, 246, 0.2); color: #a78bfa; padding: 5px 12px; border-radius: 15px; font-size: 0.85em;" data-i18n="blog-post3-tag2">Negocios</span>
-        </div><a href="#blog-post-3" class="blog-link" style="display: inline-block; padding: 12px 25px; background: linear-gradient(135deg, #8b5cf6 0%, #6366f1 100%); color: white; text-decoration: none; border-radius: 20px; font-weight: 600; transition: all 0.3s ease;" data-i18n="blog-readmore">Leer más →</a>
+        </div><a href="#blog-post-3" class="blog-link" onclick="showBlogPost(event, 3)" style="display: inline-block; padding: 12px 25px; background: linear-gradient(135deg, #8b5cf6 0%, #6366f1 100%); color: white; text-decoration: none; border-radius: 20px; font-weight: 600; transition: all 0.3s ease;" data-i18n="blog-readmore">Leer más →</a>
        </div>
       </article>
      </div><!-- Call to Action -->
      <div style="margin-top: 60px; text-align: center; background: rgba(99, 102, 241, 0.1); padding: 50px 40px; border-radius: 25px; border: 2px solid rgba(99, 102, 241, 0.3);">
       <div style="font-size: 4em; margin-bottom: 20px;">
-       💡
+       🌟
       </div>
-      <h3 style="font-size: 2em; font-weight: 700; color: #ffffff; margin-bottom: 20px;" data-i18n="blog-cta-title">💡 Tienes un Tema que Te Gustaria Ver?</h3>
-      <p style="font-size: 1.2em; color: #e8edf5; margin-bottom: 30px;" data-i18n="blog-cta-desc">Comparte tus ideas y preguntas. Nuestro equipo esta siempre creando contenido valioso para la comunidad.</p><a href="https://wa.me/584147825840?text=Hola!%20Tengo%20una%20idea%20para%20el%20blog" target="_blank" rel="noopener noreferrer" style="display: inline-block; padding: 16px 40px; background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%); color: white; text-decoration: none; border-radius: 30px; font-weight: 600; font-size: 1.1em; box-shadow: 0 8px 25px rgba(99, 102, 241, 0.4); transition: all 0.3s ease;" data-i18n="blog-cta-button">�� Enviar Sugerencia</a>
+      <h3 style="font-size: 2em; font-weight: 700; color: #ffffff; margin-bottom: 20px;" data-i18n="blog-cta-title">¿Tienes un Tema que Te Gustaría Ver?</h3>
+      <p style="font-size: 1.2em; color: #e8edf5; margin-bottom: 30px;" data-i18n="blog-cta-desc">Comparte tus ideas y preguntas. Nuestro equipo está siempre creando contenido valioso para la comunidad.</p><a href="https://wa.me/584147825840?text=Hola!%20Tengo%20una%20idea%20para%20el%20blog" target="_blank" rel="noopener noreferrer" style="display: inline-block; padding: 16px 40px; background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%); color: white; text-decoration: none; border-radius: 30px; font-weight: 600; font-size: 1.1em; box-shadow: 0 8px 25px rgba(99, 102, 241, 0.4); transition: all 0.3s ease;" data-i18n="blog-cta-button">💬 Enviar Sugerencia</a>
      </div>
     </div>
    </div>
   </section><!-- Blog Post 1 Full Article -->
   <section class="services" id="blog-post-1" style="padding: 100px 20px; display: none;">
-   <div class="services-container"><a href="#blog" class="blog-back-btn" style="display: inline-block; margin-bottom: 30px; color: #a5b4fc; text-decoration: none; font-weight: 600; font-size: 1.1em; transition: all 0.3s ease;" data-i18n="blog-back">← Volver al Blog</a>
+   <div class="services-container"><a href="#blog" class="blog-back-btn" onclick="showBlogList(event)" style="display: inline-block; margin-bottom: 30px; color: #a5b4fc; text-decoration: none; font-weight: 600; font-size: 1.1em; transition: all 0.3s ease; cursor: pointer;" data-i18n="blog-back">← Volver al Blog</a>
     <article style="max-width: 900px; margin: 0 auto;">
      <div style="text-align: center; margin-bottom: 40px;">
       <div style="font-size: 0.9em; color: #a5b4fc; margin-bottom: 15px;" data-i18n="blog-date1">
@@ -1260,20 +1279,20 @@
       <h2 style="font-size: 2em; font-weight: 700; color: #ffffff; margin: 40px 0 20px;" data-i18n="blog1-case-title">🚀 Caso de Éxito Real</h2>
       <div style="background: rgba(99, 102, 241, 0.1); padding: 30px; border-radius: 15px; border-left: 5px solid #6366f1; margin: 30px 0;">
        <p style="font-size: 1.2em; line-height: 1.9; color: #e8edf5; font-style: italic;" data-i18n="blog1-case-quote">"Después de implementar menús QR en nuestro restaurante, vimos un aumento del 45% en ventas de postres y bebidas. Los clientes pueden ver fotos atractivas de cada plato y hacen pedidos más grandes."</p>
-       <p style="font-size: 1em; color: #a5b4fc; margin-top: 15px;" data-i18n="blog1-case-author">��� María González, Restaurante "El Sabor"</p>
+       <p style="font-size: 1em; color: #a5b4fc; margin-top: 15px;" data-i18n="blog1-case-author">— María González, Restaurante "El Sabor"</p>
       </div>
       <h2 style="font-size: 2em; font-weight: 700; color: #ffffff; margin: 40px 0 20px;" data-i18n="blog1-conclusion-title">✨ Conclusión</h2>
       <p style="font-size: 1.2em; line-height: 1.9; color: #e8edf5; margin-bottom: 25px;" data-i18n="blog1-conclusion">Los menús digitales no son solo una tendencia, son el futuro de la industria gastronómica. Ofrecen una experiencia superior al cliente mientras reducen costos y aumentan ventas.</p>
      </div>
      <div style="margin-top: 50px; text-align: center; background: rgba(16, 185, 129, 0.1); padding: 40px; border-radius: 25px; border: 2px solid rgba(16, 185, 129, 0.3);">
-      <h3 style="font-size: 2em; font-weight: 700; color: #ffffff; margin-bottom: 20px;" data-i18n="blog1-cta-title">��Listo para Digitalizar tu Restaurante?</h3>
+      <h3 style="font-size: 2em; font-weight: 700; color: #ffffff; margin-bottom: 20px;" data-i18n="blog1-cta-title">¿Listo para Digitalizar tu Restaurante?</h3>
       <p style="font-size: 1.2em; color: #e8edf5; margin-bottom: 30px;" data-i18n="blog1-cta-desc">Obtén tu menú QR profesional en 48 horas</p><a href="https://wa.me/584147825840?text=Hola!%20Me%20interesa%20el%20Menú%20QR%20Digital" target="_blank" rel="noopener noreferrer" style="display: inline-block; padding: 16px 40px; background: linear-gradient(135deg, #10b981 0%, #059669 100%); color: white; text-decoration: none; border-radius: 30px; font-weight: 600; font-size: 1.1em; box-shadow: 0 8px 25px rgba(16, 185, 129, 0.4); transition: all 0.3s ease;" data-i18n="blog1-cta-btn">💬 Contactar Ahora</a>
      </div>
     </article>
    </div>
   </section><!-- Blog Post 2 Full Article -->
   <section class="services" id="blog-post-2" style="padding: 100px 20px; display: none;">
-   <div class="services-container"><a href="#blog" class="blog-back-btn" style="display: inline-block; margin-bottom: 30px; color: #a5b4fc; text-decoration: none; font-weight: 600; font-size: 1.1em; transition: all 0.3s ease;" data-i18n="blog-back">← Volver al Blog</a>
+   <div class="services-container"><a href="#blog" class="blog-back-btn" onclick="showBlogList(event)" style="display: inline-block; margin-bottom: 30px; color: #a5b4fc; text-decoration: none; font-weight: 600; font-size: 1.1em; transition: all 0.3s ease; cursor: pointer;" data-i18n="blog-back">← Volver al Blog</a>
     <article style="max-width: 900px; margin: 0 auto;">
      <div style="text-align: center; margin-bottom: 40px;">
       <div style="font-size: 0.9em; color: #a5b4fc; margin-bottom: 15px;" data-i18n="blog-date2">
@@ -1291,31 +1310,31 @@
       <p style="font-size: 1.2em; line-height: 1.9; color: #e8edf5; margin-bottom: 25px;" data-i18n="blog2-what-desc">Es una página de acceso personalizada que los clientes ven antes de conectarse a tu WiFi. Aquí puedes mostrar tu marca, promociones, redes sociales y capturar información valiosa de contacto.</p>
       <h2 style="font-size: 2em; font-weight: 700; color: #ffffff; margin: 40px 0 20px;" data-i18n="blog2-benefits-title">💼 Beneficios para tu Negocio</h2>
       <ul style="list-style: none; padding: 0; margin: 30px 0;">
-       <li style="color: #e8edf5; padding: 15px; margin-bottom: 15px; background: rgba(99, 102, 241, 0.1); border-left: 4px solid #6366f1; border-radius: 8px; font-size: 1.1em;">📊 <strong>Base de Datos:</strong> Captura emails y teléfonos de tus clientes</li>
-       <li style="color: #e8edf5; padding: 15px; margin-bottom: 15px; background: rgba(99, 102, 241, 0.1); border-left: 4px solid #6366f1; border-radius: 8px; font-size: 1.1em;">📢 <strong>Promociones:</strong> Muestra ofertas especiales del día</li>
-       <li style="color: #e8edf5; padding: 15px; margin-bottom: 15px; background: rgba(99, 102, 241, 0.1); border-left: 4px solid #6366f1; border-radius: 8px; font-size: 1.1em;">🌟 <strong>Branding:</strong> Refuerza la identidad de tu marca</li>
-       <li style="color: #e8edf5; padding: 15px; margin-bottom: 15px; background: rgba(99, 102, 241, 0.1); border-left: 4px solid #6366f1; border-radius: 8px; font-size: 1.1em;">📱 <strong>Redes Sociales:</strong> Aumenta tus seguidores automáticamente</li>
+       <li style="color: #e8edf5; padding: 15px; margin-bottom: 15px; background: rgba(99, 102, 241, 0.1); border-left: 4px solid #6366f1; border-radius: 8px; font-size: 1.1em;" data-i18n="blog2-benefit1">📊 <strong>Base de Datos:</strong> Captura emails y teléfonos de tus clientes</li>
+       <li style="color: #e8edf5; padding: 15px; margin-bottom: 15px; background: rgba(99, 102, 241, 0.1); border-left: 4px solid #6366f1; border-radius: 8px; font-size: 1.1em;" data-i18n="blog2-benefit2">📢 <strong>Promociones:</strong> Muestra ofertas especiales del día</li>
+       <li style="color: #e8edf5; padding: 15px; margin-bottom: 15px; background: rgba(99, 102, 241, 0.1); border-left: 4px solid #6366f1; border-radius: 8px; font-size: 1.1em;" data-i18n="blog2-benefit3">🌟 <strong>Branding:</strong> Refuerza la identidad de tu marca</li>
+       <li style="color: #e8edf5; padding: 15px; margin-bottom: 15px; background: rgba(99, 102, 241, 0.1); border-left: 4px solid #6366f1; border-radius: 8px; font-size: 1.1em;" data-i18n="blog2-benefit4">📱 <strong>Redes Sociales:</strong> Aumenta tus seguidores automáticamente</li>
       </ul>
-      <h2 style="font-size: 2em; font-weight: 700; color: #ffffff; margin: 40px 0 20px;">�� Implementación Exitosa</h2>
+      <h2 style="font-size: 2em; font-weight: 700; color: #ffffff; margin: 40px 0 20px;" data-i18n="blog2-case-title">🚀 Implementación Exitosa</h2>
       <div style="background: rgba(16, 185, 129, 0.1); padding: 30px; border-radius: 15px; border-left: 5px solid #10b981; margin: 30px 0;">
-       <p style="font-size: 1.2em; line-height: 1.9; color: #e8edf5; font-style: italic;">"Instalamos un portal WiFi hace 6 meses. Hemos capturado 2,500 emails de clientes y aumentado nuestras ventas por email marketing en un 35%. La inversi��n se pagó sola en el primer mes."</p>
-       <p style="font-size: 1em; color: #10b981; margin-top: 15px;">— Carlos Mendoza, Café "La Esquina"</p>
+       <p style="font-size: 1.2em; line-height: 1.9; color: #e8edf5; font-style: italic;" data-i18n="blog2-case-quote">"Instalamos un portal WiFi hace 6 meses. Hemos capturado 2,500 emails de clientes y aumentado nuestras ventas por email marketing en un 35%. La inversión se pagó sola en el primer mes."</p>
+       <p style="font-size: 1em; color: #10b981; margin-top: 15px;" data-i18n="blog2-case-author">— Carlos Mendoza, Café "La Esquina"</p>
       </div>
-      <h2 style="font-size: 2em; font-weight: 700; color: #ffffff; margin: 40px 0 20px;">✨ Características Imprescindibles</h2>
-      <p style="font-size: 1.2em; line-height: 1.9; color: #e8edf5; margin-bottom: 25px;"><strong style="color: #10b981;">Diseño Atractivo:</strong> Primera impresión profesional de tu marca.</p>
-      <p style="font-size: 1.2em; line-height: 1.9; color: #e8edf5; margin-bottom: 25px;"><strong style="color: #10b981;">Acceso Rápido:</strong> Login con un clic, sin complicaciones.</p>
-      <p style="font-size: 1.2em; line-height: 1.9; color: #e8edf5; margin-bottom: 25px;"><strong style="color: #10b981;">Integración PayPhone:</strong> Opciones de pago directo para servicios premium.</p>
-      <p style="font-size: 1.2em; line-height: 1.9; color: #e8edf5; margin-bottom: 25px;"><strong style="color: #10b981;">Analíticas:</strong> Estadísticas de uso y comportamiento de clientes.</p>
+      <h2 style="font-size: 2em; font-weight: 700; color: #ffffff; margin: 40px 0 20px;" data-i18n="blog2-features-title">✨ Características Imprescindibles</h2>
+      <p style="font-size: 1.2em; line-height: 1.9; color: #e8edf5; margin-bottom: 25px;" data-i18n="blog2-feature1"><strong style="color: #10b981;">Diseño Atractivo:</strong> Primera impresión profesional de tu marca.</p>
+      <p style="font-size: 1.2em; line-height: 1.9; color: #e8edf5; margin-bottom: 25px;" data-i18n="blog2-feature2"><strong style="color: #10b981;">Acceso Rápido:</strong> Login con un clic, sin complicaciones.</p>
+      <p style="font-size: 1.2em; line-height: 1.9; color: #e8edf5; margin-bottom: 25px;" data-i18n="blog2-feature3"><strong style="color: #10b981;">Fácil Configuración:</strong> Instalación rápida y sin complicaciones técnicas.</p>
+      <p style="font-size: 1.2em; line-height: 1.9; color: #e8edf5; margin-bottom: 25px;" data-i18n="blog2-feature4"><strong style="color: #10b981;">Analíticas:</strong> Estadísticas de uso y comportamiento de clientes.</p>
      </div>
      <div style="margin-top: 50px; text-align: center; background: rgba(99, 102, 241, 0.1); padding: 40px; border-radius: 25px; border: 2px solid rgba(99, 102, 241, 0.3);">
-      <h3 style="font-size: 2em; font-weight: 700; color: #ffffff; margin-bottom: 20px;">¿Quieres Convertir tu WiFi en Marketing?</h3>
-      <p style="font-size: 1.2em; color: #e8edf5; margin-bottom: 30px;">Portal WiFi profesional con routerboard incluido</p><a href="https://wa.me/584147825840?text=Hola!%20Me%20interesa%20el%20Portal%20WiFi%20Profesional" target="_blank" rel="noopener noreferrer" style="display: inline-block; padding: 16px 40px; background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%); color: white; text-decoration: none; border-radius: 30px; font-weight: 600; font-size: 1.1em; box-shadow: 0 8px 25px rgba(99, 102, 241, 0.4); transition: all 0.3s ease;">💬 Contactar Ahora</a>
+      <h3 style="font-size: 2em; font-weight: 700; color: #ffffff; margin-bottom: 20px;" data-i18n="blog2-cta-title">¿Quieres Convertir tu WiFi en Marketing?</h3>
+      <p style="font-size: 1.2em; color: #e8edf5; margin-bottom: 30px;" data-i18n="blog2-cta-desc">Portal WiFi profesional con routerboard incluido</p><a href="https://wa.me/584147825840?text=Hola!%20Me%20interesa%20el%20Portal%20WiFi%20Profesional" target="_blank" rel="noopener noreferrer" style="display: inline-block; padding: 16px 40px; background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%); color: white; text-decoration: none; border-radius: 30px; font-weight: 600; font-size: 1.1em; box-shadow: 0 8px 25px rgba(99, 102, 241, 0.4); transition: all 0.3s ease;" data-i18n="blog2-cta-btn">💬 Contactar Ahora</a>
      </div>
     </article>
    </div>
   </section><!-- Blog Post 3 Full Article -->
   <section class="services" id="blog-post-3" style="padding: 100px 20px; display: none;">
-   <div class="services-container"><a href="#blog" class="blog-back-btn" style="display: inline-block; margin-bottom: 30px; color: #a5b4fc; text-decoration: none; font-weight: 600; font-size: 1.1em; transition: all 0.3s ease;" data-i18n="blog-back">← Volver al Blog</a>
+   <div class="services-container"><a href="#blog" class="blog-back-btn" onclick="showBlogList(event)" style="display: inline-block; margin-bottom: 30px; color: #a5b4fc; text-decoration: none; font-weight: 600; font-size: 1.1em; transition: all 0.3s ease; cursor: pointer;" data-i18n="blog-back">← Volver al Blog</a>
     <article style="max-width: 900px; margin: 0 auto;">
      <div style="text-align: center; margin-bottom: 40px;">
       <div style="font-size: 0.9em; color: #a5b4fc; margin-bottom: 15px;" data-i18n="blog-date3">
@@ -1328,39 +1347,39 @@
      <div style="margin-bottom: 40px; border-radius: 25px; overflow: hidden; box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);"><img src="https://i.imgur.com/MkS2ZA0.png" alt="Why Your Business Needs a Website" style="width: 100%; height: auto; display: block;" onerror="this.style.display='none';">
      </div>
      <div style="background: rgba(255, 255, 255, 0.03); padding: 50px 40px; border-radius: 25px; border: 2px solid rgba(139, 92, 246, 0.3);">
-      <p style="font-size: 1.3em; line-height: 1.9; color: #e8edf5; margin-bottom: 30px;">En 2025, no tener un <strong style="color: #a78bfa;">sitio web profesional</strong> es como tener un negocio sin letrero. Tus clientes te están buscando en línea, ¿te encuentran?</p>
-      <h2 style="font-size: 2em; font-weight: 700; color: #ffffff; margin: 40px 0 20px;">������ Datos que No Puedes Ignorar</h2>
+      <p style="font-size: 1.3em; line-height: 1.9; color: #e8edf5; margin-bottom: 30px;" data-i18n="blog3-intro">En 2025, no tener un <strong style="color: #a78bfa;">sitio web profesional</strong> es como tener un negocio sin letrero. Tus clientes te están buscando en línea, ¿te encuentran?</p>
+      <h2 style="font-size: 2em; font-weight: 700; color: #ffffff; margin: 40px 0 20px;" data-i18n="blog3-stats-title">📈 Datos que No Puedes Ignorar</h2>
       <ul style="list-style: none; padding: 0; margin: 30px 0;">
-       <li style="color: #e8edf5; padding: 15px; margin-bottom: 15px; background: rgba(139, 92, 246, 0.1); border-left: 4px solid #8b5cf6; border-radius: 8px; font-size: 1.1em;">🔍 <strong>81% de consumidores</strong> investigan en línea antes de comprar</li>
-       <li style="color: #e8edf5; padding: 15px; margin-bottom: 15px; background: rgba(139, 92, 246, 0.1); border-left: 4px solid #8b5cf6; border-radius: 8px; font-size: 1.1em;">📱 <strong>70% usa dispositivos móviles</strong> para buscar negocios locales</li>
-       <li style="color: #e8edf5; padding: 15px; margin-bottom: 15px; background: rgba(139, 92, 246, 0.1); border-left: 4px solid #8b5cf6; border-radius: 8px; font-size: 1.1em;">⏰ <strong>50% abandona</strong> si el sitio no carga en 3 segundos</li>
-       <li style="color: #e8edf5; padding: 15px; margin-bottom: 15px; background: rgba(139, 92, 246, 0.1); border-left: 4px solid #8b5cf6; border-radius: 8px; font-size: 1.1em;">💰 <strong>Negocios con web</strong> ganan 3x más que los que no tienen</li>
+       <li style="color: #e8edf5; padding: 15px; margin-bottom: 15px; background: rgba(139, 92, 246, 0.1); border-left: 4px solid #8b5cf6; border-radius: 8px; font-size: 1.1em;" data-i18n="blog3-stat1">🔍 <strong>81% de consumidores</strong> investigan en línea antes de comprar</li>
+       <li style="color: #e8edf5; padding: 15px; margin-bottom: 15px; background: rgba(139, 92, 246, 0.1); border-left: 4px solid #8b5cf6; border-radius: 8px; font-size: 1.1em;" data-i18n="blog3-stat2">📱 <strong>70% usa dispositivos m������viles</strong> para buscar negocios locales</li>
+       <li style="color: #e8edf5; padding: 15px; margin-bottom: 15px; background: rgba(139, 92, 246, 0.1); border-left: 4px solid #8b5cf6; border-radius: 8px; font-size: 1.1em;" data-i18n="blog3-stat3">⏰ <strong>50% abandona</strong> si el sitio no carga en 3 segundos</li>
+       <li style="color: #e8edf5; padding: 15px; margin-bottom: 15px; background: rgba(139, 92, 246, 0.1); border-left: 4px solid #8b5cf6; border-radius: 8px; font-size: 1.1em;" data-i18n="blog3-stat4">💰 <strong>Negocios con web</strong> ganan 3x más que los que no tienen</li>
       </ul>
-      <h2 style="font-size: 2em; font-weight: 700; color: #ffffff; margin: 40px 0 20px;">✨ Beneficios Inmediatos</h2>
-      <p style="font-size: 1.2em; line-height: 1.9; color: #e8edf5; margin-bottom: 25px;"><strong style="color: #a78bfa;">Credibilidad Profesional:</strong> Un sitio web dice "somos serios y confiables".</p>
-      <p style="font-size: 1.2em; line-height: 1.9; color: #e8edf5; margin-bottom: 25px;"><strong style="color: #a78bfa;">Disponible 24/7:</strong> Tus clientes pueden conocerte a cualquier hora.</p>
-      <p style="font-size: 1.2em; line-height: 1.9; color: #e8edf5; margin-bottom: 25px;"><strong style="color: #a78bfa;">Alcance Global:</strong> Expande tu mercado más all�� de tu ubicación física.</p>
-      <p style="font-size: 1.2em; line-height: 1.9; color: #e8edf5; margin-bottom: 25px;"><strong style="color: #a78bfa;">Menos Preguntas:</strong> Informaci�������n clara de servicios, precios y contacto.</p>
-      <h2 style="font-size: 2em; font-weight: 700; color: #ffffff; margin: 40px 0 20px;">🎯 Elementos Esenciales</h2>
+      <h2 style="font-size: 2em; font-weight: 700; color: #ffffff; margin: 40px 0 20px;" data-i18n="blog3-benefits-title">✨ Beneficios Inmediatos</h2>
+      <p style="font-size: 1.2em; line-height: 1.9; color: #e8edf5; margin-bottom: 25px;" data-i18n="blog3-benefit1"><strong style="color: #a78bfa;">Credibilidad Profesional:</strong> Un sitio web dice "somos serios y confiables".</p>
+      <p style="font-size: 1.2em; line-height: 1.9; color: #e8edf5; margin-bottom: 25px;" data-i18n="blog3-benefit2"><strong style="color: #a78bfa;">Disponible 24/7:</strong> Tus clientes pueden conocerte a cualquier hora.</p>
+      <p style="font-size: 1.2em; line-height: 1.9; color: #e8edf5; margin-bottom: 25px;" data-i18n="blog3-benefit3"><strong style="color: #a78bfa;">Alcance Global:</strong> Expande tu mercado más allá de tu ubicación física.</p>
+      <p style="font-size: 1.2em; line-height: 1.9; color: #e8edf5; margin-bottom: 25px;" data-i18n="blog3-benefit4"><strong style="color: #a78bfa;">Menos Preguntas:</strong> Información clara de servicios, precios y contacto.</p>
+      <h2 style="font-size: 2em; font-weight: 700; color: #ffffff; margin: 40px 0 20px;" data-i18n="blog3-elements-title">🎯 Elementos Esenciales</h2>
       <div style="background: rgba(139, 92, 246, 0.1); padding: 30px; border-radius: 15px; margin: 30px 0;">
-       <p style="font-size: 1.2em; line-height: 1.9; color: #e8edf5; margin-bottom: 20px;">✅ <strong>Diseño Responsivo</strong> - Se ve perfecto en móviles, tablets y computadoras</p>
-       <p style="font-size: 1.2em; line-height: 1.9; color: #e8edf5; margin-bottom: 20px;">✅ <strong>Velocidad de Carga</strong> - Rápido para no perder visitantes</p>
-       <p style="font-size: 1.2em; line-height: 1.9; color: #e8edf5; margin-bottom: 20px;">✅ <strong>WhatsApp Integrado</strong> - Contacto directo con un clic</p>
-       <p style="font-size: 1.2em; line-height: 1.9; color: #e8edf5;">✅ <strong>SEO Optimizado</strong> - Para que Google te encuentre fácilmente</p>
+       <p style="font-size: 1.2em; line-height: 1.9; color: #e8edf5; margin-bottom: 20px;" data-i18n="blog3-element1">✅ <strong>Diseño Responsivo</strong> - Se ve perfecto en móviles, tablets y computadoras</p>
+       <p style="font-size: 1.2em; line-height: 1.9; color: #e8edf5; margin-bottom: 20px;" data-i18n="blog3-element2">✅ <strong>Velocidad de Carga</strong> - Rápido para no perder visitantes</p>
+       <p style="font-size: 1.2em; line-height: 1.9; color: #e8edf5; margin-bottom: 20px;" data-i18n="blog3-element3">✅ <strong>WhatsApp Integrado</strong> - Contacto directo con un clic</p>
+       <p style="font-size: 1.2em; line-height: 1.9; color: #e8edf5;" data-i18n="blog3-element4">✅ <strong>SEO Optimizado</strong> - Para que Google te encuentre fácilmente</p>
       </div>
-      <h2 style="font-size: 2em; font-weight: 700; color: #ffffff; margin: 40px 0 20px;">💡 Caso Real</h2>
+      <h2 style="font-size: 2em; font-weight: 700; color: #ffffff; margin: 40px 0 20px;" data-i18n="blog3-case-title">💡 Caso Real</h2>
       <div style="background: rgba(16, 185, 129, 0.1); padding: 30px; border-radius: 15px; border-left: 5px solid #10b981; margin: 30px 0;">
-       <p style="font-size: 1.2em; line-height: 1.9; color: #e8edf5; font-style: italic;">"Antes recibía 5 llamadas por semana. Después de lanzar mi sitio web, recibo 20-30 consultas semanales. Mi negocio se ha triplicado en 6 meses."</p>
-       <p style="font-size: 1em; color: #10b981; margin-top: 15px;">— Laura Pérez, Dise����adora de Interiores</p>
+       <p style="font-size: 1.2em; line-height: 1.9; color: #e8edf5; font-style: italic;" data-i18n="blog3-case-quote">"Antes recibía 5 llamadas por semana. Después de lanzar mi sitio web, recibo 20-30 consultas semanales. Mi negocio se ha triplicado en 6 meses."</p>
+       <p style="font-size: 1em; color: #10b981; margin-top: 15px;" data-i18n="blog3-case-author">— Laura Pérez, Diseñadora de Interiores</p>
       </div>
-      <h2 style="font-size: 2em; font-weight: 700; color: #ffffff; margin: 40px 0 20px;">🚫 Mitos vs. Realidad</h2>
-      <p style="font-size: 1.2em; line-height: 1.9; color: #e8edf5; margin-bottom: 20px;"><strong style="color: #ff6b6b;">❌ "Es muy caro"</strong><br><strong style="color: #10b981;">✅ Realidad:</strong> Por $150 tienes web + dominio + hosting por 1 año</p>
-      <p style="font-size: 1.2em; line-height: 1.9; color: #e8edf5; margin-bottom: 20px;"><strong style="color: #ff6b6b;">❌ "Lleva mucho tiempo"</strong><br><strong style="color: #10b981;">✅ Realidad:</strong> Tu sitio está listo en 4-5 d��as</p>
-      <p style="font-size: 1.2em; line-height: 1.9; color: #e8edf5;"><strong style="color: #ff6b6b;">❌ "Solo necesito redes sociales"</strong><br><strong style="color: #10b981;">✅ Realidad:</strong> Tu web es tuya, las redes pueden cambiar sus reglas</p>
+      <h2 style="font-size: 2em; font-weight: 700; color: #ffffff; margin: 40px 0 20px;" data-i18n="blog3-myths-title">🚫 Mitos vs. Realidad</h2>
+      <p style="font-size: 1.2em; line-height: 1.9; color: #e8edf5; margin-bottom: 20px;" data-i18n="blog3-myth1"><strong style="color: #ff6b6b;">❌ "Es muy caro"</strong><br><strong style="color: #10b981;">✅ Realidad:</strong> Por $150 tienes web + dominio + hosting por 1 año</p>
+      <p style="font-size: 1.2em; line-height: 1.9; color: #e8edf5; margin-bottom: 20px;" data-i18n="blog3-myth2"><strong style="color: #ff6b6b;">❌ "Lleva mucho tiempo"</strong><br><strong style="color: #10b981;">✅ Realidad:</strong> Tu sitio está listo en 4-5 días</p>
+      <p style="font-size: 1.2em; line-height: 1.9; color: #e8edf5;" data-i18n="blog3-myth3"><strong style="color: #ff6b6b;">❌ "Solo necesito redes sociales"</strong><br><strong style="color: #10b981;">✅ Realidad:</strong> Tu web es tuya, las redes pueden cambiar sus reglas</p>
      </div>
      <div style="margin-top: 50px; text-align: center; background: rgba(139, 92, 246, 0.1); padding: 40px; border-radius: 25px; border: 2px solid rgba(139, 92, 246, 0.3);">
-      <h3 style="font-size: 2em; font-weight: 700; color: #ffffff; margin-bottom: 20px;">¿Listo para Tener Tu Sitio Web?</h3>
-      <p style="font-size: 1.2em; color: #e8edf5; margin-bottom: 30px;">Diseño profesional + Dominio + Hosting desde $150</p><a href="https://wa.me/584147825840?text=Hola!%20Me%20interesa%20crear%20mi%20sitio%20web" target="_blank" rel="noopener noreferrer" style="display: inline-block; padding: 16px 40px; background: linear-gradient(135deg, #8b5cf6 0%, #6366f1 100%); color: white; text-decoration: none; border-radius: 30px; font-weight: 600; font-size: 1.1em; box-shadow: 0 8px 25px rgba(139, 92, 246, 0.4); transition: all 0.3s ease;">💬 Contactar Ahora</a>
+      <h3 style="font-size: 2em; font-weight: 700; color: #ffffff; margin-bottom: 20px;" data-i18n="blog3-cta-title">¿Listo para Tener Tu Sitio Web?</h3>
+      <p style="font-size: 1.2em; color: #e8edf5; margin-bottom: 30px;" data-i18n="blog3-cta-desc">Diseño profesional + Dominio + Hosting desde $150</p><a href="https://wa.me/584147825840?text=Hola!%20Me%20interesa%20crear%20mi%20sitio%20web" target="_blank" rel="noopener noreferrer" style="display: inline-block; padding: 16px 40px; background: linear-gradient(135deg, #8b5cf6 0%, #6366f1 100%); color: white; text-decoration: none; border-radius: 30px; font-weight: 600; font-size: 1.1em; box-shadow: 0 8px 25px rgba(139, 92, 246, 0.4); transition: all 0.3s ease;" data-i18n="blog3-cta-btn">💬 Contactar Ahora</a>
      </div>
     </article>
    </div>
@@ -1385,7 +1404,7 @@
        <p>+58 414 782 5840</p>
       </div></a> <a href="tel:+584147825840" class="contact-method">
       <div class="contact-icon">
-       📱
+       ☎️
       </div>
       <div class="contact-info">
        <h3 data-i18n="contact-phone">Teléfono</h3>
@@ -1492,17 +1511,17 @@
      <p data-i18n="footer-desc">Transformando ideas en soluciones digitales innovadoras desde 2020.</p>
     </div>
     <div class="footer-section">
-     <h3 data-i18n="nav-services">Servicios</h3><a href="#services" data-i18n="service1-title">Desarrollo Web</a> <a href="#services" data-i18n="service2-title">Apps Móviles</a> <a href="#services" data-i18n="service3-title">Cloud Solutions</a> <a href="#services" data-i18n="service4-title">Diseño UI/UX</a>
+     <h3 data-i18n="nav-services">Servicios</h3><a href="#services" onclick="scrollToSection(event, 'services')" data-i18n="service1-title">Desarrollo Web</a> <a href="#services" onclick="scrollToSection(event, 'services')" data-i18n="service2-title">Apps Móviles</a> <a href="#services" onclick="scrollToSection(event, 'services')" data-i18n="service3-title">Cloud Solutions</a> <a href="#services" onclick="scrollToSection(event, 'services')" data-i18n="service4-title">Diseño UI/UX</a>
     </div>
     <div class="footer-section">
-     <h3 data-i18n="footer-company">Empresa</h3><a href="#about" data-i18n="nav-about">Nosotros</a> <a href="#contact" data-i18n="nav-contact">Contacto</a> <a href="#careers" data-i18n="footer-careers">Carreras</a> <a href="#blog" data-i18n="nav-blog">Blog</a>
+     <h3 data-i18n="footer-company">Empresa</h3><a href="#about" onclick="scrollToSection(event, 'about')" data-i18n="nav-about">Nosotros</a> <a href="#contact" onclick="scrollToSection(event, 'contact')" data-i18n="nav-contact">Contacto</a> <a href="#careers" onclick="scrollToSection(event, 'contact')" data-i18n="footer-careers">Carreras</a> <a href="#blog" onclick="showBlogList(event)" data-i18n="nav-blog">Blog</a>
     </div>
     <div class="footer-section">
      <h3 data-i18n="nav-contact">Contacto</h3>
-     <p>📧 datacloudly@gmail.com</p>
-     <p>�� +58 414 782 5840</p>
-     <p>🌐 danielmarcelo.info</p>
-     <p>📍 Venezuela &amp; USA</p>
+     <p>✉️ datacloudly@gmail.com</p>
+     <p>📞 +58 414 782 5840</p>
+     <p>🌍 danielmarcelo.info</p>
+     <p>📌 Venezuela &amp; USA</p>
     </div>
    </div>
    <div class="footer-bottom">
@@ -1535,11 +1554,9 @@
           const baseFontSize = config.font_size || defaultConfig.font_size;
           const baseFontStack = '-apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif';
 
-          // Apply font
           document.body.style.fontFamily = `${customFont}, ${baseFontStack}`;
           document.body.style.fontSize = `${baseFontSize}px`;
 
-          // Apply colors
           const hero = document.querySelector('.hero');
           if (hero) {
             hero.style.background = `linear-gradient(135deg, ${config.background_color || defaultConfig.background_color} 0%, ${config.secondary_action_color || defaultConfig.secondary_action_color}20 100%)`;
@@ -1550,7 +1567,6 @@
             contact.style.background = `linear-gradient(135deg, ${config.background_color || defaultConfig.background_color} 0%, ${config.secondary_action_color || defaultConfig.secondary_action_color}20 100%)`;
           }
 
-          // Update text content
           const companyNameElements = document.querySelectorAll('.nav-logo span, .footer-section h3');
           companyNameElements.forEach(el => {
             if (el.classList.contains('nav-logo') || el.parentElement.classList.contains('nav-logo')) {
@@ -1573,19 +1589,16 @@
           const contactTitle = document.querySelector('.contact h2');
           if (contactTitle) contactTitle.textContent = config.contact_title || defaultConfig.contact_title;
 
-          // Apply primary action color
           const primaryBtns = document.querySelectorAll('.btn-primary, .nav-cta');
           primaryBtns.forEach(btn => {
             btn.style.background = `linear-gradient(135deg, ${config.primary_action_color || defaultConfig.primary_action_color} 0%, ${config.secondary_action_color || defaultConfig.secondary_action_color} 100%)`;
           });
 
-          // Apply text color
           const textElements = document.querySelectorAll('h1, h2, h3, .nav-link, .service-card h3');
           textElements.forEach(el => {
             el.style.color = config.text_color || defaultConfig.text_color;
           });
 
-          // Apply surface color
           const cards = document.querySelectorAll('.service-card, .contact-form');
           cards.forEach(card => {
             card.style.background = config.surface_color || defaultConfig.surface_color;
@@ -1661,7 +1674,6 @@
     
     const translations = {
       es: {
-        // Navigation
         'nav-home': 'Inicio',
         'nav-shop': 'Tienda',
         'nav-services': 'Servicios',
@@ -1669,18 +1681,14 @@
         'nav-contact': 'Contacto',
         'nav-blog': 'Blog',
         'nav-cta': 'Comenzar Ahora',
-        
-        // Shop
         'shop-title': '💰 Costos de Servicios',
         'shop-subtitle': 'Escoja su plan a credito o contado',
-        'shop-cash': '��� Contado',
+        'shop-cash': '💵 Contado',
         'shop-credit': '💳 Crédito a 3 Meses',
         'shop-paynow': 'Pagar Ahora',
-        'shop-popular': '⭐ M��S POPULAR',
+        'shop-popular': '⭐ MÁS POPULAR',
         'shop-onetime': '/ único pago',
         'shop-permonth': '/ mes x 3 meses',
-        
-        // Shop - WiFi
         'shop-wifi-badge': 'Menú WiFi',
         'shop-wifi-title': 'Portal WiFi Profesional',
         'shop-wifi-delivery': '🚀 Entrega en 48 horas',
@@ -1688,9 +1696,7 @@
         'shop-wifi-f2': '✓ Routerboard incluido',
         'shop-wifi-f3': '✓ Imágenes y colores sobrios',
         'shop-wifi-f4': '✓ 3 actualizaciones gratis (6 meses)',
-        'shop-wifi-f5': '💳 Integración PayPhone',
-        
-        // Shop - QR
+        'shop-wifi-f5': '✓ Soporte técnico incluido',
         'shop-qr-badge': 'Menú QR',
         'shop-qr-title': 'Menú QR Digital',
         'shop-qr-delivery': '🚀 Entrega en 48 horas',
@@ -1699,9 +1705,7 @@
         'shop-qr-f3': '✓ Servicio Cloud 3 años',
         'shop-qr-f4': '🎯 QR digital personalizado',
         'shop-qr-f5': '✓ 3 actualizaciones gratis (6 meses)',
-        'shop-qr-f6': '✓ Integración PayPhone',
-        
-        // Shop - Web
+        'shop-qr-f6': '✓ Soporte técnico incluido',
         'shop-web-badge': 'Diseño Web',
         'shop-web-title': 'Diseño Web, Dominio y Hosting',
         'shop-web-delivery': '🚀 Entrega de 4 a 5 días',
@@ -1710,16 +1714,12 @@
         'shop-web-f3': '✓ Hosting y Dominio 1 año',
         'shop-web-f4': '✓ Botón WhatsApp integrado',
         'shop-web-f5': '✓ Diseño responsivo',
-        'shop-web-f6': '✓ Integración PayPhone',
-        
-        // Hero
+        'shop-web-f6': '✓ SEO optimizado',
         'hero-badge': '✨ Soluciones Innovadoras 2024',
         'hero-title': 'Transformamos tu Visión en Realidad Digital',
         'hero-subtitle': 'Desarrollamos soluciones tecnológicas personalizadas que impulsan el crecimiento de tu negocio en el mundo digital',
         'hero-cta1': 'Comenzar Proyecto',
         'hero-cta2': 'Ver Servicios',
-        
-        // Services
         'services-title': 'Nuestros Servicios',
         'services-subtitle': 'Ofrecemos soluciones completas para llevar tu negocio al siguiente nivel',
         'service1-title': 'Desarrollo Web',
@@ -1734,24 +1734,18 @@
         'service5-desc': 'Estrategias de marketing digital para aumentar tu visibilidad y alcanzar tus objetivos.',
         'service6-title': 'Ciberseguridad',
         'service6-desc': 'Protegemos tu negocio con las mejores prácticas de seguridad y auditorías constantes.',
-        
-        // About
         'about-title': 'Sobre DataCloudly',
         'about-subtitle': 'Innovación y excelencia en soluciones digitales desde 2020',
-        'about-p1': 'DataCloudly nació de la visión de democratizar la tecnología, haciendo que soluciones digitales de clase mundial estén al alcance de emprendedores y empresas en Latinoamérica y Estados Unidos.',
+        'about-p1': 'DataCloudly nació de la visión de democratizar la tecnología, haciendo que soluciones digitales de clase mundial estén al alcance de emprendedores y empresas en Latinoam��rica y Estados Unidos.',
         'about-p2': 'Somos un equipo apasionado de desarrolladores, diseñadores y estrategas digitales comprometidos con transformar ideas en experiencias digitales excepcionales. Especializados en menús digitales, portales WiFi, desarrollo web y aplicaciones móviles.',
-        'about-p3': 'Con presencia en 🇻🇪 Venezuela y 🇺🇸 Estados Unidos, hemos ayudado a más de 150 negocios a digitalizarse, aumentando su eficiencia operativa y alcance de mercado. Tu éxito es nuestra misión.',
+        'about-p3': 'Con presencia en Venezuela 🌎 y Estados Unidos 🌎, hemos ayudado a más de 150 negocios a digitalizarse, aumentando su eficiencia operativa y alcance de mercado. Tu éxito es nuestra misión.',
         'about-stat1': 'Proyectos Exitosos',
         'about-stat2': 'De Experiencia',
         'about-stat3': 'Satisfacción Cliente',
-        
-        // Contact
         'contact-title': '¿Listo para Comenzar?',
         'contact-subtitle': 'Contáctanos a través de cualquiera de nuestros canales',
-        'contact-phone': 'Tel����fono',
+        'contact-phone': 'Teléfono',
         'contact-website': 'Sitio Web Personal',
-        
-        // Help Menu
         'help-title': '¿En qué te puedo ayudar?',
         'help-web-title': 'Sitio Web Profesional',
         'help-web-desc': 'Crea tu presencia digital',
@@ -1765,19 +1759,15 @@
         'help-ecom-desc': 'Vende en línea 24/7',
         'help-consult-title': 'Consultoría',
         'help-consult-desc': 'Hablemos de tu proyecto',
-        
-        // Footer
         'footer-company': 'Empresa',
         'footer-careers': 'Carreras',
         'footer-desc': 'Transformando ideas en soluciones digitales innovadoras desde 2020.',
         'footer-copy': '© 2025 DataCloudly. Todos los derechos reservados.',
-        
-        // Blog
         'blog-title': '📝 Blog DataCloudly',
         'blog-subtitle': 'Noticias, tutoriales y tendencias en tecnología',
         'blog-readmore': 'Leer más →',
         'blog-back': '← Volver al Blog',
-        'blog-cta-title': '��Tienes un Tema que Te Gustaría Ver?',
+        'blog-cta-title': '¿Tienes un Tema que Te Gustaría Ver?',
         'blog-cta-desc': 'Comparte tus ideas y preguntas. Nuestro equipo está siempre creando contenido valioso para la comunidad.',
         'blog-cta-button': '💬 Enviar Sugerencia',
         'blog-date1': '15 Enero 2024',
@@ -1795,8 +1785,6 @@
         'blog-post3-desc': 'En la era digital, no tener presencia en línea significa perder clientes. Te explicamos por qué un sitio web profesional es una inversión, no un gasto.',
         'blog-post3-tag1': 'Diseño Web',
         'blog-post3-tag2': 'Negocios',
-        
-        // Blog Post 1 Full Content
         'blog1-intro': 'En la era digital, los menús QR han revolucionado la experiencia gastronómica. Los restaurantes que han adoptado esta tecnología reportan aumentos impresionantes en sus ventas.',
         'blog1-stats-title': '📊 Estadísticas Impactantes',
         'blog1-stat1': '✅ 40% más ventas promedio por mesa',
@@ -1816,14 +1804,12 @@
         'blog1-cta-title': '¿Listo para Digitalizar tu Restaurante?',
         'blog1-cta-desc': 'Obtén tu menú QR profesional en 48 horas',
         'blog1-cta-btn': '💬 Contactar Ahora',
-        
-        // Blog Post 2 Full Content
         'blog2-intro': 'Tu WiFi gratuito puede ser mucho más que un servicio. Con un portal WiFi inteligente, cada conexión se convierte en una oportunidad de marketing.',
-        'blog2-what-title': '🎯 ¿Qué es un Portal WiFi?',
+        'blog2-what-title': '🎯 ��Qué es un Portal WiFi?',
         'blog2-what-desc': 'Es una página de acceso personalizada que los clientes ven antes de conectarse a tu WiFi. Aquí puedes mostrar tu marca, promociones, redes sociales y capturar información valiosa de contacto.',
         'blog2-benefits-title': '💼 Beneficios para tu Negocio',
         'blog2-benefit1': '📊 Base de Datos: Captura emails y teléfonos de tus clientes',
-        'blog2-benefit2': '📢 Promociones: Muestra ofertas especiales del d��a',
+        'blog2-benefit2': '📢 Promociones: Muestra ofertas especiales del día',
         'blog2-benefit3': '🌟 Branding: Refuerza la identidad de tu marca',
         'blog2-benefit4': '📱 Redes Sociales: Aumenta tus seguidores automáticamente',
         'blog2-case-title': '🚀 Implementación Exitosa',
@@ -1831,14 +1817,12 @@
         'blog2-case-author': '— Carlos Mendoza, Café "La Esquina"',
         'blog2-features-title': '✨ Características Imprescindibles',
         'blog2-feature1': 'Diseño Atractivo: Primera impresión profesional de tu marca.',
-        'blog2-feature2': 'Acceso R��pido: Login con un clic, sin complicaciones.',
-        'blog2-feature3': 'Integración PayPhone: Opciones de pago directo para servicios premium.',
+        'blog2-feature2': 'Acceso Rápido: Login con un clic, sin complicaciones.',
+        'blog2-feature3': 'Fácil Configuración: Instalación rápida y sin complicaciones técnicas.',
         'blog2-feature4': 'Analíticas: Estadísticas de uso y comportamiento de clientes.',
         'blog2-cta-title': '¿Quieres Convertir tu WiFi en Marketing?',
         'blog2-cta-desc': 'Portal WiFi profesional con routerboard incluido',
         'blog2-cta-btn': '💬 Contactar Ahora',
-        
-        // Blog Post 3 Full Content
         'blog3-intro': 'En 2025, no tener un sitio web profesional es como tener un negocio sin letrero. Tus clientes te están buscando en línea, ¿te encuentran?',
         'blog3-stats-title': '📈 Datos que No Puedes Ignorar',
         'blog3-stat1': '🔍 81% de consumidores investigan en línea antes de comprar',
@@ -1854,25 +1838,20 @@
         'blog3-element1': '✅ Diseño Responsivo - Se ve perfecto en móviles, tablets y computadoras',
         'blog3-element2': '✅ Velocidad de Carga - Rápido para no perder visitantes',
         'blog3-element3': '✅ WhatsApp Integrado - Contacto directo con un clic',
-        'blog3-element4': '���� SEO Optimizado - Para que Google te encuentre fácilmente',
+        'blog3-element4': '✅ SEO Optimizado - Para que Google te encuentre fácilmente',
         'blog3-case-title': '💡 Caso Real',
         'blog3-case-quote': '"Antes recibía 5 llamadas por semana. Después de lanzar mi sitio web, recibo 20-30 consultas semanales. Mi negocio se ha triplicado en 6 meses."',
         'blog3-case-author': '— Laura Pérez, Diseñadora de Interiores',
         'blog3-myths-title': '🚫 Mitos vs. Realidad',
-        'blog3-myth1': '❌ "Es muy caro"',
-        'blog3-reality1': '✅ Realidad: Por $150 tienes web + dominio + hosting por 1 año',
-        'blog3-myth2': '❌ "Lleva mucho tiempo"',
-        'blog3-reality2': '✅ Realidad: Tu sitio está listo en 4-5 días',
-        'blog3-myth3': '❌ "Solo necesito redes sociales"',
-        'blog3-reality3': '✅ Realidad: Tu web es tuya, las redes pueden cambiar sus reglas',
+        'blog3-myth1': '❌ "Es muy caro"\n✅ Realidad: Por $150 tienes web + dominio + hosting por 1 año',
+        'blog3-myth2': '❌ "Lleva mucho tiempo"\n�� Realidad: Tu sitio está listo en 4-5 días',
+        'blog3-myth3': '❌ "Solo necesito redes sociales"\n✅ Realidad: Tu web es tuya, las redes pueden cambiar sus reglas',
         'blog3-cta-title': '¿Listo para Tener Tu Sitio Web?',
         'blog3-cta-desc': 'Diseño profesional + Dominio + Hosting desde $150',
         'blog3-cta-btn': '💬 Contactar Ahora',
-        
         'mobile-lang': 'Español'
       },
       en: {
-        // Navigation
         'nav-home': 'Home',
         'nav-shop': 'Shop',
         'nav-services': 'Services',
@@ -1880,9 +1859,7 @@
         'nav-contact': 'Contact',
         'nav-blog': 'Blog',
         'nav-cta': 'Get Started',
-        
-        // Shop
-        'shop-title': 'Service Costs',
+        'shop-title': '💰 Service Costs',
         'shop-subtitle': 'Choose your credit or cash plan',
         'shop-cash': '💵 Cash',
         'shop-credit': '💳 3-Month Credit',
@@ -1890,8 +1867,6 @@
         'shop-popular': '⭐ MOST POPULAR',
         'shop-onetime': '/ one-time payment',
         'shop-permonth': '/ month x 3 months',
-        
-        // Shop - WiFi
         'shop-wifi-badge': 'WiFi Menu',
         'shop-wifi-title': 'Professional WiFi Portal',
         'shop-wifi-delivery': '🚀 Delivery in 48 hours',
@@ -1899,38 +1874,30 @@
         'shop-wifi-f2': '✓ Routerboard included',
         'shop-wifi-f3': '✓ Images and sober colors',
         'shop-wifi-f4': '✓ 3 free updates (6 months)',
-        'shop-wifi-f5': '💳 PayPhone Integration',
-        
-        // Shop - QR
+        'shop-wifi-f5': '✓ Technical support included',
         'shop-qr-badge': 'QR Menu',
         'shop-qr-title': 'Digital QR Menu',
-        'shop-qr-delivery': '��� Delivery in 48 hours',
+        'shop-qr-delivery': '🚀 Delivery in 48 hours',
         'shop-qr-f1': '✓ Intuitive and Professional Design',
         'shop-qr-f2': '✓ Images and sober colors',
         'shop-qr-f3': '✓ Cloud Service 3 years',
         'shop-qr-f4': '🎯 Personalized digital QR',
         'shop-qr-f5': '✓ 3 free updates (6 months)',
-        'shop-qr-f6': '✓ PayPhone Integration',
-        
-        // Shop - Web
+        'shop-qr-f6': '✓ Technical support included',
         'shop-web-badge': 'Web Design',
         'shop-web-title': 'Web Design, Domain & Hosting',
         'shop-web-delivery': '🚀 Delivery in 4 to 5 days',
         'shop-web-f1': '✓ Modern HTML5 & CSS3',
         'shop-web-f2': '✓ 4 links/pages',
-        'shop-web-f3': '��� Hosting and Domain 1 year',
+        'shop-web-f3': '✓ Hosting and Domain 1 year',
         'shop-web-f4': '✓ Integrated WhatsApp button',
-        'shop-web-f5': '��� Responsive design',
-        'shop-web-f6': '✓ PayPhone Integration',
-        
-        // Hero
+        'shop-web-f5': '✓ Responsive design',
+        'shop-web-f6': '✓ SEO optimized',
         'hero-badge': '✨ Innovative Solutions 2024',
         'hero-title': 'We Transform Your Vision into Digital Reality',
         'hero-subtitle': 'We develop customized technological solutions that drive your business growth in the digital world',
         'hero-cta1': 'Start Project',
         'hero-cta2': 'View Services',
-        
-        // Services
         'services-title': 'Our Services',
         'services-subtitle': 'We offer complete solutions to take your business to the next level',
         'service1-title': 'Web Development',
@@ -1945,24 +1912,18 @@
         'service5-desc': 'Digital marketing strategies to increase your visibility and achieve your goals.',
         'service6-title': 'Cybersecurity',
         'service6-desc': 'We protect your business with best security practices and constant audits.',
-        
-        // About
         'about-title': 'About DataCloudly',
         'about-subtitle': 'Innovation and excellence in digital solutions since 2020',
         'about-p1': 'DataCloudly was born from the vision of democratizing technology, making world-class digital solutions accessible to entrepreneurs and businesses in Latin America and the United States.',
         'about-p2': 'We are a passionate team of developers, designers and digital strategists committed to transforming ideas into exceptional digital experiences. Specialized in digital menus, WiFi portals, web development and mobile applications.',
-        'about-p3': 'With presence in 🇻🇪 Venezuela and 🇺🇸 United States, we have helped more than 150 businesses digitize, increasing their operational efficiency and market reach. Your success is our mission.',
+        'about-p3': 'With presence in Venezuela 🌎 and United States 🌎, we have helped more than 150 businesses digitize, increasing their operational efficiency and market reach. Your success is our mission.',
         'about-stat1': 'Successful Projects',
         'about-stat2': 'Years of Experience',
         'about-stat3': 'Client Satisfaction',
-        
-        // Contact
         'contact-title': 'Ready to Start?',
         'contact-subtitle': 'Contact us through any of our channels',
         'contact-phone': 'Phone',
         'contact-website': 'Personal Website',
-        
-        // Help Menu
         'help-title': 'How can I help you?',
         'help-web-title': 'Professional Website',
         'help-web-desc': 'Create your digital presence',
@@ -1976,14 +1937,10 @@
         'help-ecom-desc': 'Sell online 24/7',
         'help-consult-title': 'Consulting',
         'help-consult-desc': 'Let\'s talk about your project',
-        
-        // Footer
         'footer-company': 'Company',
         'footer-careers': 'Careers',
         'footer-desc': 'Transforming ideas into innovative digital solutions since 2020.',
         'footer-copy': '© 2025 DataCloudly. All rights reserved.',
-        
-        // Blog
         'blog-title': '📝 DataCloudly Blog',
         'blog-subtitle': 'News, tutorials and technology trends',
         'blog-readmore': 'Read more →',
@@ -2006,8 +1963,6 @@
         'blog-post3-desc': 'In the digital age, not having an online presence means losing customers. We explain why a professional website is an investment, not an expense.',
         'blog-post3-tag1': 'Web Design',
         'blog-post3-tag2': 'Business',
-        
-        // Blog Post 1 Full Content
         'blog1-intro': 'In the digital age, QR menus have revolutionized the dining experience. Restaurants that have adopted this technology report impressive increases in their sales.',
         'blog1-stats-title': '📊 Impressive Statistics',
         'blog1-stat1': '✅ 40% more sales per table on average',
@@ -2027,8 +1982,6 @@
         'blog1-cta-title': 'Ready to Digitize Your Restaurant?',
         'blog1-cta-desc': 'Get your professional QR menu in 48 hours',
         'blog1-cta-btn': '💬 Contact Now',
-        
-        // Blog Post 2 Full Content
         'blog2-intro': 'Your free WiFi can be much more than a service. With a smart WiFi portal, every connection becomes a marketing opportunity.',
         'blog2-what-title': '🎯 What is a WiFi Portal?',
         'blog2-what-desc': 'It is a personalized access page that customers see before connecting to your WiFi. Here you can show your brand, promotions, social networks and capture valuable contact information.',
@@ -2043,13 +1996,11 @@
         'blog2-features-title': '✨ Essential Features',
         'blog2-feature1': 'Attractive Design: Professional first impression of your brand.',
         'blog2-feature2': 'Quick Access: Login with one click, no complications.',
-        'blog2-feature3': 'PayPhone Integration: Direct payment options for premium services.',
+        'blog2-feature3': 'Easy Setup: Quick installation without technical complications.',
         'blog2-feature4': 'Analytics: Usage statistics and customer behavior.',
         'blog2-cta-title': 'Want to Turn Your WiFi into Marketing?',
         'blog2-cta-desc': 'Professional WiFi portal with routerboard included',
         'blog2-cta-btn': '💬 Contact Now',
-        
-        // Blog Post 3 Full Content
         'blog3-intro': 'In 2025, not having a professional website is like having a business without a sign. Your customers are looking for you online, can they find you?',
         'blog3-stats-title': '📈 Data You Cannot Ignore',
         'blog3-stat1': '🔍 81% of consumers research online before buying',
@@ -2062,24 +2013,20 @@
         'blog3-benefit3': 'Global Reach: Expand your market beyond your physical location.',
         'blog3-benefit4': 'Fewer Questions: Clear information on services, prices and contact.',
         'blog3-elements-title': '🎯 Essential Elements',
-        'blog3-element1': '����� Responsive Design - Looks perfect on mobiles, tablets and computers',
+        'blog3-element1': '✅ Responsive Design - Looks perfect on mobiles, tablets and computers',
         'blog3-element2': '✅ Loading Speed - Fast to not lose visitors',
         'blog3-element3': '✅ Integrated WhatsApp - Direct contact with one click',
         'blog3-element4': '✅ SEO Optimized - So Google can easily find you',
         'blog3-case-title': '💡 Real Case',
         'blog3-case-quote': '"Before I received 5 calls per week. After launching my website, I receive 20-30 inquiries weekly. My business has tripled in 6 months."',
         'blog3-case-author': '— Laura Pérez, Interior Designer',
-        'blog3-myths-title': '��� Myths vs. Reality',
-        'blog3-myth1': '❌ "It\'s too expensive"',
-        'blog3-reality1': '✅ Reality: For $150 you have web + domain + hosting for 1 year',
-        'blog3-myth2': '❌ "It takes too long"',
-        'blog3-reality2': '✅ Reality: Your site is ready in 4-5 days',
-        'blog3-myth3': '❌ "I only need social media"',
-        'blog3-reality3': '✅ Reality: Your web is yours, social networks can change their rules',
+        'blog3-myths-title': '🚫 Myths vs. Reality',
+        'blog3-myth1': '❌ "It\'s too expensive"\n✅ Reality: For $150 you have web + domain + hosting for 1 year',
+        'blog3-myth2': '❌ "It takes too long"\n✅ Reality: Your site is ready in 4-5 days',
+        'blog3-myth3': '❌ "I only need social media"\n✅ Reality: Your web is yours, social networks can change their rules',
         'blog3-cta-title': 'Ready to Have Your Website?',
         'blog3-cta-desc': 'Professional design + Domain + Hosting from $150',
         'blog3-cta-btn': '💬 Contact Now',
-        
         'mobile-lang': 'English'
       }
     };
@@ -2087,61 +2034,80 @@
     function translatePage(lang) {
       currentLanguage = lang;
       
-      // Translate text content
       document.querySelectorAll('[data-i18n]').forEach(element => {
         const key = element.getAttribute('data-i18n');
         if (translations[lang][key]) {
-          element.textContent = translations[lang][key];
+          const translatedText = translations[lang][key];
+          if (translatedText.includes('\n')) {
+            element.innerHTML = translatedText.replace(/\n/g, '<br>');
+          } else {
+            element.textContent = translatedText;
+          }
         }
       });
       
-      // Update language indicators
       document.getElementById('currentLang').textContent = lang.toUpperCase();
       const mobileLang = document.getElementById('mobileLang');
       if (mobileLang) {
         mobileLang.textContent = translations[lang]['mobile-lang'];
       }
       
-      // Update payment period text
       updatePrices();
     }
 
     // Language selector click handlers
-    document.addEventListener('DOMContentLoaded', () => {
-      const languageSelector = document.getElementById('languageSelector');
-      const mobileLangSelector = document.getElementById('mobileLangSelector');
-      
-      if (languageSelector) {
-        languageSelector.addEventListener('click', (e) => {
-          e.preventDefault();
-          const newLang = currentLanguage === 'es' ? 'en' : 'es';
-          translatePage(newLang);
-        });
-      }
-      
-      if (mobileLangSelector) {
-        mobileLangSelector.addEventListener('click', (e) => {
-          e.preventDefault();
-          const newLang = currentLanguage === 'es' ? 'en' : 'es';
-          translatePage(newLang);
-        });
-      }
-    });
-
-    // Smooth scroll functionality
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-      anchor.addEventListener('click', function (e) {
+    const languageSelector = document.getElementById('languageSelector');
+    const mobileLangSelector = document.getElementById('mobileLangSelector');
+    
+    if (languageSelector) {
+      languageSelector.addEventListener('click', (e) => {
         e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
-        if (target) {
-          target.scrollIntoView({
-            behavior: 'smooth',
-            block: 'start'
-          });
-          closeMobileMenu();
-        }
+        const newLang = currentLanguage === 'es' ? 'en' : 'es';
+        translatePage(newLang);
       });
-    });
+    }
+    
+    if (mobileLangSelector) {
+      mobileLangSelector.addEventListener('click', (e) => {
+        e.preventDefault();
+        const newLang = currentLanguage === 'es' ? 'en' : 'es';
+        translatePage(newLang);
+      });
+    }
+
+    // Scroll to section helper
+    function scrollToSection(e, sectionId) {
+      e.preventDefault();
+      const section = document.getElementById(sectionId);
+      if (section) {
+        section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        closeMobileMenu();
+      }
+    }
+
+    // Blog navigation functions
+    function showBlogList(e) {
+      if (e) e.preventDefault();
+      
+      document.querySelectorAll('#blog, #blog-post-1, #blog-post-2, #blog-post-3').forEach(section => {
+        section.style.display = 'none';
+      });
+      
+      document.getElementById('blog').style.display = 'block';
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      closeMobileMenu();
+    }
+
+    function showBlogPost(e, postNumber) {
+      if (e) e.preventDefault();
+      
+      document.querySelectorAll('#blog, #blog-post-1, #blog-post-2, #blog-post-3').forEach(section => {
+        section.style.display = 'none';
+      });
+      
+      document.getElementById(`blog-post-${postNumber}`).style.display = 'block';
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
 
     // Navbar scroll effect
     const navbar = document.getElementById('navbar');
@@ -2168,24 +2134,6 @@
       mobileNav.classList.remove('active');
     }
 
-    // Close mobile menu when clicking on a link
-    document.querySelectorAll('.mobile-nav-link').forEach(link => {
-      link.addEventListener('click', (e) => {
-        const href = link.getAttribute('href');
-        if (href.startsWith('#')) {
-          e.preventDefault();
-          const target = document.querySelector(href);
-          if (target) {
-            closeMobileMenu();
-            setTimeout(() => {
-              target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-            }, 300);
-          }
-        }
-      });
-    });
-
-    // Close mobile menu when clicking outside
     document.addEventListener('click', (e) => {
       if (mobileNav.classList.contains('active') && !mobileNav.contains(e.target) && !mobileMenuBtn.contains(e.target)) {
         closeMobileMenu();
@@ -2195,33 +2143,29 @@
     // Payment plan switching
     let currentPaymentPlan = 'contado';
 
-    document.addEventListener('DOMContentLoaded', () => {
-      // Payment tabs
-      document.querySelectorAll('.payment-tab').forEach(tab => {
-        tab.addEventListener('click', () => {
-          document.querySelectorAll('.payment-tab').forEach(t => t.classList.remove('active'));
-          tab.classList.add('active');
-          currentPaymentPlan = tab.dataset.tab;
-          updatePrices();
-        });
+    document.querySelectorAll('.payment-tab').forEach(tab => {
+      tab.addEventListener('click', () => {
+        document.querySelectorAll('.payment-tab').forEach(t => t.classList.remove('active'));
+        tab.classList.add('active');
+        currentPaymentPlan = tab.dataset.tab;
+        updatePrices();
       });
+    });
 
-      // Connect shop card buttons to WhatsApp
-      document.querySelectorAll('.shop-card').forEach(card => {
-        const button = card.querySelector('.btn-add-cart');
-        const whatsappMessage = button.dataset.whatsapp;
-        button.addEventListener('click', () => {
-          const priceElement = card.querySelector('.shop-price');
-          const price = currentPaymentPlan === 'contado' ? 
-            priceElement.dataset.contado : 
-            priceElement.dataset.credito;
-          const planText = currentPaymentPlan === 'contado' ? 
-            translations[currentLanguage]['shop-cash'] : 
-            translations[currentLanguage]['shop-credit'];
-          const fullMessage = `${whatsappMessage} - ${planText.replace('💵 ', '').replace('💳 ', '')}: $${price} USD`;
-          const whatsappUrl = `https://wa.me/584147825840?text=${encodeURIComponent(fullMessage)}`;
-          window.open(whatsappUrl, '_blank', 'noopener,noreferrer');
-        });
+    document.querySelectorAll('.shop-card').forEach(card => {
+      const button = card.querySelector('.btn-add-cart');
+      const whatsappMessage = button.dataset.whatsapp;
+      button.addEventListener('click', () => {
+        const priceElement = card.querySelector('.shop-price');
+        const price = currentPaymentPlan === 'contado' ? 
+          priceElement.dataset.contado : 
+          priceElement.dataset.credito;
+        const planText = currentPaymentPlan === 'contado' ? 
+          translations[currentLanguage]['shop-cash'] : 
+          translations[currentLanguage]['shop-credit'];
+        const fullMessage = `${whatsappMessage} - ${planText.replace('💵 ', '').replace('💳 ', '')}: $${price} USD`;
+        const whatsappUrl = `https://wa.me/584147825840?text=${encodeURIComponent(fullMessage)}`;
+        window.open(whatsappUrl, '_blank', 'noopener,noreferrer');
       });
     });
 
@@ -2244,52 +2188,18 @@
       helpMenu.classList.toggle('active');
     });
 
-    // Help options - redirect to contact
     document.querySelectorAll('.help-option').forEach(option => {
       option.addEventListener('click', () => {
         helpMenu.classList.remove('active');
-        document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
+        scrollToSection({ preventDefault: () => {} }, 'contact');
       });
     });
 
-    // Blog post navigation
-    function setupBlogNavigation() {
-      document.querySelectorAll('.blog-link, a[href^="#blog"]').forEach(link => {
-        link.addEventListener('click', (e) => {
-          e.preventDefault();
-          const href = link.getAttribute('href');
-          
-          // Hide all sections
-          document.querySelectorAll('#blog, #blog-post-1, #blog-post-2, #blog-post-3').forEach(section => {
-            section.style.display = 'none';
-          });
-          
-          // Show target section
-          if (href === '#blog') {
-            document.getElementById('blog').style.display = 'block';
-          } else if (href === '#blog-post-1') {
-            document.getElementById('blog-post-1').style.display = 'block';
-          } else if (href === '#blog-post-2') {
-            document.getElementById('blog-post-2').style.display = 'block';
-          } else if (href === '#blog-post-3') {
-            document.getElementById('blog-post-3').style.display = 'block';
-          }
-          
-          // Scroll to top
-          window.scrollTo({ top: 0, behavior: 'smooth' });
-        });
-      });
-    }
-    
-    // Initial setup
-    setupBlogNavigation();
-
-    // Close help menu when clicking outside
     document.addEventListener('click', (e) => {
-      if (!helpMenu.contains(e.target) && !floatingHelp.contains(e.target)) {
+      if (helpMenu.classList.contains('active') && !helpMenu.contains(e.target) && !floatingHelp.contains(e.target)) {
         helpMenu.classList.remove('active');
       }
     });
   </script>
- <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9a521dc58121cdcb',t:'MTc2NDI1MTY1NC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+ <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9a5262aba77ae7da',t:'MTc2NDI1NDQ3Ni4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
