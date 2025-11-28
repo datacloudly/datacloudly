@@ -988,7 +988,7 @@
  </head>
  <body><!-- Navigation -->
   <nav id="navbar"><a href="#home" class="nav-logo" onclick="scrollToSection(event, 'home')"> <img src="https://i.imgur.com/XJJUku6.png" alt="DataCloudly Logo" style="height: 50px; width: auto; animation: float 3s ease-in-out infinite;" onerror="this.style.display='none';"> <span style="animation: float 3s ease-in-out infinite;">DataCloudly</span> </a>
-   <div class="nav-center"><a href="#home" class="nav-link" onclick="scrollToSection(event, 'home')" data-i18n="nav-home">Inicio</a> <a href="#shop" class="nav-link" onclick="scrollToSection(event, 'shop')" data-i18n="nav-shop">Tienda</a> <a href="#services" class="nav-link" onclick="scrollToSection(event, 'services')" data-i18n="nav-services">Servicios</a> <a href="#about" class="nav-link" onclick="scrollToSection(event, 'about')" data-i18n="nav-about">Nosotros</a> <a href="#blog" class="nav-link" onclick="showBlogList(event)" data-i18n="nav-blog">Blog</a> <a href="#contact" class="nav-link" onclick="scrollToSection(event, 'contact')" data-i18n="nav-contact">Contacto</a>
+   <div class="nav-center"><a href="#home" class="nav-link" onclick="scrollToSection(event, 'home')" data-i18n="nav-home">Inicio</a> <a href="#shop" class="nav-link" onclick="scrollToSection(event, 'shop')" data-i18n="nav-shop">Tienda</a> <a href="#services" class="nav-link" onclick="scrollToSection(event, 'services')" data-i18n="nav-services">Servicios</a> <a href="#about" class="nav-link" onclick="scrollToSection(event, 'about')" data-i18n="nav-about">Nosotros</a> <a href="#blog" class="nav-link" onclick="event.preventDefault(); showBlogList(event);" data-i18n="nav-blog">Blog</a> <a href="#contact" class="nav-link" onclick="scrollToSection(event, 'contact')" data-i18n="nav-contact">Contacto</a>
    </div>
    <div class="nav-right">
     <div class="language-selector" id="languageSelector"><span class="language-icon">🌐</span> <span id="currentLang">ES</span>
@@ -998,7 +998,7 @@
    </div>
   </nav><!-- Mobile Navigation -->
   <div class="mobile-nav" id="mobileNav">
-   <div class="mobile-nav-links"><a href="#home" class="mobile-nav-link" onclick="scrollToSection(event, 'home')" data-i18n="nav-home">Inicio</a> <a href="#shop" class="mobile-nav-link" onclick="scrollToSection(event, 'shop')" data-i18n="nav-shop">Tienda</a> <a href="#services" class="mobile-nav-link" onclick="scrollToSection(event, 'services')" data-i18n="nav-services">Servicios</a> <a href="#about" class="mobile-nav-link" onclick="scrollToSection(event, 'about')" data-i18n="nav-about">Nosotros</a> <a href="#blog" class="mobile-nav-link" onclick="showBlogList(event)" data-i18n="nav-blog">Blog</a> <a href="#contact" class="mobile-nav-link" onclick="scrollToSection(event, 'contact')" data-i18n="nav-contact">Contacto</a>
+   <div class="mobile-nav-links"><a href="#home" class="mobile-nav-link" onclick="scrollToSection(event, 'home')" data-i18n="nav-home">Inicio</a> <a href="#shop" class="mobile-nav-link" onclick="scrollToSection(event, 'shop')" data-i18n="nav-shop">Tienda</a> <a href="#services" class="mobile-nav-link" onclick="scrollToSection(event, 'services')" data-i18n="nav-services">Servicios</a> <a href="#about" class="mobile-nav-link" onclick="scrollToSection(event, 'about')" data-i18n="nav-about">Nosotros</a> <a href="#blog" class="mobile-nav-link" onclick="event.preventDefault(); showBlogList(event);" data-i18n="nav-blog">Blog</a> <a href="#contact" class="mobile-nav-link" onclick="scrollToSection(event, 'contact')" data-i18n="nav-contact">Contacto</a>
     <div class="language-selector mobile-lang-selector" id="mobileLangSelector"><span class="language-icon">🌐</span> <span id="mobileLang">Español</span>
     </div>
    </div>
@@ -1183,11 +1183,11 @@
       </div>
       <ul class="features-list">
        <li data-i18n="shop-web-f1">✓ HTML5 &amp; CSS3 moderno</li>
-       <li data-i18n="shop-web-f2">✓ 4 enlaces/paginas</li>
+       <li data-i18n="shop-web-f2">✓ 4 enlaces/p��ginas</li>
        <li data-i18n="shop-web-f3">✓ Hosting y Dominio 1 año</li>
        <li data-i18n="shop-web-f4">✓ Botón WhatsApp integrado</li>
        <li data-i18n="shop-web-f5">✓ Diseño responsivo</li>
-   
+       <li data-i18n="shop-web-f6">✓ Integración PayPhone</li>
       </ul><button class="btn-add-cart" data-whatsapp="Hola! Me interesa el *Diseño Web Completo* ��" data-i18n="shop-paynow">Pagar Ahora</button>
      </div>
     </div>
@@ -1250,7 +1250,7 @@
    </div>
   </section><!-- Blog Post 1 Full Article -->
   <section class="services" id="blog-post-1" style="padding: 100px 20px; display: none;">
-   <div class="services-container"><a href="#blog" class="blog-back-btn" onclick="showBlogList(event)" style="display: inline-block; margin-bottom: 30px; color: #a5b4fc; text-decoration: none; font-weight: 600; font-size: 1.1em; transition: all 0.3s ease; cursor: pointer;" data-i18n="blog-back">← Volver al Blog</a>
+   <div class="services-container"><a href="#blog" class="blog-back-btn" onclick="showBlogList(event)" style="display: inline-block; margin-bottom: 30px; color: #a5b4fc; text-decoration: none; font-weight: 600; font-size: 1.1em; transition: all 0.3s ease; cursor: pointer;" data-i18n="blog-back">��� Volver al Blog</a>
     <article style="max-width: 900px; margin: 0 auto;">
      <div style="text-align: center; margin-bottom: 40px;">
       <div style="font-size: 0.9em; color: #a5b4fc; margin-bottom: 15px;" data-i18n="blog-date1">
@@ -1271,7 +1271,7 @@
        <li style="color: #e8edf5; padding: 15px; margin-bottom: 15px; background: rgba(16, 185, 129, 0.1); border-left: 4px solid #10b981; border-radius: 8px; font-size: 1.1em;" data-i18n="blog1-stat3">✅ <strong>60% más rápido</strong> el tiempo de pedido</li>
        <li style="color: #e8edf5; padding: 15px; margin-bottom: 15px; background: rgba(16, 185, 129, 0.1); border-left: 4px solid #10b981; border-radius: 8px; font-size: 1.1em;" data-i18n="blog1-stat4">✅ <strong>90% preferencia</strong> de clientes jóvenes</li>
       </ul>
-      <h2 style="font-size: 2em; font-weight: 700; color: #ffffff; margin: 40px 0 20px;" data-i18n="blog1-benefits-title">💡 Beneficios Clave</h2>
+      <h2 style="font-size: 2em; font-weight: 700; color: #ffffff; margin: 40px 0 20px;" data-i18n="blog1-benefits-title">��� Beneficios Clave</h2>
       <p style="font-size: 1.2em; line-height: 1.9; color: #e8edf5; margin-bottom: 25px;" data-i18n="blog1-benefit1"><strong style="color: #a5b4fc;">1. Experiencia Sin Contacto:</strong> Los clientes aprecian la higiene y seguridad de no tocar menús físicos compartidos.</p>
       <p style="font-size: 1.2em; line-height: 1.9; color: #e8edf5; margin-bottom: 25px;" data-i18n="blog1-benefit2"><strong style="color: #a5b4fc;">2. Actualizaciones Instantáneas:</strong> Cambia precios, agrega platos nuevos o marca items agotados en segundos.</p>
       <p style="font-size: 1.2em; line-height: 1.9; color: #e8edf5; margin-bottom: 25px;" data-i18n="blog1-benefit3"><strong style="color: #a5b4fc;">3. Upselling Inteligente:</strong> Muestra recomendaciones, combos y promociones personalizadas.</p>
@@ -1358,7 +1358,7 @@
       <h2 style="font-size: 2em; font-weight: 700; color: #ffffff; margin: 40px 0 20px;" data-i18n="blog3-benefits-title">✨ Beneficios Inmediatos</h2>
       <p style="font-size: 1.2em; line-height: 1.9; color: #e8edf5; margin-bottom: 25px;" data-i18n="blog3-benefit1"><strong style="color: #a78bfa;">Credibilidad Profesional:</strong> Un sitio web dice "somos serios y confiables".</p>
       <p style="font-size: 1.2em; line-height: 1.9; color: #e8edf5; margin-bottom: 25px;" data-i18n="blog3-benefit2"><strong style="color: #a78bfa;">Disponible 24/7:</strong> Tus clientes pueden conocerte a cualquier hora.</p>
-      <p style="font-size: 1.2em; line-height: 1.9; color: #e8edf5; margin-bottom: 25px;" data-i18n="blog3-benefit3"><strong style="color: #a78bfa;">Alcance Global:</strong> Expande tu mercado más allá de tu ubicación física.</p>
+      <p style="font-size: 1.2em; line-height: 1.9; color: #e8edf5; margin-bottom: 25px;" data-i18n="blog3-benefit3"><strong style="color: #a78bfa;">Alcance Global:</strong> Expande tu mercado más all�� de tu ubicación física.</p>
       <p style="font-size: 1.2em; line-height: 1.9; color: #e8edf5; margin-bottom: 25px;" data-i18n="blog3-benefit4"><strong style="color: #a78bfa;">Menos Preguntas:</strong> Información clara de servicios, precios y contacto.</p>
       <h2 style="font-size: 2em; font-weight: 700; color: #ffffff; margin: 40px 0 20px;" data-i18n="blog3-elements-title">🎯 Elementos Esenciales</h2>
       <div style="background: rgba(139, 92, 246, 0.1); padding: 30px; border-radius: 15px; margin: 30px 0;">
@@ -1379,7 +1379,7 @@
      </div>
      <div style="margin-top: 50px; text-align: center; background: rgba(139, 92, 246, 0.1); padding: 40px; border-radius: 25px; border: 2px solid rgba(139, 92, 246, 0.3);">
       <h3 style="font-size: 2em; font-weight: 700; color: #ffffff; margin-bottom: 20px;" data-i18n="blog3-cta-title">¿Listo para Tener Tu Sitio Web?</h3>
-      <p style="font-size: 1.2em; color: #e8edf5; margin-bottom: 30px;" data-i18n="blog3-cta-desc">Diseño profesional + Dominio + Hosting desde $150</p><a href="https://wa.me/584147825840?text=Hola!%20Me%20interesa%20crear%20mi%20sitio%20web" target="_blank" rel="noopener noreferrer" style="display: inline-block; padding: 16px 40px; background: linear-gradient(135deg, #8b5cf6 0%, #6366f1 100%); color: white; text-decoration: none; border-radius: 30px; font-weight: 600; font-size: 1.1em; box-shadow: 0 8px 25px rgba(139, 92, 246, 0.4); transition: all 0.3s ease;" data-i18n="blog3-cta-btn">💬 Contactar Ahora</a>
+      <p style="font-size: 1.2em; color: #e8edf5; margin-bottom: 30px;" data-i18n="blog3-cta-desc">Dise����o profesional + Dominio + Hosting desde $150</p><a href="https://wa.me/584147825840?text=Hola!%20Me%20interesa%20crear%20mi%20sitio%20web" target="_blank" rel="noopener noreferrer" style="display: inline-block; padding: 16px 40px; background: linear-gradient(135deg, #8b5cf6 0%, #6366f1 100%); color: white; text-decoration: none; border-radius: 30px; font-weight: 600; font-size: 1.1em; box-shadow: 0 8px 25px rgba(139, 92, 246, 0.4); transition: all 0.3s ease;" data-i18n="blog3-cta-btn">💬 Contactar Ahora</a>
      </div>
     </article>
    </div>
@@ -1514,7 +1514,7 @@
      <h3 data-i18n="nav-services">Servicios</h3><a href="#services" onclick="scrollToSection(event, 'services')" data-i18n="service1-title">Desarrollo Web</a> <a href="#services" onclick="scrollToSection(event, 'services')" data-i18n="service2-title">Apps Móviles</a> <a href="#services" onclick="scrollToSection(event, 'services')" data-i18n="service3-title">Cloud Solutions</a> <a href="#services" onclick="scrollToSection(event, 'services')" data-i18n="service4-title">Diseño UI/UX</a>
     </div>
     <div class="footer-section">
-     <h3 data-i18n="footer-company">Empresa</h3><a href="#about" onclick="scrollToSection(event, 'about')" data-i18n="nav-about">Nosotros</a> <a href="#contact" onclick="scrollToSection(event, 'contact')" data-i18n="nav-contact">Contacto</a> <a href="#careers" onclick="scrollToSection(event, 'contact')" data-i18n="footer-careers">Carreras</a> <a href="#blog" onclick="showBlogList(event)" data-i18n="nav-blog">Blog</a>
+     <h3 data-i18n="footer-company">Empresa</h3><a href="#about" onclick="scrollToSection(event, 'about')" data-i18n="nav-about">Nosotros</a> <a href="#contact" onclick="scrollToSection(event, 'contact')" data-i18n="nav-contact">Contacto</a> <a href="#careers" onclick="scrollToSection(event, 'contact')" data-i18n="footer-careers">Carreras</a> <a href="#blog" onclick="event.preventDefault(); showBlogList(event);" data-i18n="nav-blog">Blog</a>
     </div>
     <div class="footer-section">
      <h3 data-i18n="nav-contact">Contacto</h3>
@@ -1692,7 +1692,7 @@
         'shop-wifi-badge': 'Menú WiFi',
         'shop-wifi-title': 'Portal WiFi Profesional',
         'shop-wifi-delivery': '🚀 Entrega en 48 horas',
-        'shop-wifi-f1': '🎨 Diseño intuitivo y Profesional',
+        'shop-wifi-f1': '�� Diseño intuitivo y Profesional',
         'shop-wifi-f2': '✓ Routerboard incluido',
         'shop-wifi-f3': '✓ Imágenes y colores sobrios',
         'shop-wifi-f4': '✓ 3 actualizaciones gratis (6 meses)',
@@ -1805,7 +1805,7 @@
         'blog1-cta-desc': 'Obtén tu menú QR profesional en 48 horas',
         'blog1-cta-btn': '💬 Contactar Ahora',
         'blog2-intro': 'Tu WiFi gratuito puede ser mucho más que un servicio. Con un portal WiFi inteligente, cada conexión se convierte en una oportunidad de marketing.',
-        'blog2-what-title': '🎯 Que es un Portal WiFi?',
+        'blog2-what-title': '🎯 ��Qué es un Portal WiFi?',
         'blog2-what-desc': 'Es una página de acceso personalizada que los clientes ven antes de conectarse a tu WiFi. Aquí puedes mostrar tu marca, promociones, redes sociales y capturar información valiosa de contacto.',
         'blog2-benefits-title': '💼 Beneficios para tu Negocio',
         'blog2-benefit1': '📊 Base de Datos: Captura emails y teléfonos de tus clientes',
@@ -1826,7 +1826,7 @@
         'blog3-intro': 'En 2025, no tener un sitio web profesional es como tener un negocio sin letrero. Tus clientes te están buscando en línea, ¿te encuentran?',
         'blog3-stats-title': '📈 Datos que No Puedes Ignorar',
         'blog3-stat1': '🔍 81% de consumidores investigan en línea antes de comprar',
-        'blog3-stat2': '📱 70% usa dispositivos moviles para buscar negocios locales',
+        'blog3-stat2': '📱 70% usa dispositivos móviles para buscar negocios locales',
         'blog3-stat3': '⏰ 50% abandona si el sitio no carga en 3 segundos',
         'blog3-stat4': '💰 Negocios con web ganan 3x más que los que no tienen',
         'blog3-benefits-title': '✨ Beneficios Inmediatos',
@@ -1844,7 +1844,7 @@
         'blog3-case-author': '— Laura Pérez, Diseñadora de Interiores',
         'blog3-myths-title': '🚫 Mitos vs. Realidad',
         'blog3-myth1': '❌ "Es muy caro"\n✅ Realidad: Por $150 tienes web + dominio + hosting por 1 año',
-        'blog3-myth2': '❌ "Lleva mucho tiempo"\n✅ Realidad: Tu sitio está listo en 4-5 días',
+        'blog3-myth2': '❌ "Lleva mucho tiempo"\n�� Realidad: Tu sitio está listo en 4-5 días',
         'blog3-myth3': '❌ "Solo necesito redes sociales"\n✅ Realidad: Tu web es tuya, las redes pueden cambiar sus reglas',
         'blog3-cta-title': '¿Listo para Tener Tu Sitio Web?',
         'blog3-cta-desc': 'Diseño profesional + Dominio + Hosting desde $150',
@@ -2190,8 +2190,56 @@
 
     document.querySelectorAll('.help-option').forEach(option => {
       option.addEventListener('click', () => {
+        const service = option.dataset.service;
+        let message = '';
+        
+        if (currentLanguage === 'es') {
+          switch(service) {
+            case 'website':
+              message = '¡Hola! Me interesa crear un *Sitio Web Profesional* para mi negocio. Me gustaría conocer más detalles sobre diseño, costos y tiempo de entrega. 🌐';
+              break;
+            case 'qr-menu':
+              message = '¡Hola! Necesito un *Menú QR Digital* para mi restaurante. Quiero saber cómo funciona, precios y si incluyen el diseño personalizado. 🍽️';
+              break;
+            case 'wifi-menu':
+              message = '¡Hola! Me interesa el *Portal WiFi con Menú* para capturar datos de clientes. ¿Incluye el routerboard? ¿Cómo es la instalación? 📶';
+              break;
+            case 'app':
+              message = '¡Hola! Quiero desarrollar una *Aplicación Móvil* para mi negocio. Necesito cotización para iOS/Android y conocer el proceso de desarrollo. 📱';
+              break;
+            case 'ecommerce':
+              message = '¡Hola! Me gustaría crear una *Tienda Online* para vender mis productos 24/7. ¿Qué funcionalidades incluye y cuál es el costo? 🛒';
+              break;
+            case 'consult':
+              message = '¡Hola! Necesito una *Consultoría* para evaluar qué solución digital es mejor para mi negocio. ¿Podemos agendar una reunión? 💼';
+              break;
+          }
+        } else {
+          switch(service) {
+            case 'website':
+              message = 'Hello! I\'m interested in creating a *Professional Website* for my business. I would like to know more details about design, costs and delivery time. 🌐';
+              break;
+            case 'qr-menu':
+              message = 'Hello! I need a *Digital QR Menu* for my restaurant. I want to know how it works, prices and if you include personalized design. 🍽️';
+              break;
+            case 'wifi-menu':
+              message = 'Hello! I\'m interested in the *WiFi Portal with Menu* to capture customer data. Does it include the routerboard? How is the installation? 📶';
+              break;
+            case 'app':
+              message = 'Hello! I want to develop a *Mobile Application* for my business. I need a quote for iOS/Android and to know the development process. 📱';
+              break;
+            case 'ecommerce':
+              message = 'Hello! I would like to create an *Online Store* to sell my products 24/7. What features does it include and what is the cost? 🛒';
+              break;
+            case 'consult':
+              message = 'Hello! I need a *Consultation* to evaluate which digital solution is best for my business. Can we schedule a meeting? 💼';
+              break;
+          }
+        }
+        
+        const whatsappUrl = `https://wa.me/584147825840?text=${encodeURIComponent(message)}`;
+        window.open(whatsappUrl, '_blank', 'noopener,noreferrer');
         helpMenu.classList.remove('active');
-        scrollToSection({ preventDefault: () => {} }, 'contact');
       });
     });
 
@@ -2201,5 +2249,5 @@
       }
     });
   </script>
- <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9a5262aba77ae7da',t:'MTc2NDI1NDQ3Ni4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+ <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9a5ae851e024cdcb',t:'MTc2NDM0MzgzNi4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
