@@ -132,8 +132,6 @@
       font-size: 1.2em;
     }
 
-
-
     .nav-cta {
       padding: 12px 28px;
       border-radius: 25px;
@@ -903,8 +901,6 @@
       opacity: 0.8;
     }
 
-
-
     @media (max-width: 968px) {
       .hero {
         padding: 120px 20px 60px;
@@ -988,18 +984,18 @@
  </head>
  <body><!-- Navigation -->
   <nav id="navbar"><a href="#home" class="nav-logo" onclick="scrollToSection(event, 'home')"> <img src="https://i.imgur.com/XJJUku6.png" alt="DataCloudly Logo" style="height: 50px; width: auto; animation: float 3s ease-in-out infinite;" onerror="this.style.display='none';"> <span style="animation: float 3s ease-in-out infinite;">DataCloudly</span> </a>
-   <div class="nav-center"><a href="#home" class="nav-link" onclick="scrollToSection(event, 'home')" data-i18n="nav-home">Inicio</a> <a href="#shop" class="nav-link" onclick="scrollToSection(event, 'shop')" data-i18n="nav-shop">Tienda</a> <a href="#services" class="nav-link" onclick="scrollToSection(event, 'services')" data-i18n="nav-services">Servicios</a> <a href="#about" class="nav-link" onclick="scrollToSection(event, 'about')" data-i18n="nav-about">Nosotros</a> <a href="#blog" class="nav-link" onclick="event.preventDefault(); showBlogList(event);" data-i18n="nav-blog">Blog</a> <a href="#contact" class="nav-link" onclick="scrollToSection(event, 'contact')" data-i18n="nav-contact">Contacto</a>
+   <div class="nav-center"><a href="#home" class="nav-link" onclick="scrollToSection(event, 'home')" data-i18n="nav-home">Inicio</a> <a href="#shop" class="nav-link" onclick="scrollToSection(event, 'shop')" data-i18n="nav-shop">Tienda</a> <a href="#portfolio" class="nav-link" onclick="scrollToSection(event, 'portfolio')" data-i18n="nav-portfolio">Portafolio</a> <a href="#services" class="nav-link" onclick="scrollToSection(event, 'services')" data-i18n="nav-services">Servicios</a> <a href="#about" class="nav-link" onclick="scrollToSection(event, 'about')" data-i18n="nav-about">Nosotros</a> <a href="#blog" class="nav-link" onclick="event.preventDefault(); showBlogList(event);" data-i18n="nav-blog">Blog</a> <a href="#contact" class="nav-link" onclick="scrollToSection(event, 'contact')" data-i18n="nav-contact">Contacto</a>
    </div>
    <div class="nav-right">
-    <div class="language-selector" id="languageSelector"><span class="language-icon">🌐</span> <span id="currentLang">ES</span>
+    <div class="language-selector" id="languageSelector" onclick="toggleLanguage()"><span class="language-icon">🌐</span> <span id="currentLang">ES</span>
     </div><a href="#contact" class="nav-cta" onclick="scrollToSection(event, 'contact')" data-i18n="nav-cta">Comenzar Ahora</a>
    </div>
    <div class="mobile-menu-btn" id="mobileMenuBtn"><span></span> <span></span> <span></span>
    </div>
   </nav><!-- Mobile Navigation -->
   <div class="mobile-nav" id="mobileNav">
-   <div class="mobile-nav-links"><a href="#home" class="mobile-nav-link" onclick="scrollToSection(event, 'home')" data-i18n="nav-home">Inicio</a> <a href="#shop" class="mobile-nav-link" onclick="scrollToSection(event, 'shop')" data-i18n="nav-shop">Tienda</a> <a href="#services" class="mobile-nav-link" onclick="scrollToSection(event, 'services')" data-i18n="nav-services">Servicios</a> <a href="#about" class="mobile-nav-link" onclick="scrollToSection(event, 'about')" data-i18n="nav-about">Nosotros</a> <a href="#blog" class="mobile-nav-link" onclick="event.preventDefault(); showBlogList(event);" data-i18n="nav-blog">Blog</a> <a href="#contact" class="mobile-nav-link" onclick="scrollToSection(event, 'contact')" data-i18n="nav-contact">Contacto</a>
-    <div class="language-selector mobile-lang-selector" id="mobileLangSelector"><span class="language-icon">🌐</span> <span id="mobileLang">Español</span>
+   <div class="mobile-nav-links"><a href="#home" class="mobile-nav-link" onclick="scrollToSection(event, 'home')" data-i18n="nav-home">Inicio</a> <a href="#shop" class="mobile-nav-link" onclick="scrollToSection(event, 'shop')" data-i18n="nav-shop">Tienda</a> <a href="#portfolio" class="mobile-nav-link" onclick="scrollToSection(event, 'portfolio')" data-i18n="nav-portfolio">Portafolio</a> <a href="#services" class="mobile-nav-link" onclick="scrollToSection(event, 'services')" data-i18n="nav-services">Servicios</a> <a href="#about" class="mobile-nav-link" onclick="scrollToSection(event, 'about')" data-i18n="nav-about">Nosotros</a> <a href="#blog" class="mobile-nav-link" onclick="event.preventDefault(); showBlogList(event);" data-i18n="nav-blog">Blog</a> <a href="#contact" class="mobile-nav-link" onclick="scrollToSection(event, 'contact')" data-i18n="nav-contact">Contacto</a>
+    <div class="language-selector" onclick="toggleLanguage()" style="justify-content: center; margin-top: 10px;"><span class="language-icon">🌐</span> <span id="mobileLang" data-i18n="mobile-lang">Español</span>
     </div>
    </div>
   </div><!-- Hero Section -->
@@ -1041,7 +1037,7 @@
         ⭐
        </div>
        <div style="font-size: 2.5em; font-weight: 900; background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 50%, #10b981 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin-bottom: 5px;">
-        4+ años
+        4+ a���os
        </div>
        <div style="font-size: 1.1em; color: #e8edf5;" data-i18n="about-stat2">
         De Experiencia
@@ -1049,7 +1045,7 @@
       </div>
       <div style="background: rgba(255, 255, 255, 0.03); padding: 30px 20px; border-radius: 20px; border: 2px solid rgba(139, 92, 246, 0.3); box-shadow: 0 5px 25px rgba(0, 0, 0, 0.4); transition: all 0.3s ease;">
        <div style="font-size: 3em; margin-bottom: 10px;">
-        💼
+        💯
        </div>
        <div style="font-size: 2.5em; font-weight: 900; background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 50%, #10b981 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin-bottom: 5px;">
         100%
@@ -1060,6 +1056,113 @@
       </div>
      </div>
     </div>
+   </div>
+  </section><!-- Portfolio/Clientes Section -->
+  <section class="services" id="portfolio" style="padding: 100px 20px; background: linear-gradient(135deg, #1b263b 0%, #0d1b2a 50%, #0a1128 100%);">
+   <div class="services-container">
+    <h2 class="section-title" style="color: #ffffff;" data-i18n="portfolio-title">👥 Nuestros Clientes</h2>
+    <p class="section-subtitle" style="color: #e8edf5;" data-i18n="portfolio-subtitle">Ejemplos reales de proyectos exitosos que hemos desarrollado</p><!-- Main Grid: Photos + Links -->
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 40px; margin-top: 50px; max-width: 1400px; margin-left: auto; margin-right: auto;"><!-- LEFT: Photo Slider -->
+     <div style="background: rgba(255, 255, 255, 0.03); padding: 30px; border-radius: 25px; border: 2px solid rgba(99, 102, 241, 0.3); backdrop-filter: blur(10px);">
+      <h3 style="font-size: 1.8em; font-weight: 700; color: #ffffff; margin-bottom: 25px; text-align: center;">📸 <span data-i18n="portfolio-gallery">Galería de Proyectos</span></h3><!-- Image Slider -->
+      <div id="portfolioSlider" style="position: relative; border-radius: 20px; overflow: hidden; box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5); margin-bottom: 20px;">
+       <div class="slider-images" style="position: relative; height: 500px;"><img src="https://i.imgur.com/rkH5YDH.png" alt="La Bodeguita Menu" class="slider-img active" style="position: absolute; width: 100%; height: 100%; object-fit: contain; opacity: 1; transition: opacity 0.5s ease; background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);" onerror="this.src='https://via.placeholder.com/800x500/6366f1/ffffff?text=La+Bodeguita'"> <img src="https://i.imgur.com/OSnUGUo.png" alt="Cafe Green Park" class="slider-img" style="position: absolute; width: 100%; height: 100%; object-fit: contain; opacity: 0; transition: opacity 0.5s ease; background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);" onerror="this.src='https://via.placeholder.com/800x500/8b5cf6/ffffff?text=Cafe+Green+Park'"> <img src="https://i.imgur.com/3wDgCJQ.png" alt="Rest Italiano" class="slider-img" style="position: absolute; width: 100%; height: 100%; object-fit: contain; opacity: 0; transition: opacity 0.5s ease; background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);" onerror="this.src='https://via.placeholder.com/800x500/10b981/ffffff?text=Rest+Italiano'">
+       </div><!-- Slider Controls --> <button onclick="previousSlide()" style="position: absolute; top: 50%; left: 20px; transform: translateY(-50%); background: rgba(0, 0, 0, 0.7); color: white; border: none; width: 50px; height: 50px; border-radius: 50%; font-size: 1.5em; cursor: pointer; transition: all 0.3s ease; z-index: 10;">❮</button> <button onclick="nextSlide()" style="position: absolute; top: 50%; right: 20px; transform: translateY(-50%); background: rgba(0, 0, 0, 0.7); color: white; border: none; width: 50px; height: 50px; border-radius: 50%; font-size: 1.5em; cursor: pointer; transition: all 0.3s ease; z-index: 10;">❯</button>
+      </div><!-- Slider Dots -->
+      <div style="display: flex; justify-content: center; gap: 12px; margin-top: 20px;"><span class="slider-dot active" onclick="goToSlide(0)" style="width: 12px; height: 12px; background: #6366f1; border-radius: 50%; cursor: pointer; transition: all 0.3s ease;"></span> <span class="slider-dot" onclick="goToSlide(1)" style="width: 12px; height: 12px; background: rgba(255, 255, 255, 0.3); border-radius: 50%; cursor: pointer; transition: all 0.3s ease;"></span> <span class="slider-dot" onclick="goToSlide(2)" style="width: 12px; height: 12px; background: rgba(255, 255, 255, 0.3); border-radius: 50%; cursor: pointer; transition: all 0.3s ease;"></span>
+      </div>
+     </div><!-- RIGHT: Example Links -->
+     <div style="background: rgba(255, 255, 255, 0.03); padding: 30px; border-radius: 25px; border: 2px solid rgba(99, 102, 241, 0.3); backdrop-filter: blur(10px);">
+      <h3 style="font-size: 1.8em; font-weight: 700; color: #ffffff; margin-bottom: 25px; text-align: center;">🔗 <span data-i18n="portfolio-examples">Ver Ejemplos en Vivo</span></h3><!-- Menu QR Examples -->
+      <div style="margin-bottom: 35px;">
+       <h4 style="font-size: 1.3em; font-weight: 700; color: #a5b4fc; margin-bottom: 20px; display: flex; align-items: center; gap: 10px;"><span>📱</span> <span data-i18n="portfolio-qr-menus">Menús QR Digitales</span></h4><a href="https://datacloudly.github.io/Menu-restaurant-La-bodeguita/" target="_blank" rel="noopener noreferrer" style="display: flex; align-items: center; gap: 15px; background: rgba(16, 185, 129, 0.1); padding: 18px 20px; border-radius: 15px; margin-bottom: 15px; text-decoration: none; border-left: 4px solid #10b981; transition: all 0.3s ease; cursor: pointer;"> <span style="font-size: 2em;">🍽️</span>
+        <div style="flex: 1;">
+         <div style="font-size: 1.1em; font-weight: 600; color: #ffffff; margin-bottom: 5px;" data-i18n="portfolio-menu1-name">
+          Restaurante La Bodeguita
+         </div>
+         <div style="font-size: 0.9em; color: #e8edf5;" data-i18n="portfolio-menu1-desc">
+          Menú digital con categorías organizadas
+         </div>
+        </div><span style="font-size: 1.5em; color: #10b981;">→</span> </a> <a href="https://datacloudly.github.io/Menu.cafe.green.park/" target="_blank" rel="noopener noreferrer" style="display: flex; align-items: center; gap: 15px; background: rgba(99, 102, 241, 0.1); padding: 18px 20px; border-radius: 15px; margin-bottom: 15px; text-decoration: none; border-left: 4px solid #6366f1; transition: all 0.3s ease; cursor: pointer;"> <span style="font-size: 2em;">☕</span>
+        <div style="flex: 1;">
+         <div style="font-size: 1.1em; font-weight: 600; color: #ffffff; margin-bottom: 5px;" data-i18n="portfolio-menu2-name">
+          Café Green Park
+         </div>
+         <div style="font-size: 0.9em; color: #e8edf5;" data-i18n="portfolio-menu2-desc">
+          Menú elegante con im��genes atractivas
+         </div>
+        </div><span style="font-size: 1.5em; color: #6366f1;">→</span> </a> <a href="https://datacloudly.github.io/Menu-restaurant/" target="_blank" rel="noopener noreferrer" style="display: flex; align-items: center; gap: 15px; background: rgba(139, 92, 246, 0.1); padding: 18px 20px; border-radius: 15px; text-decoration: none; border-left: 4px solid #8b5cf6; transition: all 0.3s ease; cursor: pointer;"> <span style="font-size: 2em;">🍕</span>
+        <div style="flex: 1;">
+         <div style="font-size: 1.1em; font-weight: 600; color: #ffffff; margin-bottom: 5px;" data-i18n="portfolio-menu3-name">
+          Restaurante Bella Cucina
+         </div>
+         <div style="font-size: 0.9em; color: #e8edf5;" data-i18n="portfolio-menu3-desc">
+          Menú italiano moderno y elegante
+         </div>
+        </div><span style="font-size: 1.5em; color: #8b5cf6;">→</span> </a>
+      </div><!-- Website Examples -->
+      <div>
+       <h4 style="font-size: 1.3em; font-weight: 700; color: #a5b4fc; margin-bottom: 20px; display: flex; align-items: center; gap: 10px;"><span>🌐</span> <span data-i18n="portfolio-websites">Sitios Web</span></h4><a href="https://mariachishowmexicano.pages.dev/" target="_blank" rel="noopener noreferrer" style="display: flex; align-items: center; gap: 15px; background: rgba(236, 72, 153, 0.1); padding: 18px 20px; border-radius: 15px; margin-bottom: 15px; text-decoration: none; border-left: 4px solid #ec4899; transition: all 0.3s ease; cursor: pointer;"> <span style="font-size: 2em;">🎺</span>
+        <div style="flex: 1;">
+         <div style="font-size: 1.1em; font-weight: 600; color: #ffffff; margin-bottom: 5px;" data-i18n="portfolio-web1-name">
+          Mariachi Show Mexicano
+         </div>
+         <div style="font-size: 0.9em; color: #e8edf5;" data-i18n="portfolio-web1-desc">
+          Sitio profesional para mariachi
+         </div>
+        </div><span style="font-size: 1.5em; color: #ec4899;">→</span> </a> <a href="https://datacloudly.github.io/Atlas-Construcciones-Construyendo-el-futuro/" target="_blank" rel="noopener noreferrer" style="display: flex; align-items: center; gap: 15px; background: rgba(59, 130, 246, 0.1); padding: 18px 20px; border-radius: 15px; margin-bottom: 15px; text-decoration: none; border-left: 4px solid #3b82f6; transition: all 0.3s ease; cursor: pointer;"> <span style="font-size: 2em;">🏗️</span>
+        <div style="flex: 1;">
+         <div style="font-size: 1.1em; font-weight: 600; color: #ffffff; margin-bottom: 5px;" data-i18n="portfolio-web2-name">
+          Atlas Construcciones
+         </div>
+         <div style="font-size: 0.9em; color: #e8edf5;" data-i18n="portfolio-web2-desc">
+          Sitio web corporativo
+         </div>
+        </div><span style="font-size: 1.5em; color: #3b82f6;">→</span> </a> <a href="https://datacloudly.github.io/Bienes-Ra-ces-Anzo-tegui-/" target="_blank" rel="noopener noreferrer" style="display: flex; align-items: center; gap: 15px; background: rgba(234, 179, 8, 0.1); padding: 18px 20px; border-radius: 15px; margin-bottom: 15px; text-decoration: none; border-left: 4px solid #eab308; transition: all 0.3s ease; cursor: pointer;"> <span style="font-size: 2em;">🏠</span>
+        <div style="flex: 1;">
+         <div style="font-size: 1.1em; font-weight: 600; color: #ffffff; margin-bottom: 5px;" data-i18n="portfolio-web3-name">
+          Bienes Raíces Anzoátegui
+         </div>
+         <div style="font-size: 0.9em; color: #e8edf5;" data-i18n="portfolio-web3-desc">
+          Venta y alquiler de propiedades
+         </div>
+        </div><span style="font-size: 1.5em; color: #eab308;">→</span> </a> <a href="#contact" onclick="scrollToSection(event, 'contact')" style="display: flex; align-items: center; gap: 15px; background: rgba(16, 185, 129, 0.1); padding: 18px 20px; border-radius: 15px; text-decoration: none; border-left: 4px solid #10b981; transition: all 0.3s ease; cursor: pointer;"> <span style="font-size: 2em;">✨</span>
+        <div style="flex: 1;">
+         <div style="font-size: 1.1em; font-weight: 600; color: #ffffff; margin-bottom: 5px;" data-i18n="portfolio-web4-name">
+          Tu Sitio Web Aquí
+         </div>
+         <div style="font-size: 0.9em; color: #e8edf5;" data-i18n="portfolio-web4-desc">
+          Crea tu presencia digital
+         </div>
+        </div><span style="font-size: 1.5em; color: #10b981;">→</span> </a>
+      </div><!-- CTA Button -->
+      <div style="margin-top: 35px; text-align: center; padding-top: 25px; border-top: 1px solid rgba(255, 255, 255, 0.1);"><a href="https://wa.me/584147825840?text=Hola!%20Vi%20sus%20trabajos%20y%20me%20gustaría%20crear%20algo%20para%20mi%20negocio%20💼" target="_blank" rel="noopener noreferrer" style="display: inline-block; padding: 16px 35px; background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%); color: white; text-decoration: none; border-radius: 25px; font-weight: 600; font-size: 1.05em; box-shadow: 0 8px 25px rgba(99, 102, 241, 0.4); transition: all 0.3s ease;"> 💬 <span data-i18n="portfolio-cta-button">Quiero un Proyecto Así</span> </a>
+      </div>
+     </div>
+    </div><!-- Mobile Responsive View -->
+    <style>
+        @media (max-width: 968px) {
+          #portfolio > div > div:nth-child(3) {
+            grid-template-columns: 1fr !important;
+            gap: 30px !important;
+          }
+          
+          .slider-images {
+            height: 350px !important;
+          }
+          
+          #portfolioSlider button {
+            width: 40px !important;
+            height: 40px !important;
+            font-size: 1.2em !important;
+          }
+        }
+        
+        [href^="https://datacloudly"]:hover, [href^="https://mariachi"]:hover {
+          transform: translateX(5px);
+          background: rgba(99, 102, 241, 0.2) !important;
+        }
+      </style>
    </div>
   </section><!-- Services Section -->
   <section class="services" id="services">
@@ -1083,7 +1186,7 @@
      </div>
      <div class="service-card">
       <div class="service-icon">
-       ☁️
+       ��️
       </div>
       <h3 data-i18n="service3-title">Cloud Solutions</h3>
       <p data-i18n="service3-desc">Implementamos infraestructura en la nube escalable, segura y eficiente para tu negocio.</p>
@@ -1134,7 +1237,7 @@
        $200<span class="price-period" data-i18n="shop-onetime">/ único pago</span>
       </div>
       <ul class="features-list">
-       <li data-i18n="shop-wifi-f1">🎨 Diseño intuitivo y Profesional</li>
+       <li data-i18n="shop-wifi-f1">������ Diseño intuitivo y Profesional</li>
        <li data-i18n="shop-wifi-f2">✓ Routerboard incluido</li>
        <li data-i18n="shop-wifi-f3">✓ Imágenes y colores sobrios</li>
        <li data-i18n="shop-wifi-f4">✓ 3 actualizaciones gratis (6 meses)</li>
@@ -1153,7 +1256,7 @@
       </div>
       <h3 data-i18n="shop-qr-title">Menú QR Digital</h3>
       <div class="delivery-tag" data-i18n="shop-qr-delivery">
-       🚀 Entrega en 48 horas
+       ��� Entrega en 48 horas
       </div>
       <div class="shop-price" data-contado="100" data-credito="40">
        $100<span class="price-period" data-i18n="shop-onetime">/ único pago</span>
@@ -1172,7 +1275,7 @@
        🌐 <span data-i18n="shop-web-badge">Diseño Web</span>
       </div>
       <div class="shop-icon">
-       💻
+       🌐
       </div>
       <h3 data-i18n="shop-web-title">Diseño Web, Dominio y Hosting</h3>
       <div class="delivery-tag" data-i18n="shop-web-delivery">
@@ -1183,205 +1286,46 @@
       </div>
       <ul class="features-list">
        <li data-i18n="shop-web-f1">✓ HTML5 &amp; CSS3 moderno</li>
-       <li data-i18n="shop-web-f2">✓ 4 enlaces/p��ginas</li>
+       <li data-i18n="shop-web-f2">✓ 4 enlaces/páginas</li>
        <li data-i18n="shop-web-f3">✓ Hosting y Dominio 1 año</li>
        <li data-i18n="shop-web-f4">✓ Botón WhatsApp integrado</li>
        <li data-i18n="shop-web-f5">✓ Diseño responsivo</li>
-       <li data-i18n="shop-web-f6">✓ Integración PayPhone</li>
-      </ul><button class="btn-add-cart" data-whatsapp="Hola! Me interesa el *Diseño Web Completo* ��" data-i18n="shop-paynow">Pagar Ahora</button>
+       <li data-i18n="shop-web-f6">✓ SEO optimizado</li>
+      </ul><button class="btn-add-cart" data-whatsapp="Hola! Me interesa el *Diseño Web Completo* 🌐" data-i18n="shop-paynow">Pagar Ahora</button>
      </div>
     </div>
    </div>
-  </section><!-- Blog List Section -->
-  <section class="services" id="blog" style="padding: 100px 20px; display: block;">
+  </section><!-- Blog Section -->
+  <section class="services" id="blog" style="padding: 100px 20px; background: linear-gradient(135deg, #0a1128 0%, #0d1b2a 50%, #1b263b 100%);">
    <div class="services-container">
-    <h2 class="section-title" style="color: #ffffff;"><span data-i18n="blog-title">📝 Blog DataCloudly</span></h2>
-    <p class="section-subtitle" style="color: #e8edf5;" data-i18n="blog-subtitle">Noticias, tutoriales y tendencias en tecnología</p>
-    <div style="max-width: 1200px; margin: 50px auto;">
-     <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 35px;"><!-- Blog Post 1 -->
-      <article style="background: rgba(255, 255, 255, 0.03); padding: 0; border-radius: 25px; border: 2px solid rgba(99, 102, 241, 0.3); overflow: hidden; transition: all 0.4s ease; box-shadow: 0 5px 25px rgba(0, 0, 0, 0.4);">
-       <div style="height: 200px; background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%); display: flex; align-items: center; justify-content: center; font-size: 4em; position: relative; overflow: hidden;"><img src="https://i.imgur.com/xoD4t60.png" alt="Digital Menu" style="width: 100%; height: 100%; object-fit: cover; position: absolute; top: 0; left: 0;" onerror="this.style.display='none'; this.parentElement.innerHTML='🚀';">
-       </div>
-       <div style="padding: 30px;">
-        <div style="font-size: 0.85em; color: #a5b4fc; margin-bottom: 10px;" data-i18n="blog-date1">
-         15 Enero 2024
-        </div>
-        <h3 style="font-size: 1.5em; font-weight: 700; color: #ffffff; margin-bottom: 15px; line-height: 1.3;" data-i18n="blog-post1-title">Cómo los Menús Digitales Aumentan tus Ventas en 40%</h3>
-        <p style="color: #e8edf5; line-height: 1.7; margin-bottom: 20px;" data-i18n="blog-post1-desc">Descubre cómo restaurantes exitosos están implementando menús QR para mejorar la experiencia del cliente y aumentar significativamente sus ingresos.</p>
-        <div style="display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 20px;"><span style="background: rgba(99, 102, 241, 0.2); color: #a5b4fc; padding: 5px 12px; border-radius: 15px; font-size: 0.85em;" data-i18n="blog-post1-tag1">Restaurantes</span> <span style="background: rgba(99, 102, 241, 0.2); color: #a5b4fc; padding: 5px 12px; border-radius: 15px; font-size: 0.85em;" data-i18n="blog-post1-tag2">Menú QR</span>
-        </div><a href="#blog-post-1" class="blog-link" onclick="showBlogPost(event, 1)" style="display: inline-block; padding: 12px 25px; background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%); color: white; text-decoration: none; border-radius: 20px; font-weight: 600; transition: all 0.3s ease;" data-i18n="blog-readmore">Leer más →</a>
-       </div>
-      </article><!-- Blog Post 2 -->
-      <article style="background: rgba(255, 255, 255, 0.03); padding: 0; border-radius: 25px; border: 2px solid rgba(99, 102, 241, 0.3); overflow: hidden; transition: all 0.4s ease; box-shadow: 0 5px 25px rgba(0, 0, 0, 0.4);">
-       <div style="height: 200px; background: linear-gradient(135deg, #10b981 0%, #059669 100%); display: flex; align-items: center; justify-content: center; font-size: 4em; overflow: hidden; position: relative;"><img src="https://i.imgur.com/O4BQFWn.png" alt="WiFi Portal Marketing" style="width: 100%; height: 100%; object-fit: cover; position: absolute; top: 0; left: 0;" onerror="this.style.display='none'; this.parentElement.innerHTML='📶';">
-       </div>
-       <div style="padding: 30px;">
-        <div style="font-size: 0.85em; color: #a5b4fc; margin-bottom: 10px;" data-i18n="blog-date2">
-         10 Enero 2024
-        </div>
-        <h3 style="font-size: 1.5em; font-weight: 700; color: #ffffff; margin-bottom: 15px; line-height: 1.3;" data-i18n="blog-post2-title">Portales WiFi: Marketing Inteligente para tu Negocio</h3>
-        <p style="color: #e8edf5; line-height: 1.7; margin-bottom: 20px;" data-i18n="blog-post2-desc">Aprende cómo convertir tu WiFi gratuito en una poderosa herramienta de marketing que captura clientes potenciales mientras les das acceso a internet.</p>
-        <div style="display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 20px;"><span style="background: rgba(16, 185, 129, 0.2); color: #10b981; padding: 5px 12px; border-radius: 15px; font-size: 0.85em;" data-i18n="blog-post2-tag1">WiFi</span> <span style="background: rgba(16, 185, 129, 0.2); color: #10b981; padding: 5px 12px; border-radius: 15px; font-size: 0.85em;" data-i18n="blog-post2-tag2">Marketing</span>
-        </div><a href="#blog-post-2" class="blog-link" onclick="showBlogPost(event, 2)" style="display: inline-block; padding: 12px 25px; background: linear-gradient(135deg, #10b981 0%, #059669 100%); color: white; text-decoration: none; border-radius: 20px; font-weight: 600; transition: all 0.3s ease;" data-i18n="blog-readmore">Leer más →</a>
-       </div>
-      </article><!-- Blog Post 3 -->
-      <article style="background: rgba(255, 255, 255, 0.03); padding: 0; border-radius: 25px; border: 2px solid rgba(99, 102, 241, 0.3); overflow: hidden; transition: all 0.4s ease; box-shadow: 0 5px 25px rgba(0, 0, 0, 0.4);">
-       <div style="height: 200px; background: linear-gradient(135deg, #8b5cf6 0%, #6366f1 100%); display: flex; align-items: center; justify-content: center; font-size: 4em; position: relative; overflow: hidden;"><img src="https://i.imgur.com/6vDfLk6.png" alt="Why Your Business Needs a Website in 2025" style="width: 100%; height: 100%; object-fit: cover; position: absolute; top: 0; left: 0;" onerror="this.style.display='none'; this.parentElement.innerHTML='💻';">
-       </div>
-       <div style="padding: 30px;">
-        <div style="font-size: 0.85em; color: #a5b4fc; margin-bottom: 10px;" data-i18n="blog-date3">
-         5 Enero 2025
-        </div>
-        <h3 style="font-size: 1.5em; font-weight: 700; color: #ffffff; margin-bottom: 15px; line-height: 1.3;" data-i18n="blog-post3-title">¿Por qué tu Negocio Necesita un Sitio Web en 2025?</h3>
-        <p style="color: #e8edf5; line-height: 1.7; margin-bottom: 20px;" data-i18n="blog-post3-desc">En la era digital, no tener presencia en línea significa perder clientes. Te explicamos por qué un sitio web profesional es una inversión, no un gasto.</p>
-        <div style="display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 20px;"><span style="background: rgba(139, 92, 246, 0.2); color: #a78bfa; padding: 5px 12px; border-radius: 15px; font-size: 0.85em;" data-i18n="blog-post3-tag1">Diseño Web</span> <span style="background: rgba(139, 92, 246, 0.2); color: #a78bfa; padding: 5px 12px; border-radius: 15px; font-size: 0.85em;" data-i18n="blog-post3-tag2">Negocios</span>
-        </div><a href="#blog-post-3" class="blog-link" onclick="showBlogPost(event, 3)" style="display: inline-block; padding: 12px 25px; background: linear-gradient(135deg, #8b5cf6 0%, #6366f1 100%); color: white; text-decoration: none; border-radius: 20px; font-weight: 600; transition: all 0.3s ease;" data-i18n="blog-readmore">Leer más →</a>
-       </div>
-      </article>
-     </div><!-- Call to Action -->
-     <div style="margin-top: 60px; text-align: center; background: rgba(99, 102, 241, 0.1); padding: 50px 40px; border-radius: 25px; border: 2px solid rgba(99, 102, 241, 0.3);">
-      <div style="font-size: 4em; margin-bottom: 20px;">
-       🌟
+    <h2 class="section-title" style="color: #ffffff;" data-i18n="blog-title">📝 Blog &amp; Recursos</h2>
+    <p class="section-subtitle" style="color: #e8edf5;" data-i18n="blog-subtitle">Art��culos, guías y tendencias sobre tecnología y transformación digital</p><!-- Blog Grid -->
+    <div id="blogGrid" class="services-grid" style="margin-top: 50px;"><!-- Blog Post 1 -->
+     <article class="service-card" style="cursor: pointer; transition: all 0.3s ease;" onclick="openBlogPost(1)"><img src="https://i.imgur.com/xoD4t60.jpg" alt="Menú QR Digital" style="width: 100%; height: 200px; object-fit: cover; border-radius: 15px; margin-bottom: 20px;" onerror="this.style.display='none';">
+      <h3 style="font-size: 1.6em; font-weight: 700; margin-bottom: 15px; color: #ffffff;"><span data-i18n="blog1-title">Por qué tu Restaurante Necesita un Menú Digital QR en 2025</span></h3>
+      <p style="color: #e8edf5; line-height: 1.7; margin-bottom: 15px;" data-i18n="blog1-preview">Descubre cómo los menús digitales QR están revolucionando la industria gastronómica y por qué son esenciales para el éxito de tu negocio...</p>
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 20px; padding-top: 15px; border-top: 1px solid rgba(255, 255, 255, 0.1);"><span style="color: #a5b4fc; font-size: 0.9em;" data-i18n="blog1-date">📅 15 Enero 2025</span> <span style="color: #10b981; font-weight: 600;" data-i18n="blog-read">Leer más →</span>
       </div>
-      <h3 style="font-size: 2em; font-weight: 700; color: #ffffff; margin-bottom: 20px;" data-i18n="blog-cta-title">¿Tienes un Tema que Te Gustaría Ver?</h3>
-      <p style="font-size: 1.2em; color: #e8edf5; margin-bottom: 30px;" data-i18n="blog-cta-desc">Comparte tus ideas y preguntas. Nuestro equipo está siempre creando contenido valioso para la comunidad.</p><a href="https://wa.me/584147825840?text=Hola!%20Tengo%20una%20idea%20para%20el%20blog" target="_blank" rel="noopener noreferrer" style="display: inline-block; padding: 16px 40px; background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%); color: white; text-decoration: none; border-radius: 30px; font-weight: 600; font-size: 1.1em; box-shadow: 0 8px 25px rgba(99, 102, 241, 0.4); transition: all 0.3s ease;" data-i18n="blog-cta-button">💬 Enviar Sugerencia</a>
-     </div>
+     </article><!-- Blog Post 2 -->
+     <article class="service-card" style="cursor: pointer; transition: all 0.3s ease;" onclick="openBlogPost(2)"><img src="https://i.imgur.com/G0FgFwJ.jpg" alt="Portal WiFi" style="width: 100%; height: 200px; object-fit: cover; border-radius: 15px; margin-bottom: 20px;" onerror="this.style.display='none';">
+      <h3 style="font-size: 1.6em; font-weight: 700; margin-bottom: 15px; color: #ffffff;"><span data-i18n="blog2-title">Portales WiFi: Convierte Visitantes en Clientes</span></h3>
+      <p style="color: #e8edf5; line-height: 1.7; margin-bottom: 15px;" data-i18n="blog2-preview">Aprende cómo los portales WiFi personalizados pueden transformar tu estrategia de marketing y aumentar el engagement con tus clientes...</p>
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 20px; padding-top: 15px; border-top: 1px solid rgba(255, 255, 255, 0.1);"><span style="color: #a5b4fc; font-size: 0.9em;" data-i18n="blog2-date">📅 10 Enero 2025</span> <span style="color: #10b981; font-weight: 600;" data-i18n="blog-read">Leer más →</span>
+      </div>
+     </article><!-- Blog Post 3 -->
+     <article class="service-card" style="cursor: pointer; transition: all 0.3s ease;" onclick="openBlogPost(3)"><img src="https://i.imgur.com/J0o5qkB.jpg" alt="Sitio Web Profesional" style="width: 100%; height: 200px; object-fit: cover; border-radius: 15px; margin-bottom: 20px;" onerror="this.style.display='none';">
+      <h3 style="font-size: 1.6em; font-weight: 700; margin-bottom: 15px; color: #ffffff;"><span data-i18n="blog3-title">5 Razones para Invertir en un Sitio Web Profesional</span></h3>
+      <p style="color: #e8edf5; line-height: 1.7; margin-bottom: 15px;" data-i18n="blog3-preview">En la era digital, tu sitio web es tu carta de presentación. Descubre por qué es crucial para el crecimiento de tu negocio...</p>
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 20px; padding-top: 15px; border-top: 1px solid rgba(255, 255, 255, 0.1);"><span style="color: #a5b4fc; font-size: 0.9em;" data-i18n="blog3-date">📅 5 Enero 2025</span> <span style="color: #10b981; font-weight: 600;" data-i18n="blog-read">Leer más →</span>
+      </div>
+     </article>
+    </div><!-- Back to Blog List Button (hidden by default) -->
+    <div id="backToBlogBtn" style="display: none; text-align: center; margin-top: 40px;"><button onclick="showBlogList(event)" style="padding: 14px 35px; background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%); color: white; border: none; border-radius: 25px; font-weight: 600; font-size: 1.05em; cursor: pointer; box-shadow: 0 8px 25px rgba(99, 102, 241, 0.4); transition: all 0.3s ease;"> ← <span data-i18n="blog-back">Volver al Blog</span> </button>
+    </div><!-- Individual Blog Post View (hidden by default) -->
+    <div id="blogPostView" style="display: none; max-width: 900px; margin: 50px auto 0;">
+     <article id="blogPostContent" style="background: rgba(255, 255, 255, 0.03); padding: 50px 40px; border-radius: 25px; border: 2px solid rgba(99, 102, 241, 0.3); backdrop-filter: blur(10px);"><!-- Content will be dynamically inserted here -->
+     </article>
     </div>
-   </div>
-  </section><!-- Blog Post 1 Full Article -->
-  <section class="services" id="blog-post-1" style="padding: 100px 20px; display: none;">
-   <div class="services-container"><a href="#blog" class="blog-back-btn" onclick="showBlogList(event)" style="display: inline-block; margin-bottom: 30px; color: #a5b4fc; text-decoration: none; font-weight: 600; font-size: 1.1em; transition: all 0.3s ease; cursor: pointer;" data-i18n="blog-back">��� Volver al Blog</a>
-    <article style="max-width: 900px; margin: 0 auto;">
-     <div style="text-align: center; margin-bottom: 40px;">
-      <div style="font-size: 0.9em; color: #a5b4fc; margin-bottom: 15px;" data-i18n="blog-date1">
-       15 Enero 2024
-      </div>
-      <h1 style="font-size: 2.8em; font-weight: 900; color: #ffffff; margin-bottom: 20px; line-height: 1.2;" data-i18n="blog-post1-title">Cómo los Menús Digitales Aumentan tus Ventas en 40%</h1>
-      <div style="display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; margin-bottom: 30px;"><span style="background: rgba(99, 102, 241, 0.2); color: #a5b4fc; padding: 8px 16px; border-radius: 15px; font-size: 0.9em;" data-i18n="blog-post1-tag1">Restaurantes</span> <span style="background: rgba(99, 102, 241, 0.2); color: #a5b4fc; padding: 8px 16px; border-radius: 15px; font-size: 0.9em;" data-i18n="blog-post1-tag2">Menú QR</span>
-      </div>
-     </div>
-     <div style="margin-bottom: 40px; border-radius: 25px; overflow: hidden; box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);"><img src="https://i.imgur.com/Z9YzngK.png" alt="Menú Digital Grande" style="width: 100%; height: auto; display: block;" onerror="this.style.display='none';">
-     </div>
-     <div style="background: rgba(255, 255, 255, 0.03); padding: 50px 40px; border-radius: 25px; border: 2px solid rgba(99, 102, 241, 0.3);">
-      <p style="font-size: 1.3em; line-height: 1.9; color: #e8edf5; margin-bottom: 30px;" data-i18n="blog1-intro">En la era digital, los <strong style="color: #a5b4fc;">menús QR</strong> han revolucionado la experiencia gastronómica. Los restaurantes que han adoptado esta tecnología reportan aumentos impresionantes en sus ventas.</p>
-      <h2 style="font-size: 2em; font-weight: 700; color: #ffffff; margin: 40px 0 20px;" data-i18n="blog1-stats-title">📊 Estadísticas Impactantes</h2>
-      <ul style="list-style: none; padding: 0; margin: 30px 0;">
-       <li style="color: #e8edf5; padding: 15px; margin-bottom: 15px; background: rgba(16, 185, 129, 0.1); border-left: 4px solid #10b981; border-radius: 8px; font-size: 1.1em;" data-i18n="blog1-stat1">✅ <strong>40% más ventas</strong> promedio por mesa</li>
-       <li style="color: #e8edf5; padding: 15px; margin-bottom: 15px; background: rgba(16, 185, 129, 0.1); border-left: 4px solid #10b981; border-radius: 8px; font-size: 1.1em;" data-i18n="blog1-stat2">✅ <strong>25% reducción</strong> en costos operativos</li>
-       <li style="color: #e8edf5; padding: 15px; margin-bottom: 15px; background: rgba(16, 185, 129, 0.1); border-left: 4px solid #10b981; border-radius: 8px; font-size: 1.1em;" data-i18n="blog1-stat3">✅ <strong>60% más rápido</strong> el tiempo de pedido</li>
-       <li style="color: #e8edf5; padding: 15px; margin-bottom: 15px; background: rgba(16, 185, 129, 0.1); border-left: 4px solid #10b981; border-radius: 8px; font-size: 1.1em;" data-i18n="blog1-stat4">✅ <strong>90% preferencia</strong> de clientes jóvenes</li>
-      </ul>
-      <h2 style="font-size: 2em; font-weight: 700; color: #ffffff; margin: 40px 0 20px;" data-i18n="blog1-benefits-title"> Beneficios Clave</h2>
-      <p style="font-size: 1.2em; line-height: 1.9; color: #e8edf5; margin-bottom: 25px;" data-i18n="blog1-benefit1"><strong style="color: #a5b4fc;">1. Experiencia Sin Contacto:</strong> Los clientes aprecian la higiene y seguridad de no tocar menús físicos compartidos.</p>
-      <p style="font-size: 1.2em; line-height: 1.9; color: #e8edf5; margin-bottom: 25px;" data-i18n="blog1-benefit2"><strong style="color: #a5b4fc;">2. Actualizaciones Instantáneas:</strong> Cambia precios, agrega platos nuevos o marca items agotados en segundos.</p>
-      <p style="font-size: 1.2em; line-height: 1.9; color: #e8edf5; margin-bottom: 25px;" data-i18n="blog1-benefit3"><strong style="color: #a5b4fc;">3. Upselling Inteligente:</strong> Muestra recomendaciones, combos y promociones personalizadas.</p>
-      <p style="font-size: 1.2em; line-height: 1.9; color: #e8edf5; margin-bottom: 25px;" data-i18n="blog1-benefit4"><strong style="color: #a5b4fc;">4. Análisis de Datos:</strong> Conoce qué platos son más populares y optimiza tu inventario.</p>
-      <h2 style="font-size: 2em; font-weight: 700; color: #ffffff; margin: 40px 0 20px;" data-i18n="blog1-case-title">🚀 Caso de Éxito Real</h2>
-      <div style="background: rgba(99, 102, 241, 0.1); padding: 30px; border-radius: 15px; border-left: 5px solid #6366f1; margin: 30px 0;">
-       <p style="font-size: 1.2em; line-height: 1.9; color: #e8edf5; font-style: italic;" data-i18n="blog1-case-quote">"Después de implementar menús QR en nuestro restaurante, vimos un aumento del 45% en ventas de postres y bebidas. Los clientes pueden ver fotos atractivas de cada plato y hacen pedidos más grandes."</p>
-       <p style="font-size: 1em; color: #a5b4fc; margin-top: 15px;" data-i18n="blog1-case-author">— María González, Restaurante "El Sabor"</p>
-      </div>
-      <h2 style="font-size: 2em; font-weight: 700; color: #ffffff; margin: 40px 0 20px;" data-i18n="blog1-conclusion-title">✨ Conclusión</h2>
-      <p style="font-size: 1.2em; line-height: 1.9; color: #e8edf5; margin-bottom: 25px;" data-i18n="blog1-conclusion">Los menús digitales no son solo una tendencia, son el futuro de la industria gastronómica. Ofrecen una experiencia superior al cliente mientras reducen costos y aumentan ventas.</p>
-     </div>
-     <div style="margin-top: 50px; text-align: center; background: rgba(16, 185, 129, 0.1); padding: 40px; border-radius: 25px; border: 2px solid rgba(16, 185, 129, 0.3);">
-      <h3 style="font-size: 2em; font-weight: 700; color: #ffffff; margin-bottom: 20px;" data-i18n="blog1-cta-title">¿Listo para Digitalizar tu Restaurante?</h3>
-      <p style="font-size: 1.2em; color: #e8edf5; margin-bottom: 30px;" data-i18n="blog1-cta-desc">Obtén tu menú QR profesional en 48 horas</p><a href="https://wa.me/584147825840?text=Hola!%20Me%20interesa%20el%20Menú%20QR%20Digital" target="_blank" rel="noopener noreferrer" style="display: inline-block; padding: 16px 40px; background: linear-gradient(135deg, #10b981 0%, #059669 100%); color: white; text-decoration: none; border-radius: 30px; font-weight: 600; font-size: 1.1em; box-shadow: 0 8px 25px rgba(16, 185, 129, 0.4); transition: all 0.3s ease;" data-i18n="blog1-cta-btn">💬 Contactar Ahora</a>
-     </div>
-    </article>
-   </div>
-  </section><!-- Blog Post 2 Full Article -->
-  <section class="services" id="blog-post-2" style="padding: 100px 20px; display: none;">
-   <div class="services-container"><a href="#blog" class="blog-back-btn" onclick="showBlogList(event)" style="display: inline-block; margin-bottom: 30px; color: #a5b4fc; text-decoration: none; font-weight: 600; font-size: 1.1em; transition: all 0.3s ease; cursor: pointer;" data-i18n="blog-back">← Volver al Blog</a>
-    <article style="max-width: 900px; margin: 0 auto;">
-     <div style="text-align: center; margin-bottom: 40px;">
-      <div style="font-size: 0.9em; color: #a5b4fc; margin-bottom: 15px;" data-i18n="blog-date2">
-       10 Enero 2024
-      </div>
-      <h1 style="font-size: 2.8em; font-weight: 900; color: #ffffff; margin-bottom: 20px; line-height: 1.2;" data-i18n="blog-post2-title">Portales WiFi: Marketing Inteligente para tu Negocio</h1>
-      <div style="display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; margin-bottom: 30px;"><span style="background: rgba(16, 185, 129, 0.2); color: #10b981; padding: 8px 16px; border-radius: 15px; font-size: 0.9em;" data-i18n="blog-post2-tag1">WiFi</span> <span style="background: rgba(16, 185, 129, 0.2); color: #10b981; padding: 8px 16px; border-radius: 15px; font-size: 0.9em;" data-i18n="blog-post2-tag2">Marketing</span>
-      </div>
-     </div>
-     <div style="margin-bottom: 40px; border-radius: 25px; overflow: hidden; box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);"><img src="https://i.imgur.com/bjlDBtw.png" alt="Portal WiFi Marketing" style="width: 100%; height: auto; display: block;" onerror="this.style.display='none';">
-     </div>
-     <div style="background: rgba(255, 255, 255, 0.03); padding: 50px 40px; border-radius: 25px; border: 2px solid rgba(16, 185, 129, 0.3);">
-      <p style="font-size: 1.3em; line-height: 1.9; color: #e8edf5; margin-bottom: 30px;" data-i18n="blog2-intro">Tu WiFi gratuito puede ser mucho más que un servicio. Con un <strong style="color: #10b981;">portal WiFi inteligente</strong>, cada conexión se convierte en una oportunidad de marketing.</p>
-      <h2 style="font-size: 2em; font-weight: 700; color: #ffffff; margin: 40px 0 20px;" data-i18n="blog2-what-title">🎯 ¿Qué es un Portal WiFi?</h2>
-      <p style="font-size: 1.2em; line-height: 1.9; color: #e8edf5; margin-bottom: 25px;" data-i18n="blog2-what-desc">Es una página de acceso personalizada que los clientes ven antes de conectarse a tu WiFi. Aquí puedes mostrar tu marca, promociones, redes sociales y capturar información valiosa de contacto.</p>
-      <h2 style="font-size: 2em; font-weight: 700; color: #ffffff; margin: 40px 0 20px;" data-i18n="blog2-benefits-title">💼 Beneficios para tu Negocio</h2>
-      <ul style="list-style: none; padding: 0; margin: 30px 0;">
-       <li style="color: #e8edf5; padding: 15px; margin-bottom: 15px; background: rgba(99, 102, 241, 0.1); border-left: 4px solid #6366f1; border-radius: 8px; font-size: 1.1em;" data-i18n="blog2-benefit1">📊 <strong>Base de Datos:</strong> Captura emails y teléfonos de tus clientes</li>
-       <li style="color: #e8edf5; padding: 15px; margin-bottom: 15px; background: rgba(99, 102, 241, 0.1); border-left: 4px solid #6366f1; border-radius: 8px; font-size: 1.1em;" data-i18n="blog2-benefit2">📢 <strong>Promociones:</strong> Muestra ofertas especiales del día</li>
-       <li style="color: #e8edf5; padding: 15px; margin-bottom: 15px; background: rgba(99, 102, 241, 0.1); border-left: 4px solid #6366f1; border-radius: 8px; font-size: 1.1em;" data-i18n="blog2-benefit3">🌟 <strong>Branding:</strong> Refuerza la identidad de tu marca</li>
-       <li style="color: #e8edf5; padding: 15px; margin-bottom: 15px; background: rgba(99, 102, 241, 0.1); border-left: 4px solid #6366f1; border-radius: 8px; font-size: 1.1em;" data-i18n="blog2-benefit4">📱 <strong>Redes Sociales:</strong> Aumenta tus seguidores automáticamente</li>
-      </ul>
-      <h2 style="font-size: 2em; font-weight: 700; color: #ffffff; margin: 40px 0 20px;" data-i18n="blog2-case-title">🚀 Implementación Exitosa</h2>
-      <div style="background: rgba(16, 185, 129, 0.1); padding: 30px; border-radius: 15px; border-left: 5px solid #10b981; margin: 30px 0;">
-       <p style="font-size: 1.2em; line-height: 1.9; color: #e8edf5; font-style: italic;" data-i18n="blog2-case-quote">"Instalamos un portal WiFi hace 6 meses. Hemos capturado 2,500 emails de clientes y aumentado nuestras ventas por email marketing en un 35%. La inversión se pagó sola en el primer mes."</p>
-       <p style="font-size: 1em; color: #10b981; margin-top: 15px;" data-i18n="blog2-case-author">— Carlos Mendoza, Café "La Esquina"</p>
-      </div>
-      <h2 style="font-size: 2em; font-weight: 700; color: #ffffff; margin: 40px 0 20px;" data-i18n="blog2-features-title">✨ Características Imprescindibles</h2>
-      <p style="font-size: 1.2em; line-height: 1.9; color: #e8edf5; margin-bottom: 25px;" data-i18n="blog2-feature1"><strong style="color: #10b981;">Diseño Atractivo:</strong> Primera impresión profesional de tu marca.</p>
-      <p style="font-size: 1.2em; line-height: 1.9; color: #e8edf5; margin-bottom: 25px;" data-i18n="blog2-feature2"><strong style="color: #10b981;">Acceso Rápido:</strong> Login con un clic, sin complicaciones.</p>
-      <p style="font-size: 1.2em; line-height: 1.9; color: #e8edf5; margin-bottom: 25px;" data-i18n="blog2-feature3"><strong style="color: #10b981;">Fácil Configuración:</strong> Instalación rápida y sin complicaciones técnicas.</p>
-      <p style="font-size: 1.2em; line-height: 1.9; color: #e8edf5; margin-bottom: 25px;" data-i18n="blog2-feature4"><strong style="color: #10b981;">Analíticas:</strong> Estadísticas de uso y comportamiento de clientes.</p>
-     </div>
-     <div style="margin-top: 50px; text-align: center; background: rgba(99, 102, 241, 0.1); padding: 40px; border-radius: 25px; border: 2px solid rgba(99, 102, 241, 0.3);">
-      <h3 style="font-size: 2em; font-weight: 700; color: #ffffff; margin-bottom: 20px;" data-i18n="blog2-cta-title">¿Quieres Convertir tu WiFi en Marketing?</h3>
-      <p style="font-size: 1.2em; color: #e8edf5; margin-bottom: 30px;" data-i18n="blog2-cta-desc">Portal WiFi profesional con routerboard incluido</p><a href="https://wa.me/584147825840?text=Hola!%20Me%20interesa%20el%20Portal%20WiFi%20Profesional" target="_blank" rel="noopener noreferrer" style="display: inline-block; padding: 16px 40px; background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%); color: white; text-decoration: none; border-radius: 30px; font-weight: 600; font-size: 1.1em; box-shadow: 0 8px 25px rgba(99, 102, 241, 0.4); transition: all 0.3s ease;" data-i18n="blog2-cta-btn">💬 Contactar Ahora</a>
-     </div>
-    </article>
-   </div>
-  </section><!-- Blog Post 3 Full Article -->
-  <section class="services" id="blog-post-3" style="padding: 100px 20px; display: none;">
-   <div class="services-container"><a href="#blog" class="blog-back-btn" onclick="showBlogList(event)" style="display: inline-block; margin-bottom: 30px; color: #a5b4fc; text-decoration: none; font-weight: 600; font-size: 1.1em; transition: all 0.3s ease; cursor: pointer;" data-i18n="blog-back">← Volver al Blog</a>
-    <article style="max-width: 900px; margin: 0 auto;">
-     <div style="text-align: center; margin-bottom: 40px;">
-      <div style="font-size: 0.9em; color: #a5b4fc; margin-bottom: 15px;" data-i18n="blog-date3">
-       5 Enero 2025
-      </div>
-      <h1 style="font-size: 2.8em; font-weight: 900; color: #ffffff; margin-bottom: 20px; line-height: 1.2;" data-i18n="blog-post3-title">¿Por qué tu Negocio Necesita un Sitio Web en 2025?</h1>
-      <div style="display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; margin-bottom: 30px;"><span style="background: rgba(139, 92, 246, 0.2); color: #a78bfa; padding: 8px 16px; border-radius: 15px; font-size: 0.9em;" data-i18n="blog-post3-tag1">Diseño Web</span> <span style="background: rgba(139, 92, 246, 0.2); color: #a78bfa; padding: 8px 16px; border-radius: 15px; font-size: 0.9em;" data-i18n="blog-post3-tag2">Negocios</span>
-      </div>
-     </div>
-     <div style="margin-bottom: 40px; border-radius: 25px; overflow: hidden; box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);"><img src="https://i.imgur.com/MkS2ZA0.png" alt="Why Your Business Needs a Website" style="width: 100%; height: auto; display: block;" onerror="this.style.display='none';">
-     </div>
-     <div style="background: rgba(255, 255, 255, 0.03); padding: 50px 40px; border-radius: 25px; border: 2px solid rgba(139, 92, 246, 0.3);">
-      <p style="font-size: 1.3em; line-height: 1.9; color: #e8edf5; margin-bottom: 30px;" data-i18n="blog3-intro">En 2025, no tener un <strong style="color: #a78bfa;">sitio web profesional</strong> es como tener un negocio sin letrero. Tus clientes te están buscando en línea, ¿te encuentran?</p>
-      <h2 style="font-size: 2em; font-weight: 700; color: #ffffff; margin: 40px 0 20px;" data-i18n="blog3-stats-title">📈 Datos que No Puedes Ignorar</h2>
-      <ul style="list-style: none; padding: 0; margin: 30px 0;">
-       <li style="color: #e8edf5; padding: 15px; margin-bottom: 15px; background: rgba(139, 92, 246, 0.1); border-left: 4px solid #8b5cf6; border-radius: 8px; font-size: 1.1em;" data-i18n="blog3-stat1">🔍 <strong>81% de consumidores</strong> investigan en línea antes de comprar</li>
-       <li style="color: #e8edf5; padding: 15px; margin-bottom: 15px; background: rgba(139, 92, 246, 0.1); border-left: 4px solid #8b5cf6; border-radius: 8px; font-size: 1.1em;" data-i18n="blog3-stat2">📱 <strong>70% usa dispositivos moviles</strong> para buscar negocios locales</li>
-       <li style="color: #e8edf5; padding: 15px; margin-bottom: 15px; background: rgba(139, 92, 246, 0.1); border-left: 4px solid #8b5cf6; border-radius: 8px; font-size: 1.1em;" data-i18n="blog3-stat3">⏰ <strong>50% abandona</strong> si el sitio no carga en 3 segundos</li>
-       <li style="color: #e8edf5; padding: 15px; margin-bottom: 15px; background: rgba(139, 92, 246, 0.1); border-left: 4px solid #8b5cf6; border-radius: 8px; font-size: 1.1em;" data-i18n="blog3-stat4">💰 <strong>Negocios con web</strong> ganan 3x más que los que no tienen</li>
-      </ul>
-      <h2 style="font-size: 2em; font-weight: 700; color: #ffffff; margin: 40px 0 20px;" data-i18n="blog3-benefits-title">✨ Beneficios Inmediatos</h2>
-      <p style="font-size: 1.2em; line-height: 1.9; color: #e8edf5; margin-bottom: 25px;" data-i18n="blog3-benefit1"><strong style="color: #a78bfa;">Credibilidad Profesional:</strong> Un sitio web dice "somos serios y confiables".</p>
-      <p style="font-size: 1.2em; line-height: 1.9; color: #e8edf5; margin-bottom: 25px;" data-i18n="blog3-benefit2"><strong style="color: #a78bfa;">Disponible 24/7:</strong> Tus clientes pueden conocerte a cualquier hora.</p>
-      <p style="font-size: 1.2em; line-height: 1.9; color: #e8edf5; margin-bottom: 25px;" data-i18n="blog3-benefit3"><strong style="color: #a78bfa;">Alcance Global:</strong> Expande tu mercado más alla de tu ubicación física.</p>
-      <p style="font-size: 1.2em; line-height: 1.9; color: #e8edf5; margin-bottom: 25px;" data-i18n="blog3-benefit4"><strong style="color: #a78bfa;">Menos Preguntas:</strong> Información clara de servicios, precios y contacto.</p>
-      <h2 style="font-size: 2em; font-weight: 700; color: #ffffff; margin: 40px 0 20px;" data-i18n="blog3-elements-title">🎯 Elementos Esenciales</h2>
-      <div style="background: rgba(139, 92, 246, 0.1); padding: 30px; border-radius: 15px; margin: 30px 0;">
-       <p style="font-size: 1.2em; line-height: 1.9; color: #e8edf5; margin-bottom: 20px;" data-i18n="blog3-element1">✅ <strong>Diseño Responsivo</strong> - Se ve perfecto en móviles, tablets y computadoras</p>
-       <p style="font-size: 1.2em; line-height: 1.9; color: #e8edf5; margin-bottom: 20px;" data-i18n="blog3-element2">✅ <strong>Velocidad de Carga</strong> - Rápido para no perder visitantes</p>
-       <p style="font-size: 1.2em; line-height: 1.9; color: #e8edf5; margin-bottom: 20px;" data-i18n="blog3-element3">✅ <strong>WhatsApp Integrado</strong> - Contacto directo con un clic</p>
-       <p style="font-size: 1.2em; line-height: 1.9; color: #e8edf5;" data-i18n="blog3-element4">✅ <strong>SEO Optimizado</strong> - Para que Google te encuentre fácilmente</p>
-      </div>
-      <h2 style="font-size: 2em; font-weight: 700; color: #ffffff; margin: 40px 0 20px;" data-i18n="blog3-case-title">💡 Caso Real</h2>
-      <div style="background: rgba(16, 185, 129, 0.1); padding: 30px; border-radius: 15px; border-left: 5px solid #10b981; margin: 30px 0;">
-       <p style="font-size: 1.2em; line-height: 1.9; color: #e8edf5; font-style: italic;" data-i18n="blog3-case-quote">"Antes recibía 5 llamadas por semana. Después de lanzar mi sitio web, recibo 20-30 consultas semanales. Mi negocio se ha triplicado en 6 meses."</p>
-       <p style="font-size: 1em; color: #10b981; margin-top: 15px;" data-i18n="blog3-case-author">— Laura Pérez, Diseñadora de Interiores</p>
-      </div>
-      <h2 style="font-size: 2em; font-weight: 700; color: #ffffff; margin: 40px 0 20px;" data-i18n="blog3-myths-title">🚫 Mitos vs. Realidad</h2>
-      <p style="font-size: 1.2em; line-height: 1.9; color: #e8edf5; margin-bottom: 20px;" data-i18n="blog3-myth1"><strong style="color: #ff6b6b;">❌ "Es muy caro"</strong><br><strong style="color: #10b981;">✅ Realidad:</strong> Por $150 tienes web + dominio + hosting por 1 año</p>
-      <p style="font-size: 1.2em; line-height: 1.9; color: #e8edf5; margin-bottom: 20px;" data-i18n="blog3-myth2"><strong style="color: #ff6b6b;">❌ "Lleva mucho tiempo"</strong><br><strong style="color: #10b981;">✅ Realidad:</strong> Tu sitio está listo en 4-5 días</p>
-      <p style="font-size: 1.2em; line-height: 1.9; color: #e8edf5;" data-i18n="blog3-myth3"><strong style="color: #ff6b6b;">❌ "Solo necesito redes sociales"</strong><br><strong style="color: #10b981;">✅ Realidad:</strong> Tu web es tuya, las redes pueden cambiar sus reglas</p>
-     </div>
-     <div style="margin-top: 50px; text-align: center; background: rgba(139, 92, 246, 0.1); padding: 40px; border-radius: 25px; border: 2px solid rgba(139, 92, 246, 0.3);">
-      <h3 style="font-size: 2em; font-weight: 700; color: #ffffff; margin-bottom: 20px;" data-i18n="blog3-cta-title">¿Listo para Tener Tu Sitio Web?</h3>
-      <p style="font-size: 1.2em; color: #e8edf5; margin-bottom: 30px;" data-i18n="blog3-cta-desc">Diseño profesional + Dominio + Hosting desde $150</p><a href="https://wa.me/584147825840?text=Hola!%20Me%20interesa%20crear%20mi%20sitio%20web" target="_blank" rel="noopener noreferrer" style="display: inline-block; padding: 16px 40px; background: linear-gradient(135deg, #8b5cf6 0%, #6366f1 100%); color: white; text-decoration: none; border-radius: 30px; font-weight: 600; font-size: 1.1em; box-shadow: 0 8px 25px rgba(139, 92, 246, 0.4); transition: all 0.3s ease;" data-i18n="blog3-cta-btn">💬 Contactar Ahora</a>
-     </div>
-    </article>
    </div>
   </section><!-- Contact Section -->
   <section class="contact" id="contact">
@@ -1421,10 +1365,10 @@
    </div>
   </section><!-- Floating Help Button -->
   <div class="floating-help" id="floatingHelp">
-   💬
+   💡
   </div><!-- Help Menu -->
   <div class="help-menu" id="helpMenu">
-   <h3 data-i18n="help-title">¿En qué te puedo ayudar?</h3>
+   <h3 data-i18n="help-title">¿En qu�� te puedo ayudar?</h3>
    <div class="help-option" data-service="website">
     <div class="help-option-icon">
      🌐
@@ -1440,7 +1384,7 @@
    </div>
    <div class="help-option" data-service="qr-menu">
     <div class="help-option-icon">
-     🍽
+     🍽️
     </div>
     <div class="help-option-text">
      <div class="help-option-title" data-i18n="help-qr-title">
@@ -1492,7 +1436,7 @@
    </div>
    <div class="help-option" data-service="consult">
     <div class="help-option-icon">
-     💼
+     ��
     </div>
     <div class="help-option-text">
      <div class="help-option-title" data-i18n="help-consult-title">
@@ -1514,7 +1458,7 @@
      <h3 data-i18n="nav-services">Servicios</h3><a href="#services" onclick="scrollToSection(event, 'services')" data-i18n="service1-title">Desarrollo Web</a> <a href="#services" onclick="scrollToSection(event, 'services')" data-i18n="service2-title">Apps Móviles</a> <a href="#services" onclick="scrollToSection(event, 'services')" data-i18n="service3-title">Cloud Solutions</a> <a href="#services" onclick="scrollToSection(event, 'services')" data-i18n="service4-title">Diseño UI/UX</a>
     </div>
     <div class="footer-section">
-     <h3 data-i18n="footer-company">Empresa</h3><a href="#about" onclick="scrollToSection(event, 'about')" data-i18n="nav-about">Nosotros</a> <a href="#contact" onclick="scrollToSection(event, 'contact')" data-i18n="nav-contact">Contacto</a> <a href="#careers" onclick="scrollToSection(event, 'contact')" data-i18n="footer-careers">Carreras</a> <a href="#blog" onclick="event.preventDefault(); showBlogList(event);" data-i18n="nav-blog">Blog</a>
+     <h3 data-i18n="footer-company">Empresa</h3><a href="#about" onclick="scrollToSection(event, 'about')" data-i18n="nav-about">Nosotros</a> <a href="#contact" onclick="scrollToSection(event, 'contact')" data-i18n="nav-contact">Contacto</a> <a href="#careers" onclick="scrollToSection(event, 'contact')" data-i18n="footer-careers">Carreras</a>
     </div>
     <div class="footer-section">
      <h3 data-i18n="nav-contact">Contacto</h3>
@@ -1676,23 +1620,45 @@
       es: {
         'nav-home': 'Inicio',
         'nav-shop': 'Tienda',
+        'nav-portfolio': 'Portafolio',
         'nav-services': 'Servicios',
         'nav-about': 'Nosotros',
         'nav-contact': 'Contacto',
         'nav-blog': 'Blog',
         'nav-cta': 'Comenzar Ahora',
-        'shop-title': '💰 Costos de Servicios',
+        'portfolio-title': '👥 Nuestros Clientes',
+        'portfolio-subtitle': 'Ejemplos reales de proyectos exitosos que hemos desarrollado',
+        'portfolio-gallery': 'Galería de Proyectos',
+        'portfolio-examples': 'Ver Ejemplos en Vivo',
+        'portfolio-qr-menus': 'Menús QR Digitales',
+        'portfolio-websites': 'Sitios Web',
+        'portfolio-menu1-name': 'Restaurante La Bodeguita',
+        'portfolio-menu1-desc': 'Menú digital con categorías organizadas',
+        'portfolio-menu2-name': 'Café Green Park',
+        'portfolio-menu2-desc': 'Menú elegante con imágenes atractivas',
+        'portfolio-menu3-name': 'Restaurante Bella Cucina',
+        'portfolio-menu3-desc': 'Menú italiano moderno y elegante',
+        'portfolio-web1-name': 'Mariachi Show Mexicano',
+        'portfolio-web1-desc': 'Sitio profesional para mariachi',
+        'portfolio-web2-name': 'Atlas Construcciones',
+        'portfolio-web2-desc': 'Sitio web corporativo',
+        'portfolio-web3-name': 'Bienes Raíces Anzoátegui',
+        'portfolio-web3-desc': 'Venta y alquiler de propiedades',
+        'portfolio-web4-name': 'Tu Sitio Web Aquí',
+        'portfolio-web4-desc': 'Crea tu presencia digital',
+        'portfolio-cta-button': 'Quiero un Proyecto Así',
+        'shop-title': '��� Costos de Servicios',
         'shop-subtitle': 'Escoja su plan a credito o contado',
         'shop-cash': '💵 Contado',
-        'shop-credit': '💳 Crédito a 3 Meses',
+        'shop-credit': '💳 Credito a 3 Meses',
         'shop-paynow': 'Pagar Ahora',
         'shop-popular': '⭐ MÁS POPULAR',
         'shop-onetime': '/ único pago',
         'shop-permonth': '/ mes x 3 meses',
         'shop-wifi-badge': 'Menú WiFi',
         'shop-wifi-title': 'Portal WiFi Profesional',
-        'shop-wifi-delivery': '🚀 Entrega en 48 horas',
-        'shop-wifi-f1': '�� Diseño intuitivo y Profesional',
+        'shop-wifi-delivery': '��� Entrega en 48 horas',
+        'shop-wifi-f1': '��� Diseño intuitivo y Profesional',
         'shop-wifi-f2': '✓ Routerboard incluido',
         'shop-wifi-f3': '✓ Imágenes y colores sobrios',
         'shop-wifi-f4': '✓ 3 actualizaciones gratis (6 meses)',
@@ -1709,7 +1675,7 @@
         'shop-web-badge': 'Diseño Web',
         'shop-web-title': 'Diseño Web, Dominio y Hosting',
         'shop-web-delivery': '🚀 Entrega de 4 a 5 días',
-        'shop-web-f1': '✓ HTML5 & CSS3 moderno',
+        'shop-web-f1': '�� HTML5 & CSS3 moderno',
         'shop-web-f2': '✓ 4 enlaces/páginas',
         'shop-web-f3': '✓ Hosting y Dominio 1 año',
         'shop-web-f4': '✓ Botón WhatsApp integrado',
@@ -1725,7 +1691,7 @@
         'service1-title': 'Desarrollo Web',
         'service1-desc': 'Creamos sitios web modernos, responsivos y optimizados para convertir visitantes en clientes.',
         'service2-title': 'Apps Móviles',
-        'service2-desc': 'Desarrollamos aplicaciones móviles nativas e híbridas para iOS y Android con experiencias excepcionales.',
+        'service2-desc': 'Desarrollamos aplicaciones móviles nativas e h��bridas para iOS y Android con experiencias excepcionales.',
         'service3-title': 'Cloud Solutions',
         'service3-desc': 'Implementamos infraestructura en la nube escalable, segura y eficiente para tu negocio.',
         'service4-title': 'Diseño UI/UX',
@@ -1736,7 +1702,7 @@
         'service6-desc': 'Protegemos tu negocio con las mejores prácticas de seguridad y auditorías constantes.',
         'about-title': 'Sobre DataCloudly',
         'about-subtitle': 'Innovación y excelencia en soluciones digitales desde 2020',
-        'about-p1': 'DataCloudly nació de la visión de democratizar la tecnología, haciendo que soluciones digitales de clase mundial estén al alcance de emprendedores y empresas en Latinoam��rica y Estados Unidos.',
+        'about-p1': 'DataCloudly nació de la visión de democratizar la tecnología, haciendo que soluciones digitales de clase mundial estén al alcance de emprendedores y empresas en Latinoamérica y Estados Unidos.',
         'about-p2': 'Somos un equipo apasionado de desarrolladores, diseñadores y estrategas digitales comprometidos con transformar ideas en experiencias digitales excepcionales. Especializados en menús digitales, portales WiFi, desarrollo web y aplicaciones móviles.',
         'about-p3': 'Con presencia en Venezuela 🌎 y Estados Unidos 🌎, hemos ayudado a más de 150 negocios a digitalizarse, aumentando su eficiencia operativa y alcance de mercado. Tu éxito es nuestra misión.',
         'about-stat1': 'Proyectos Exitosos',
@@ -1763,102 +1729,51 @@
         'footer-careers': 'Carreras',
         'footer-desc': 'Transformando ideas en soluciones digitales innovadoras desde 2020.',
         'footer-copy': '© 2025 DataCloudly. Todos los derechos reservados.',
-        'blog-title': '📝 Blog DataCloudly',
-        'blog-subtitle': 'Noticias, tutoriales y tendencias en tecnología',
-        'blog-readmore': 'Leer más →',
-        'blog-back': '← Volver al Blog',
-        'blog-cta-title': '¿Tienes un Tema que Te Gustaría Ver?',
-        'blog-cta-desc': 'Comparte tus ideas y preguntas. Nuestro equipo está siempre creando contenido valioso para la comunidad.',
-        'blog-cta-button': '💬 Enviar Sugerencia',
-        'blog-date1': '15 Enero 2024',
-        'blog-date2': '10 Enero 2024',
-        'blog-date3': '5 Enero 2025',
-        'blog-post1-title': 'Cómo los Menús Digitales Aumentan tus Ventas en 40%',
-        'blog-post1-desc': 'Descubre cómo restaurantes exitosos están implementando menús QR para mejorar la experiencia del cliente y aumentar significativamente sus ingresos.',
-        'blog-post1-tag1': 'Restaurantes',
-        'blog-post1-tag2': 'Menú QR',
-        'blog-post2-title': 'Portales WiFi: Marketing Inteligente para tu Negocio',
-        'blog-post2-desc': 'Aprende cómo convertir tu WiFi gratuito en una poderosa herramienta de marketing que captura clientes potenciales mientras les das acceso a internet.',
-        'blog-post2-tag1': 'WiFi',
-        'blog-post2-tag2': 'Marketing',
-        'blog-post3-title': '¿Por qué tu Negocio Necesita un Sitio Web en 2025?',
-        'blog-post3-desc': 'En la era digital, no tener presencia en línea significa perder clientes. Te explicamos por qué un sitio web profesional es una inversión, no un gasto.',
-        'blog-post3-tag1': 'Diseño Web',
-        'blog-post3-tag2': 'Negocios',
-        'blog1-intro': 'En la era digital, los menús QR han revolucionado la experiencia gastronómica. Los restaurantes que han adoptado esta tecnología reportan aumentos impresionantes en sus ventas.',
-        'blog1-stats-title': '📊 Estadísticas Impactantes',
-        'blog1-stat1': '✅ 40% más ventas promedio por mesa',
-        'blog1-stat2': '✅ 25% reducción en costos operativos',
-        'blog1-stat3': '✅ 60% más rápido el tiempo de pedido',
-        'blog1-stat4': '✅ 90% preferencia de clientes jóvenes',
-        'blog1-benefits-title': '💡 Beneficios Clave',
-        'blog1-benefit1': '1. Experiencia Sin Contacto: Los clientes aprecian la higiene y seguridad de no tocar menús físicos compartidos.',
-        'blog1-benefit2': '2. Actualizaciones Instantáneas: Cambia precios, agrega platos nuevos o marca items agotados en segundos.',
-        'blog1-benefit3': '3. Upselling Inteligente: Muestra recomendaciones, combos y promociones personalizadas.',
-        'blog1-benefit4': '4. Análisis de Datos: Conoce qué platos son más populares y optimiza tu inventario.',
-        'blog1-case-title': '🚀 Caso de Éxito Real',
-        'blog1-case-quote': '"Después de implementar menús QR en nuestro restaurante, vimos un aumento del 45% en ventas de postres y bebidas. Los clientes pueden ver fotos atractivas de cada plato y hacen pedidos más grandes."',
-        'blog1-case-author': '— María González, Restaurante "El Sabor"',
-        'blog1-conclusion-title': '✨ Conclusión',
-        'blog1-conclusion': 'Los menús digitales no son solo una tendencia, son el futuro de la industria gastronómica. Ofrecen una experiencia superior al cliente mientras reducen costos y aumentan ventas.',
-        'blog1-cta-title': '¿Listo para Digitalizar tu Restaurante?',
-        'blog1-cta-desc': 'Obtén tu menú QR profesional en 48 horas',
-        'blog1-cta-btn': '💬 Contactar Ahora',
-        'blog2-intro': 'Tu WiFi gratuito puede ser mucho más que un servicio. Con un portal WiFi inteligente, cada conexión se convierte en una oportunidad de marketing.',
-        'blog2-what-title': '🎯 ��Qué es un Portal WiFi?',
-        'blog2-what-desc': 'Es una página de acceso personalizada que los clientes ven antes de conectarse a tu WiFi. Aquí puedes mostrar tu marca, promociones, redes sociales y capturar información valiosa de contacto.',
-        'blog2-benefits-title': '💼 Beneficios para tu Negocio',
-        'blog2-benefit1': '📊 Base de Datos: Captura emails y teléfonos de tus clientes',
-        'blog2-benefit2': '📢 Promociones: Muestra ofertas especiales del día',
-        'blog2-benefit3': '🌟 Branding: Refuerza la identidad de tu marca',
-        'blog2-benefit4': '📱 Redes Sociales: Aumenta tus seguidores automáticamente',
-        'blog2-case-title': '🚀 Implementación Exitosa',
-        'blog2-case-quote': '"Instalamos un portal WiFi hace 6 meses. Hemos capturado 2,500 emails de clientes y aumentado nuestras ventas por email marketing en un 35%. La inversión se pagó sola en el primer mes."',
-        'blog2-case-author': '— Carlos Mendoza, Café "La Esquina"',
-        'blog2-features-title': '✨ Características Imprescindibles',
-        'blog2-feature1': 'Diseño Atractivo: Primera impresión profesional de tu marca.',
-        'blog2-feature2': 'Acceso Rápido: Login con un clic, sin complicaciones.',
-        'blog2-feature3': 'Fácil Configuración: Instalación rápida y sin complicaciones técnicas.',
-        'blog2-feature4': 'Analíticas: Estadísticas de uso y comportamiento de clientes.',
-        'blog2-cta-title': '¿Quieres Convertir tu WiFi en Marketing?',
-        'blog2-cta-desc': 'Portal WiFi profesional con routerboard incluido',
-        'blog2-cta-btn': '💬 Contactar Ahora',
-        'blog3-intro': 'En 2025, no tener un sitio web profesional es como tener un negocio sin letrero. Tus clientes te están buscando en línea, ¿te encuentran?',
-        'blog3-stats-title': '📈 Datos que No Puedes Ignorar',
-        'blog3-stat1': '🔍 81% de consumidores investigan en línea antes de comprar',
-        'blog3-stat2': '📱 70% usa dispositivos móviles para buscar negocios locales',
-        'blog3-stat3': '⏰ 50% abandona si el sitio no carga en 3 segundos',
-        'blog3-stat4': '💰 Negocios con web ganan 3x más que los que no tienen',
-        'blog3-benefits-title': '✨ Beneficios Inmediatos',
-        'blog3-benefit1': 'Credibilidad Profesional: Un sitio web dice "somos serios y confiables".',
-        'blog3-benefit2': 'Disponible 24/7: Tus clientes pueden conocerte a cualquier hora.',
-        'blog3-benefit3': 'Alcance Global: Expande tu mercado más allá de tu ubicación física.',
-        'blog3-benefit4': 'Menos Preguntas: Información clara de servicios, precios y contacto.',
-        'blog3-elements-title': '🎯 Elementos Esenciales',
-        'blog3-element1': '✅ Diseño Responsivo - Se ve perfecto en móviles, tablets y computadoras',
-        'blog3-element2': '✅ Velocidad de Carga - Rápido para no perder visitantes',
-        'blog3-element3': '✅ WhatsApp Integrado - Contacto directo con un clic',
-        'blog3-element4': '✅ SEO Optimizado - Para que Google te encuentre fácilmente',
-        'blog3-case-title': '💡 Caso Real',
-        'blog3-case-quote': '"Antes recibía 5 llamadas por semana. Después de lanzar mi sitio web, recibo 20-30 consultas semanales. Mi negocio se ha triplicado en 6 meses."',
-        'blog3-case-author': '— Laura Pérez, Diseñadora de Interiores',
-        'blog3-myths-title': '🚫 Mitos vs. Realidad',
-        'blog3-myth1': '❌ "Es muy caro"\n✅ Realidad: Por $150 tienes web + dominio + hosting por 1 año',
-        'blog3-myth2': '❌ "Lleva mucho tiempo"\n�� Realidad: Tu sitio está listo en 4-5 días',
-        'blog3-myth3': '❌ "Solo necesito redes sociales"\n✅ Realidad: Tu web es tuya, las redes pueden cambiar sus reglas',
-        'blog3-cta-title': '¿Listo para Tener Tu Sitio Web?',
-        'blog3-cta-desc': 'Diseño profesional + Dominio + Hosting desde $150',
-        'blog3-cta-btn': '💬 Contactar Ahora',
-        'mobile-lang': 'Español'
+        'mobile-lang': 'Español',
+        'blog-title': '📝 Blog & Recursos',
+        'blog-subtitle': 'Artículos, guías y tendencias sobre tecnología y transformación digital',
+        'blog-read': 'Leer más →',
+        'blog-back': 'Volver al Blog',
+        'blog1-title': 'Por qué tu Restaurante Necesita un Menú Digital QR en 2025',
+        'blog1-preview': 'Descubre cómo los menús digitales QR están revolucionando la industria gastronómica y por qué son esenciales para el éxito de tu negocio...',
+        'blog2-title': 'Portales WiFi: Convierte Visitantes en Clientes',
+        'blog2-preview': 'Aprende cómo los portales WiFi personalizados pueden transformar tu estrategia de marketing y aumentar el engagement con tus clientes...',
+        'blog3-title': '5 Razones para Invertir en un Sitio Web Profesional',
+        'blog3-preview': 'En la era digital, tu sitio web es tu carta de presentación. Descubre por qué es crucial para el crecimiento de tu negocio...',
+        'blog1-date': '📅 15 Enero 2025',
+        'blog2-date': '📅 10 Enero 2025',
+        'blog3-date': '📅 5 Enero 2025'
       },
       en: {
         'nav-home': 'Home',
         'nav-shop': 'Shop',
+        'nav-portfolio': 'Portfolio',
         'nav-services': 'Services',
         'nav-about': 'About',
         'nav-contact': 'Contact',
         'nav-blog': 'Blog',
         'nav-cta': 'Get Started',
+        'portfolio-title': '👥 Our Clients',
+        'portfolio-subtitle': 'Real examples of successful projects we have developed',
+        'portfolio-gallery': 'Project Gallery',
+        'portfolio-examples': 'View Live Examples',
+        'portfolio-qr-menus': 'Digital QR Menus',
+        'portfolio-websites': 'Websites',
+        'portfolio-menu1-name': 'La Bodeguita Restaurant',
+        'portfolio-menu1-desc': 'Digital menu with organized categories',
+        'portfolio-menu2-name': 'Green Park Café',
+        'portfolio-menu2-desc': 'Elegant menu with attractive images',
+        'portfolio-menu3-name': 'Bella Cucina Restaurant',
+        'portfolio-menu3-desc': 'Modern and elegant Italian menu',
+        'portfolio-web1-name': 'Mariachi Show Mexicano',
+        'portfolio-web1-desc': 'Professional mariachi website',
+        'portfolio-web2-name': 'Atlas Construction',
+        'portfolio-web2-desc': 'Corporate website',
+        'portfolio-web3-name': 'Anzoátegui Real Estate',
+        'portfolio-web3-desc': 'Property sales and rentals',
+        'portfolio-web4-name': 'Your Website Here',
+        'portfolio-web4-desc': 'Create your digital presence',
+        'portfolio-cta-button': 'I Want a Project Like This',
         'shop-title': '💰 Service Costs',
         'shop-subtitle': 'Choose your credit or cash plan',
         'shop-cash': '💵 Cash',
@@ -1886,10 +1801,10 @@
         'shop-qr-f6': '✓ Technical support included',
         'shop-web-badge': 'Web Design',
         'shop-web-title': 'Web Design, Domain & Hosting',
-        'shop-web-delivery': '🚀 Delivery in 4 to 5 days',
+        'shop-web-delivery': '�� Delivery in 4 to 5 days',
         'shop-web-f1': '✓ Modern HTML5 & CSS3',
         'shop-web-f2': '✓ 4 links/pages',
-        'shop-web-f3': '✓ Hosting and Domain 1 year',
+        'shop-web-f3': '��� Hosting and Domain 1 year',
         'shop-web-f4': '✓ Integrated WhatsApp button',
         'shop-web-f5': '✓ Responsive design',
         'shop-web-f6': '✓ SEO optimized',
@@ -1916,11 +1831,11 @@
         'about-subtitle': 'Innovation and excellence in digital solutions since 2020',
         'about-p1': 'DataCloudly was born from the vision of democratizing technology, making world-class digital solutions accessible to entrepreneurs and businesses in Latin America and the United States.',
         'about-p2': 'We are a passionate team of developers, designers and digital strategists committed to transforming ideas into exceptional digital experiences. Specialized in digital menus, WiFi portals, web development and mobile applications.',
-        'about-p3': 'With presence in Venezuela 🌎 and United States 🌎, we have helped more than 150 businesses digitize, increasing their operational efficiency and market reach. Your success is our mission.',
+        'about-p3': 'With presence in Venezuela 🌎 and the United States 🌎, we have helped over 150 businesses digitize, increasing their operational efficiency and market reach. Your success is our mission.',
         'about-stat1': 'Successful Projects',
         'about-stat2': 'Years of Experience',
         'about-stat3': 'Client Satisfaction',
-        'contact-title': 'Ready to Start?',
+        'contact-title': 'Ready to Get Started?',
         'contact-subtitle': 'Contact us through any of our channels',
         'contact-phone': 'Phone',
         'contact-website': 'Personal Website',
@@ -1941,177 +1856,173 @@
         'footer-careers': 'Careers',
         'footer-desc': 'Transforming ideas into innovative digital solutions since 2020.',
         'footer-copy': '© 2025 DataCloudly. All rights reserved.',
-        'blog-title': '📝 DataCloudly Blog',
-        'blog-subtitle': 'News, tutorials and technology trends',
-        'blog-readmore': 'Read more →',
-        'blog-back': '← Back to Blog',
-        'blog-cta-title': 'Have a Topic You\'d Like to See?',
-        'blog-cta-desc': 'Share your ideas and questions. Our team is always creating valuable content for the community.',
-        'blog-cta-button': '💬 Send Suggestion',
-        'blog-date1': 'January 15, 2024',
-        'blog-date2': 'January 10, 2024',
-        'blog-date3': 'January 5, 2025',
-        'blog-post1-title': 'How Digital Menus Increase Your Sales by 40%',
-        'blog-post1-desc': 'Discover how successful restaurants are implementing QR menus to improve customer experience and significantly increase their revenue.',
-        'blog-post1-tag1': 'Restaurants',
-        'blog-post1-tag2': 'QR Menu',
-        'blog-post2-title': 'WiFi Portals: Smart Marketing for Your Business',
-        'blog-post2-desc': 'Learn how to turn your free WiFi into a powerful marketing tool that captures potential customers while giving them internet access.',
-        'blog-post2-tag1': 'WiFi',
-        'blog-post2-tag2': 'Marketing',
-        'blog-post3-title': 'Why Your Business Needs a Website in 2025?',
-        'blog-post3-desc': 'In the digital age, not having an online presence means losing customers. We explain why a professional website is an investment, not an expense.',
-        'blog-post3-tag1': 'Web Design',
-        'blog-post3-tag2': 'Business',
-        'blog1-intro': 'In the digital age, QR menus have revolutionized the dining experience. Restaurants that have adopted this technology report impressive increases in their sales.',
-        'blog1-stats-title': '📊 Impressive Statistics',
-        'blog1-stat1': '✅ 40% more sales per table on average',
-        'blog1-stat2': '✅ 25% reduction in operational costs',
-        'blog1-stat3': '✅ 60% faster order time',
-        'blog1-stat4': '✅ 90% preference from young customers',
-        'blog1-benefits-title': '💡 Key Benefits',
-        'blog1-benefit1': '1. Contactless Experience: Customers appreciate the hygiene and safety of not touching shared physical menus.',
-        'blog1-benefit2': '2. Instant Updates: Change prices, add new dishes or mark sold-out items in seconds.',
-        'blog1-benefit3': '3. Smart Upselling: Show recommendations, combos and personalized promotions.',
-        'blog1-benefit4': '4. Data Analysis: Know which dishes are most popular and optimize your inventory.',
-        'blog1-case-title': '🚀 Real Success Story',
-        'blog1-case-quote': '"After implementing QR menus in our restaurant, we saw a 45% increase in dessert and beverage sales. Customers can see attractive photos of each dish and place larger orders."',
-        'blog1-case-author': '— Maria González, Restaurant "El Sabor"',
-        'blog1-conclusion-title': '✨ Conclusion',
-        'blog1-conclusion': 'Digital menus are not just a trend, they are the future of the restaurant industry. They offer a superior customer experience while reducing costs and increasing sales.',
-        'blog1-cta-title': 'Ready to Digitize Your Restaurant?',
-        'blog1-cta-desc': 'Get your professional QR menu in 48 hours',
-        'blog1-cta-btn': '💬 Contact Now',
-        'blog2-intro': 'Your free WiFi can be much more than a service. With a smart WiFi portal, every connection becomes a marketing opportunity.',
-        'blog2-what-title': '🎯 What is a WiFi Portal?',
-        'blog2-what-desc': 'It is a personalized access page that customers see before connecting to your WiFi. Here you can show your brand, promotions, social networks and capture valuable contact information.',
-        'blog2-benefits-title': '💼 Benefits for Your Business',
-        'blog2-benefit1': '📊 Database: Capture emails and phone numbers from your customers',
-        'blog2-benefit2': '📢 Promotions: Show special offers of the day',
-        'blog2-benefit3': '🌟 Branding: Reinforce your brand identity',
-        'blog2-benefit4': '📱 Social Media: Automatically increase your followers',
-        'blog2-case-title': '🚀 Successful Implementation',
-        'blog2-case-quote': '"We installed a WiFi portal 6 months ago. We have captured 2,500 customer emails and increased our email marketing sales by 35%. The investment paid for itself in the first month."',
-        'blog2-case-author': '— Carlos Mendoza, Cafe "La Esquina"',
-        'blog2-features-title': '✨ Essential Features',
-        'blog2-feature1': 'Attractive Design: Professional first impression of your brand.',
-        'blog2-feature2': 'Quick Access: Login with one click, no complications.',
-        'blog2-feature3': 'Easy Setup: Quick installation without technical complications.',
-        'blog2-feature4': 'Analytics: Usage statistics and customer behavior.',
-        'blog2-cta-title': 'Want to Turn Your WiFi into Marketing?',
-        'blog2-cta-desc': 'Professional WiFi portal with routerboard included',
-        'blog2-cta-btn': '💬 Contact Now',
-        'blog3-intro': 'In 2025, not having a professional website is like having a business without a sign. Your customers are looking for you online, can they find you?',
-        'blog3-stats-title': '📈 Data You Cannot Ignore',
-        'blog3-stat1': '🔍 81% of consumers research online before buying',
-        'blog3-stat2': '📱 70% use mobile devices to search for local businesses',
-        'blog3-stat3': '⏰ 50% abandon if the site does not load in 3 seconds',
-        'blog3-stat4': '💰 Businesses with websites earn 3x more than those without',
-        'blog3-benefits-title': '✨ Immediate Benefits',
-        'blog3-benefit1': 'Professional Credibility: A website says "we are serious and reliable".',
-        'blog3-benefit2': 'Available 24/7: Your customers can learn about you at any time.',
-        'blog3-benefit3': 'Global Reach: Expand your market beyond your physical location.',
-        'blog3-benefit4': 'Fewer Questions: Clear information on services, prices and contact.',
-        'blog3-elements-title': '🎯 Essential Elements',
-        'blog3-element1': '✅ Responsive Design - Looks perfect on mobiles, tablets and computers',
-        'blog3-element2': '✅ Loading Speed - Fast to not lose visitors',
-        'blog3-element3': '✅ Integrated WhatsApp - Direct contact with one click',
-        'blog3-element4': '✅ SEO Optimized - So Google can easily find you',
-        'blog3-case-title': '💡 Real Case',
-        'blog3-case-quote': '"Before I received 5 calls per week. After launching my website, I receive 20-30 inquiries weekly. My business has tripled in 6 months."',
-        'blog3-case-author': '— Laura Pérez, Interior Designer',
-        'blog3-myths-title': '🚫 Myths vs. Reality',
-        'blog3-myth1': '❌ "It\'s too expensive"\n✅ Reality: For $150 you have web + domain + hosting for 1 year',
-        'blog3-myth2': '❌ "It takes too long"\n✅ Reality: Your site is ready in 4-5 days',
-        'blog3-myth3': '❌ "I only need social media"\n✅ Reality: Your web is yours, social networks can change their rules',
-        'blog3-cta-title': 'Ready to Have Your Website?',
-        'blog3-cta-desc': 'Professional design + Domain + Hosting from $150',
-        'blog3-cta-btn': '💬 Contact Now',
-        'mobile-lang': 'English'
+        'mobile-lang': 'English',
+        'blog-title': '📝 Blog & Resources',
+        'blog-subtitle': 'Articles, guides and trends about technology and digital transformation',
+        'blog-read': 'Read more →',
+        'blog-back': 'Back to Blog',
+        'blog1-title': 'Why Your Restaurant Needs a Digital QR Menu in 2025',
+        'blog1-preview': 'Discover how digital QR menus are revolutionizing the food industry and why they are essential for your business success...',
+        'blog2-title': 'WiFi Portals: Turn Visitors into Customers',
+        'blog2-preview': 'Learn how customized WiFi portals can transform your marketing strategy and increase customer engagement...',
+        'blog3-title': '5 Reasons to Invest in a Professional Website',
+        'blog3-preview': 'In the digital age, your website is your business card. Discover why it\'s crucial for your business growth...',
+        'blog1-date': '📅 January 15, 2025',
+        'blog2-date': '📅 January 10, 2025',
+        'blog3-date': '📅 January 5, 2025'
       }
     };
 
-    function translatePage(lang) {
-      currentLanguage = lang;
+    function toggleLanguage() {
+      currentLanguage = currentLanguage === 'es' ? 'en' : 'es';
+      document.getElementById('currentLang').textContent = currentLanguage.toUpperCase();
+      updateContent();
       
-      document.querySelectorAll('[data-i18n]').forEach(element => {
+      // If viewing a blog post, update it with the new language
+      if (currentBlogPost !== null) {
+        const post = blogPosts[currentBlogPost][currentLanguage];
+        if (post) {
+          document.getElementById('blogPostContent').innerHTML = post.content;
+        }
+      }
+    }
+
+    function updateContent() {
+      const elements = document.querySelectorAll('[data-i18n]');
+      elements.forEach(element => {
         const key = element.getAttribute('data-i18n');
-        if (translations[lang][key]) {
-          const translatedText = translations[lang][key];
-          if (translatedText.includes('\n')) {
-            element.innerHTML = translatedText.replace(/\n/g, '<br>');
-          } else {
-            element.textContent = translatedText;
-          }
+        if (translations[currentLanguage][key]) {
+          element.textContent = translations[currentLanguage][key];
         }
       });
-      
-      document.getElementById('currentLang').textContent = lang.toUpperCase();
-      const mobileLang = document.getElementById('mobileLang');
-      if (mobileLang) {
-        mobileLang.textContent = translations[lang]['mobile-lang'];
-      }
-      
-      updatePrices();
     }
 
-    // Language selector click handlers
-    const languageSelector = document.getElementById('languageSelector');
-    const mobileLangSelector = document.getElementById('mobileLangSelector');
-    
-    if (languageSelector) {
-      languageSelector.addEventListener('click', (e) => {
-        e.preventDefault();
-        const newLang = currentLanguage === 'es' ? 'en' : 'es';
-        translatePage(newLang);
+    // Slider functionality
+    let currentSlide = 0;
+    const slides = document.querySelectorAll('.slider-img');
+    const dots = document.querySelectorAll('.slider-dot');
+
+    function showSlide(index) {
+      slides.forEach((slide, i) => {
+        slide.style.opacity = i === index ? '1' : '0';
       });
-    }
-    
-    if (mobileLangSelector) {
-      mobileLangSelector.addEventListener('click', (e) => {
-        e.preventDefault();
-        const newLang = currentLanguage === 'es' ? 'en' : 'es';
-        translatePage(newLang);
+      dots.forEach((dot, i) => {
+        dot.style.background = i === index ? '#6366f1' : 'rgba(255, 255, 255, 0.3)';
+        dot.classList.toggle('active', i === index);
       });
+      currentSlide = index;
     }
 
-    // Scroll to section helper
-    function scrollToSection(e, sectionId) {
-      e.preventDefault();
+    function nextSlide() {
+      currentSlide = (currentSlide + 1) % slides.length;
+      showSlide(currentSlide);
+    }
+
+    function previousSlide() {
+      currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+      showSlide(currentSlide);
+    }
+
+    function goToSlide(index) {
+      showSlide(index);
+    }
+
+    // Auto-advance slider every 5 seconds
+    setInterval(nextSlide, 5000);
+
+    // Navigation scroll
+    function scrollToSection(event, sectionId) {
+      event.preventDefault();
       const section = document.getElementById(sectionId);
       if (section) {
-        section.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        closeMobileMenu();
+        section.scrollIntoView({ behavior: 'smooth' });
+      }
+      // Close mobile menu if open
+      const mobileNav = document.getElementById('mobileNav');
+      const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+      if (mobileNav.classList.contains('active')) {
+        mobileNav.classList.remove('active');
+        mobileMenuBtn.classList.remove('active');
       }
     }
 
-    // Blog navigation functions
-    function showBlogList(e) {
-      if (e) e.preventDefault();
-      
-      document.querySelectorAll('#blog, #blog-post-1, #blog-post-2, #blog-post-3').forEach(section => {
-        section.style.display = 'none';
-      });
-      
-      document.getElementById('blog').style.display = 'block';
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-      closeMobileMenu();
-    }
+    // Mobile menu toggle
+    document.getElementById('mobileMenuBtn').addEventListener('click', function() {
+      this.classList.toggle('active');
+      document.getElementById('mobileNav').classList.toggle('active');
+    });
 
-    function showBlogPost(e, postNumber) {
-      if (e) e.preventDefault();
-      
-      document.querySelectorAll('#blog, #blog-post-1, #blog-post-2, #blog-post-3').forEach(section => {
-        section.style.display = 'none';
+    // Floating help button
+    document.getElementById('floatingHelp').addEventListener('click', function() {
+      document.getElementById('helpMenu').classList.toggle('active');
+    });
+
+    // Help options
+    document.querySelectorAll('.help-option').forEach(option => {
+      option.addEventListener('click', function() {
+        const service = this.getAttribute('data-service');
+        let whatsappMessage = 'Hola! Me interesa saber más sobre: ';
+        
+        switch(service) {
+          case 'website':
+            whatsappMessage += 'Sitio Web Profesional 🌐';
+            break;
+          case 'qr-menu':
+            whatsappMessage += 'Menú QR Digital 🍽️';
+            break;
+          case 'wifi-menu':
+            whatsappMessage += 'Portal WiFi 📶';
+            break;
+          case 'app':
+            whatsappMessage += 'Aplicación Móvil 📲';
+            break;
+          case 'ecommerce':
+            whatsappMessage += 'Tienda Online 🛒';
+            break;
+          case 'consult':
+            whatsappMessage += 'Consultoría 💼';
+            break;
+        }
+        
+        window.open(`https://wa.me/584147825840?text=${encodeURIComponent(whatsappMessage)}`, '_blank', 'noopener,noreferrer');
       });
-      
-      document.getElementById(`blog-post-${postNumber}`).style.display = 'block';
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    }
+    });
+
+    // Payment tabs functionality
+    document.querySelectorAll('.payment-tab').forEach(tab => {
+      tab.addEventListener('click', function() {
+        document.querySelectorAll('.payment-tab').forEach(t => t.classList.remove('active'));
+        this.classList.add('active');
+        
+        const paymentType = this.getAttribute('data-tab');
+        document.querySelectorAll('.shop-price').forEach(priceEl => {
+          const contadoPrice = priceEl.getAttribute('data-contado');
+          const creditoPrice = priceEl.getAttribute('data-credito');
+          const periodEl = priceEl.querySelector('.price-period');
+          
+          if (paymentType === 'contado') {
+            priceEl.childNodes[0].textContent = `$${contadoPrice}`;
+            if (periodEl) periodEl.setAttribute('data-i18n', 'shop-onetime');
+          } else {
+            priceEl.childNodes[0].textContent = `$${creditoPrice}`;
+            if (periodEl) periodEl.setAttribute('data-i18n', 'shop-permonth');
+          }
+          updateContent();
+        });
+      });
+    });
+
+    // Shop buttons
+    document.querySelectorAll('.btn-add-cart').forEach(btn => {
+      btn.addEventListener('click', function() {
+        const whatsappMessage = this.getAttribute('data-whatsapp');
+        window.open(`https://wa.me/584147825840?text=${encodeURIComponent(whatsappMessage)}`, '_blank', 'noopener,noreferrer');
+      });
+    });
 
     // Navbar scroll effect
-    const navbar = document.getElementById('navbar');
-    window.addEventListener('scroll', () => {
+    window.addEventListener('scroll', function() {
+      const navbar = document.getElementById('navbar');
       if (window.scrollY > 50) {
         navbar.classList.add('scrolled');
       } else {
@@ -2119,135 +2030,346 @@
       }
     });
 
-    // Mobile menu functionality
-    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
-    const mobileNav = document.getElementById('mobileNav');
+    // Blog functionality
+    const blogPosts = {
+      1: {
+        es: {
+          title: '🚀 Por qué tu Restaurante Necesita un Menú Digital QR en 2025',
+          date: '15 Enero 2025',
+          content: `
+            <img src="https://i.imgur.com/Z9YzngK.jpg" alt="Menú QR Digital" style="width: 100%; height: 400px; object-fit: cover; border-radius: 20px; margin-bottom: 30px;" onerror="this.style.display='none';">
+            <h2 style="color: #ffffff; font-size: 2.2em; margin-bottom: 20px;">Por qué tu Restaurante Necesita un Menú Digital QR en 2025</h2>
+            <p style="color: #a5b4fc; margin-bottom: 30px; font-size: 1.1em;">📅 15 Enero 2025 • ⏱️ 5 min de lectura</p>
+            
+            <p style="color: #e8edf5; line-height: 1.8; margin-bottom: 25px; font-size: 1.1em;">
+              La industria gastronómica está experimentando una transformación digital sin precedentes. Los menús digitales QR no son solo una tendencia temporal, sino una necesidad estratégica para cualquier restaurante que desee prosperar en 2025.
+            </p>
 
-    mobileMenuBtn.addEventListener('click', (e) => {
-      e.stopPropagation();
-      mobileMenuBtn.classList.toggle('active');
-      mobileNav.classList.toggle('active');
-    });
+            <h3 style="color: #ffffff; font-size: 1.8em; margin-top: 40px; margin-bottom: 20px;">✨ Ventajas Principales</h3>
+            
+            <div style="background: rgba(99, 102, 241, 0.1); padding: 25px; border-radius: 15px; border-left: 4px solid #6366f1; margin-bottom: 25px;">
+              <h4 style="color: #a5b4fc; font-size: 1.4em; margin-bottom: 15px;">💰 Ahorro de Costos</h4>
+              <p style="color: #e8edf5; line-height: 1.8;">Elimina los costos de impresión y reimpresión de menús físicos. Actualiza precios y platos en tiempo real sin gastar un centavo adicional.</p>
+            </div>
 
-    function closeMobileMenu() {
-      mobileMenuBtn.classList.remove('active');
-      mobileNav.classList.remove('active');
-    }
+            <div style="background: rgba(16, 185, 129, 0.1); padding: 25px; border-radius: 15px; border-left: 4px solid #10b981; margin-bottom: 25px;">
+              <h4 style="color: #10b981; font-size: 1.4em; margin-bottom: 15px;">🦠 Higiene y Seguridad</h4>
+              <p style="color: #e8edf5; line-height: 1.8;">Los clientes valoran cada vez más la higiene. Un menú QR elimina el contacto físico y transmite profesionalismo.</p>
+            </div>
 
-    document.addEventListener('click', (e) => {
-      if (mobileNav.classList.contains('active') && !mobileNav.contains(e.target) && !mobileMenuBtn.contains(e.target)) {
-        closeMobileMenu();
-      }
-    });
+            <div style="background: rgba(139, 92, 246, 0.1); padding: 25px; border-radius: 15px; border-left: 4px solid #8b5cf6; margin-bottom: 25px;">
+              <h4 style="color: #a78bfa; font-size: 1.4em; margin-bottom: 15px;">📊 Análisis de Datos</h4>
+              <p style="color: #e8edf5; line-height: 1.8;">Conoce qué platos son más vistos, en qué horarios, y optimiza tu menú basándote en datos reales.</p>
+            </div>
 
-    // Payment plan switching
-    let currentPaymentPlan = 'contado';
+            <h3 style="color: #ffffff; font-size: 1.8em; margin-top: 40px; margin-bottom: 20px;">📈 Impacto en las Ventas</h3>
+            <p style="color: #e8edf5; line-height: 1.8; margin-bottom: 25px; font-size: 1.1em;">
+              Estudios demuestran que los restaurantes con menús digitales experimentan un <strong style="color: #10b981;">aumento del 15-20% en ventas</strong> gracias a:
+            </p>
+            <ul style="color: #e8edf5; line-height: 2; margin-left: 25px; margin-bottom: 25px; font-size: 1.05em;">
+              <li>Imágenes atractivas que aumentan el deseo de compra</li>
+              <li>Descripciones detalladas que reducen dudas</li>
+              <li>Promociones destacadas en tiempo real</li>
+              <li>Facilidad para agregar items de alto margen</li>
+            </ul>
 
-    document.querySelectorAll('.payment-tab').forEach(tab => {
-      tab.addEventListener('click', () => {
-        document.querySelectorAll('.payment-tab').forEach(t => t.classList.remove('active'));
-        tab.classList.add('active');
-        currentPaymentPlan = tab.dataset.tab;
-        updatePrices();
-      });
-    });
+            <div style="background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%); padding: 30px; border-radius: 20px; margin-top: 40px; text-align: center;">
+              <h3 style="color: #ffffff; font-size: 1.6em; margin-bottom: 15px;">🎯 ¿Listo para Digitalizar tu Menú?</h3>
+              <p style="color: #ffffff; margin-bottom: 25px; opacity: 0.95;">Transforma la experiencia de tus clientes hoy mismo</p>
+              <a href="https://wa.me/584147825840?text=Hola!%20Quiero%20un%20menú%20QR%20para%20mi%20restaurante%20🍽️" target="_blank" rel="noopener noreferrer" style="display: inline-block; padding: 15px 35px; background: white; color: #6366f1; text-decoration: none; border-radius: 25px; font-weight: 700; font-size: 1.1em; box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);">
+                💬 Solicitar Menú QR
+              </a>
+            </div>
+          `
+        },
+        en: {
+          title: '🚀 Why Your Restaurant Needs a Digital QR Menu in 2025',
+          date: 'January 15, 2025',
+          content: `
+            <img src="https://i.imgur.com/Z9YzngK.jpg" alt="Digital QR Menu" style="width: 100%; height: 400px; object-fit: cover; border-radius: 20px; margin-bottom: 30px;" onerror="this.style.display='none';">
+            <h2 style="color: #ffffff; font-size: 2.2em; margin-bottom: 20px;">Why Your Restaurant Needs a Digital QR Menu in 2025</h2>
+            <p style="color: #a5b4fc; margin-bottom: 30px; font-size: 1.1em;">📅 January 15, 2025 �� ⏱️ 5 min read</p>
+            
+            <p style="color: #e8edf5; line-height: 1.8; margin-bottom: 25px; font-size: 1.1em;">
+              The food industry is experiencing an unprecedented digital transformation. Digital QR menus are not just a temporary trend, but a strategic necessity for any restaurant looking to thrive in 2025.
+            </p>
 
-    document.querySelectorAll('.shop-card').forEach(card => {
-      const button = card.querySelector('.btn-add-cart');
-      const whatsappMessage = button.dataset.whatsapp;
-      button.addEventListener('click', () => {
-        const priceElement = card.querySelector('.shop-price');
-        const price = currentPaymentPlan === 'contado' ? 
-          priceElement.dataset.contado : 
-          priceElement.dataset.credito;
-        const planText = currentPaymentPlan === 'contado' ? 
-          translations[currentLanguage]['shop-cash'] : 
-          translations[currentLanguage]['shop-credit'];
-        const fullMessage = `${whatsappMessage} - ${planText.replace('💵 ', '').replace('💳 ', '')}: $${price} USD`;
-        const whatsappUrl = `https://wa.me/584147825840?text=${encodeURIComponent(fullMessage)}`;
-        window.open(whatsappUrl, '_blank', 'noopener,noreferrer');
-      });
-    });
+            <h3 style="color: #ffffff; font-size: 1.8em; margin-top: 40px; margin-bottom: 20px;">✨ Main Advantages</h3>
+            
+            <div style="background: rgba(99, 102, 241, 0.1); padding: 25px; border-radius: 15px; border-left: 4px solid #6366f1; margin-bottom: 25px;">
+              <h4 style="color: #a5b4fc; font-size: 1.4em; margin-bottom: 15px;">💰 Cost Savings</h4>
+              <p style="color: #e8edf5; line-height: 1.8;">Eliminate printing and reprinting costs for physical menus. Update prices and dishes in real-time without spending an extra cent.</p>
+            </div>
 
-    function updatePrices() {
-      document.querySelectorAll('.shop-price').forEach(priceElement => {
-        const contado = priceElement.dataset.contado;
-        const credito = priceElement.dataset.credito;
-        const price = currentPaymentPlan === 'contado' ? contado : credito;
-        const periodKey = currentPaymentPlan === 'contado' ? 'shop-onetime' : 'shop-permonth';
-        const period = translations[currentLanguage][periodKey];
-        priceElement.innerHTML = `$${price}<span class="price-period">${period}</span>`;
-      });
-    }
+            <div style="background: rgba(16, 185, 129, 0.1); padding: 25px; border-radius: 15px; border-left: 4px solid #10b981; margin-bottom: 25px;">
+              <h4 style="color: #10b981; font-size: 1.4em; margin-bottom: 15px;">🦠 Hygiene and Safety</h4>
+              <p style="color: #e8edf5; line-height: 1.8;">Customers increasingly value hygiene. A QR menu eliminates physical contact and conveys professionalism.</p>
+            </div>
 
-    // Floating help button
-    const floatingHelp = document.getElementById('floatingHelp');
-    const helpMenu = document.getElementById('helpMenu');
+            <div style="background: rgba(139, 92, 246, 0.1); padding: 25px; border-radius: 15px; border-left: 4px solid #8b5cf6; margin-bottom: 25px;">
+              <h4 style="color: #a78bfa; font-size: 1.4em; margin-bottom: 15px;">📊 Data Analytics</h4>
+              <p style="color: #e8edf5; line-height: 1.8;">Know which dishes are viewed most, at what times, and optimize your menu based on real data.</p>
+            </div>
 
-    floatingHelp.addEventListener('click', () => {
-      helpMenu.classList.toggle('active');
-    });
+            <h3 style="color: #ffffff; font-size: 1.8em; margin-top: 40px; margin-bottom: 20px;">📈 Sales Impact</h3>
+            <p style="color: #e8edf5; line-height: 1.8; margin-bottom: 25px; font-size: 1.1em;">
+              Studies show that restaurants with digital menus experience a <strong style="color: #10b981;">15-20% increase in sales</strong> thanks to:
+            </p>
+            <ul style="color: #e8edf5; line-height: 2; margin-left: 25px; margin-bottom: 25px; font-size: 1.05em;">
+              <li>Attractive images that increase purchase desire</li>
+              <li>Detailed descriptions that reduce doubts</li>
+              <li>Real-time highlighted promotions</li>
+              <li>Easy to add high-margin items</li>
+            </ul>
 
-    document.querySelectorAll('.help-option').forEach(option => {
-      option.addEventListener('click', () => {
-        const service = option.dataset.service;
-        let message = '';
-        
-        if (currentLanguage === 'es') {
-          switch(service) {
-            case 'website':
-              message = '¡Hola! Me interesa crear un *Sitio Web Profesional* para mi negocio. Me gustaría conocer más detalles sobre diseño, costos y tiempo de entrega. 🌐';
-              break;
-            case 'qr-menu':
-              message = '¡Hola! Necesito un *Menú QR Digital* para mi restaurante. Quiero saber cómo funciona, precios y si incluyen el diseño personalizado. 🍽️';
-              break;
-            case 'wifi-menu':
-              message = '¡Hola! Me interesa el *Portal WiFi con Menú* para capturar datos de clientes. ¿Incluye el routerboard? ¿Cómo es la instalación? 📶';
-              break;
-            case 'app':
-              message = '¡Hola! Quiero desarrollar una *Aplicación Móvil* para mi negocio. Necesito cotización para iOS/Android y conocer el proceso de desarrollo. 📱';
-              break;
-            case 'ecommerce':
-              message = '¡Hola! Me gustaría crear una *Tienda Online* para vender mis productos 24/7. ¿Qué funcionalidades incluye y cuál es el costo? 🛒';
-              break;
-            case 'consult':
-              message = '¡Hola! Necesito una *Consultoría* para evaluar qué solución digital es mejor para mi negocio. ¿Podemos agendar una reunión? 💼';
-              break;
-          }
-        } else {
-          switch(service) {
-            case 'website':
-              message = 'Hello! I\'m interested in creating a *Professional Website* for my business. I would like to know more details about design, costs and delivery time. 🌐';
-              break;
-            case 'qr-menu':
-              message = 'Hello! I need a *Digital QR Menu* for my restaurant. I want to know how it works, prices and if you include personalized design. 🍽️';
-              break;
-            case 'wifi-menu':
-              message = 'Hello! I\'m interested in the *WiFi Portal with Menu* to capture customer data. Does it include the routerboard? How is the installation? 📶';
-              break;
-            case 'app':
-              message = 'Hello! I want to develop a *Mobile Application* for my business. I need a quote for iOS/Android and to know the development process. 📱';
-              break;
-            case 'ecommerce':
-              message = 'Hello! I would like to create an *Online Store* to sell my products 24/7. What features does it include and what is the cost? 🛒';
-              break;
-            case 'consult':
-              message = 'Hello! I need a *Consultation* to evaluate which digital solution is best for my business. Can we schedule a meeting? 💼';
-              break;
-          }
+            <div style="background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%); padding: 30px; border-radius: 20px; margin-top: 40px; text-align: center;">
+              <h3 style="color: #ffffff; font-size: 1.6em; margin-bottom: 15px;">🎯 Ready to Digitize Your Menu?</h3>
+              <p style="color: #ffffff; margin-bottom: 25px; opacity: 0.95;">Transform your customers' experience today</p>
+              <a href="https://wa.me/584147825840?text=Hello!%20I%20want%20a%20QR%20menu%20for%20my%20restaurant%20🍽️" target="_blank" rel="noopener noreferrer" style="display: inline-block; padding: 15px 35px; background: white; color: #6366f1; text-decoration: none; border-radius: 25px; font-weight: 700; font-size: 1.1em; box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);">
+                💬 Request QR Menu
+              </a>
+            </div>
+          `
         }
-        
-        const whatsappUrl = `https://wa.me/584147825840?text=${encodeURIComponent(message)}`;
-        window.open(whatsappUrl, '_blank', 'noopener,noreferrer');
-        helpMenu.classList.remove('active');
-      });
-    });
+      },
+      2: {
+        es: {
+          title: '📶 Portales WiFi: Convierte Visitantes en Clientes',
+          date: '10 Enero 2025',
+          content: `
+            <img src="https://i.imgur.com/O4BQFWn.jpg" alt="Portal WiFi" style="width: 100%; height: 400px; object-fit: cover; border-radius: 20px; margin-bottom: 30px;" onerror="this.style.display='none';">
+            <h2 style="color: #ffffff; font-size: 2.2em; margin-bottom: 20px;">Portales WiFi: Convierte Visitantes en Clientes</h2>
+            <p style="color: #a5b4fc; margin-bottom: 30px; font-size: 1.1em;">📅 10 Enero 2025 • ⏱️ 6 min de lectura</p>
+            
+            <p style="color: #e8edf5; line-height: 1.8; margin-bottom: 25px; font-size: 1.1em;">
+              Ofrecer WiFi gratis es genial, pero ¿y si pudieras convertir ese servicio en una poderosa herramienta de marketing? Los portales WiFi personalizados son la clave.
+            </p>
 
-    document.addEventListener('click', (e) => {
-      if (helpMenu.classList.contains('active') && !helpMenu.contains(e.target) && !floatingHelp.contains(e.target)) {
-        helpMenu.classList.remove('active');
+            <h3 style="color: #ffffff; font-size: 1.8em; margin-top: 40px; margin-bottom: 20px;">🎯 ¿Qué es un Portal WiFi?</h3>
+            <p style="color: #e8edf5; line-height: 1.8; margin-bottom: 25px; font-size: 1.05em;">
+              Es una página personalizada que tus clientes ven antes de conectarse a tu WiFi. Aquí puedes mostrar tu menú, promociones, redes sociales y captar información valiosa.
+            </p>
+
+            <div style="background: rgba(99, 102, 241, 0.1); padding: 25px; border-radius: 15px; border-left: 4px solid #6366f1; margin-bottom: 25px;">
+              <h4 style="color: #a5b4fc; font-size: 1.4em; margin-bottom: 15px;">📊 Recolecta Datos Valiosos</h4>
+              <p style="color: #e8edf5; line-height: 1.8;">Nombre, email, número de teléfono. Construye tu base de datos de clientes autom��ticamente mientras ofrecen WiFi gratis.</p>
+            </div>
+
+            <div style="background: rgba(16, 185, 129, 0.1); padding: 25px; border-radius: 15px; border-left: 4px solid #10b981; margin-bottom: 25px;">
+              <h4 style="color: #10b981; font-size: 1.4em; margin-bottom: 15px;">📱 Marketing Directo</h4>
+              <p style="color: #e8edf5; line-height: 1.8;">Promociona ofertas especiales, eventos y nuevos productos directamente a clientes mientras se conectan.</p>
+            </div>
+
+            <div style="background: rgba(139, 92, 246, 0.1); padding: 25px; border-radius: 15px; border-left: 4px solid #8b5cf6; margin-bottom: 25px;">
+              <h4 style="color: #a78bfa; font-size: 1.4em; margin-bottom: 15px;">🌟 Aumenta Redes Sociales</h4>
+              <p style="color: #e8edf5; line-height: 1.8;">Integra botones a Instagram, Facebook, TikTok. Convierte visitantes físicos en seguidores digitales.</p>
+            </div>
+
+            <h3 style="color: #ffffff; font-size: 1.8em; margin-top: 40px; margin-bottom: 20px;">💡 Casos de Éxito</h3>
+            <p style="color: #e8edf5; line-height: 1.8; margin-bottom: 15px; font-size: 1.05em;">
+              <strong style="color: #10b981;">Café en Barcelona:</strong> Aumentó su base de emails en 500 contactos en 2 meses.
+            </p>
+            <p style="color: #e8edf5; line-height: 1.8; margin-bottom: 15px; font-size: 1.05em;">
+              <strong style="color: #6366f1;">Restaurante en Miami:</strong> 30% más de seguidores en Instagram en 3 meses.
+            </p>
+
+            <div style="background: linear-gradient(135deg, #10b981 0%, #059669 100%); padding: 30px; border-radius: 20px; margin-top: 40px; text-align: center;">
+              <h3 style="color: #ffffff; font-size: 1.6em; margin-bottom: 15px;">📶 Instala tu Portal WiFi</h3>
+              <p style="color: #ffffff; margin-bottom: 25px; opacity: 0.95;">Incluye Routerboard + Configuración Profesional</p>
+              <a href="https://wa.me/584147825840?text=Hola!%20Quiero%20un%20Portal%20WiFi%20para%20mi%20negocio%20📶" target="_blank" rel="noopener noreferrer" style="display: inline-block; padding: 15px 35px; background: white; color: #10b981; text-decoration: none; border-radius: 25px; font-weight: 700; font-size: 1.1em; box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);">
+                💬 Solicitar Portal WiFi
+              </a>
+            </div>
+          `
+        },
+        en: {
+          title: '📶 WiFi Portals: Turn Visitors into Customers',
+          date: 'January 10, 2025',
+          content: `
+            <img src="https://i.imgur.com/O4BQFWn.jpg" alt="WiFi Portal" style="width: 100%; height: 400px; object-fit: cover; border-radius: 20px; margin-bottom: 30px;" onerror="this.style.display='none';">
+            <h2 style="color: #ffffff; font-size: 2.2em; margin-bottom: 20px;">WiFi Portals: Turn Visitors into Customers</h2>
+            <p style="color: #a5b4fc; margin-bottom: 30px; font-size: 1.1em;">📅 January 10, 2025 • ⏱️ 6 min read</p>
+            
+            <p style="color: #e8edf5; line-height: 1.8; margin-bottom: 25px; font-size: 1.1em;">
+              Offering free WiFi is great, but what if you could turn that service into a powerful marketing tool? Customized WiFi portals are the key.
+            </p>
+
+            <h3 style="color: #ffffff; font-size: 1.8em; margin-top: 40px; margin-bottom: 20px;">🎯 What is a WiFi Portal?</h3>
+            <p style="color: #e8edf5; line-height: 1.8; margin-bottom: 25px; font-size: 1.05em;">
+              It's a customized page that your customers see before connecting to your WiFi. Here you can show your menu, promotions, social networks and capture valuable information.
+            </p>
+
+            <div style="background: rgba(99, 102, 241, 0.1); padding: 25px; border-radius: 15px; border-left: 4px solid #6366f1; margin-bottom: 25px;">
+              <h4 style="color: #a5b4fc; font-size: 1.4em; margin-bottom: 15px;">📊 Collect Valuable Data</h4>
+              <p style="color: #e8edf5; line-height: 1.8;">Name, email, phone number. Build your customer database automatically while offering free WiFi.</p>
+            </div>
+
+            <div style="background: rgba(16, 185, 129, 0.1); padding: 25px; border-radius: 15px; border-left: 4px solid #10b981; margin-bottom: 25px;">
+              <h4 style="color: #10b981; font-size: 1.4em; margin-bottom: 15px;">📱 Direct Marketing</h4>
+              <p style="color: #e8edf5; line-height: 1.8;">Promote special offers, events and new products directly to customers as they connect.</p>
+            </div>
+
+            <div style="background: rgba(139, 92, 246, 0.1); padding: 25px; border-radius: 15px; border-left: 4px solid #8b5cf6; margin-bottom: 25px;">
+              <h4 style="color: #a78bfa; font-size: 1.4em; margin-bottom: 15px;">🌟 Increase Social Media</h4>
+              <p style="color: #e8edf5; line-height: 1.8;">Integrate buttons to Instagram, Facebook, TikTok. Convert physical visitors into digital followers.</p>
+            </div>
+
+            <h3 style="color: #ffffff; font-size: 1.8em; margin-top: 40px; margin-bottom: 20px;">💡 Success Stories</h3>
+            <p style="color: #e8edf5; line-height: 1.8; margin-bottom: 15px; font-size: 1.05em;">
+              <strong style="color: #10b981;">Café in Barcelona:</strong> Increased their email base by 500 contacts in 2 months.
+            </p>
+            <p style="color: #e8edf5; line-height: 1.8; margin-bottom: 15px; font-size: 1.05em;">
+              <strong style="color: #6366f1;">Restaurant in Miami:</strong> 30% more Instagram followers in 3 months.
+            </p>
+
+            <div style="background: linear-gradient(135deg, #10b981 0%, #059669 100%); padding: 30px; border-radius: 20px; margin-top: 40px; text-align: center;">
+              <h3 style="color: #ffffff; font-size: 1.6em; margin-bottom: 15px;">📶 Install Your WiFi Portal</h3>
+              <p style="color: #ffffff; margin-bottom: 25px; opacity: 0.95;">Includes Routerboard + Professional Setup</p>
+              <a href="https://wa.me/584147825840?text=Hello!%20I%20want%20a%20WiFi%20Portal%20for%20my%20business%20���" target="_blank" rel="noopener noreferrer" style="display: inline-block; padding: 15px 35px; background: white; color: #10b981; text-decoration: none; border-radius: 25px; font-weight: 700; font-size: 1.1em; box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);">
+                💬 Request WiFi Portal
+              </a>
+            </div>
+          `
+        }
+      },
+      3: {
+        es: {
+          title: '💼 5 Razones para Invertir en un Sitio Web Profesional',
+          date: '5 Enero 2025',
+          content: `
+            <img src="https://i.imgur.com/MkS2ZA0.jpg" alt="Sitio Web Profesional" style="width: 100%; height: 400px; object-fit: cover; border-radius: 20px; margin-bottom: 30px;" onerror="this.style.display='none';">
+            <h2 style="color: #ffffff; font-size: 2.2em; margin-bottom: 20px;">5 Razones para Invertir en un Sitio Web Profesional</h2>
+            <p style="color: #a5b4fc; margin-bottom: 30px; font-size: 1.1em;">📅 5 Enero 2025 • ⏱️ 7 min de lectura</p>
+            
+            <p style="color: #e8edf5; line-height: 1.8; margin-bottom: 25px; font-size: 1.1em;">
+              En 2025, no tener un sitio web profesional es como no existir. Es tu carta de presentación digital y funciona 24/7 para tu negocio.
+            </p>
+
+            <div style="background: rgba(99, 102, 241, 0.1); padding: 25px; border-radius: 15px; border-left: 4px solid #6366f1; margin-bottom: 25px;">
+              <h3 style="color: #a5b4fc; font-size: 1.6em; margin-bottom: 15px;">1️⃣ Credibilidad y Confianza</h3>
+              <p style="color: #e8edf5; line-height: 1.8; font-size: 1.05em;">El 75% de los usuarios juzgan la credibilidad de una empresa por su sitio web. Un dise��o profesional genera confianza instantánea.</p>
+            </div>
+
+            <div style="background: rgba(16, 185, 129, 0.1); padding: 25px; border-radius: 15px; border-left: 4px solid #10b981; margin-bottom: 25px;">
+              <h3 style="color: #10b981; font-size: 1.6em; margin-bottom: 15px;">2️⃣ Disponibilidad 24/7</h3>
+              <p style="color: #e8edf5; line-height: 1.8; font-size: 1.05em;">Tu sitio web trabaja mientras duermes. Clientes potenciales pueden conocer tus servicios, ver precios y contactarte en cualquier momento.</p>
+            </div>
+
+            <div style="background: rgba(139, 92, 246, 0.1); padding: 25px; border-radius: 15px; border-left: 4px solid #8b5cf6; margin-bottom: 25px;">
+              <h3 style="color: #a78bfa; font-size: 1.6em; margin-bottom: 15px;">3️⃣ Marketing Cost-Effective</h3>
+              <p style="color: #e8edf5; line-height: 1.8; font-size: 1.05em;">Comparado con publicidad tradicional, un sitio web ofrece ROI superior. SEO + contenido = tráfico orgánico gratuito.</p>
+            </div>
+
+            <div style="background: rgba(236, 72, 153, 0.1); padding: 25px; border-radius: 15px; border-left: 4px solid #ec4899; margin-bottom: 25px;">
+              <h3 style="color: #ec4899; font-size: 1.6em; margin-bottom: 15px;">4️⃣ Alcance Global</h3>
+              <p style="color: #e8edf5; line-height: 1.8; font-size: 1.05em;">Rompe barreras geográficas. Tu negocio local puede expandirse a nivel nacional o internacional desde día uno.</p>
+            </div>
+
+            <div style="background: rgba(234, 179, 8, 0.1); padding: 25px; border-radius: 15px; border-left: 4px solid #eab308; margin-bottom: 25px;">
+              <h3 style="color: #eab308; font-size: 1.6em; margin-bottom: 15px;">5️⃣ Control Total de tu Marca</h3>
+              <p style="color: #e8edf5; line-height: 1.8; font-size: 1.05em;">A diferencia de redes sociales, tu sitio web es TUYO. No estás sujeto a algoritmos cambiantes o políticas de terceros.</p>
+            </div>
+
+            <h3 style="color: #ffffff; font-size: 1.8em; margin-top: 40px; margin-bottom: 20px;">📊 Datos Importantes</h3>
+            <ul style="color: #e8edf5; line-height: 2; margin-left: 25px; margin-bottom: 25px; font-size: 1.05em;">
+              <li>🔍 <strong>Google:</strong> 46% de todas las búsquedas tienen intención local</li>
+              <li>📱 <strong>Mobile:</strong> 60% del tráfico web viene de dispositivos móviles</li>
+              <li>��� <strong>Velocidad:</strong> 53% de usuarios abandonan sitios que tardan +3 segundos</li>
+              <li>�� <strong>ROI:</strong> Sitios web generan 5x más ROI que publicidad tradicional</li>
+            </ul>
+
+            <div style="background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%); padding: 30px; border-radius: 20px; margin-top: 40px; text-align: center;">
+              <h3 style="color: #ffffff; font-size: 1.6em; margin-bottom: 15px;">🌐 Crea tu Sitio Web Profesional</h3>
+              <p style="color: #ffffff; margin-bottom: 25px; opacity: 0.95;">Diseño Moderno + Hosting + Dominio incluido</p>
+              <a href="https://wa.me/584147825840?text=Hola!%20Quiero%20un%20sitio%20web%20profesional%20para%20mi%20negocio%20🌐" target="_blank" rel="noopener noreferrer" style="display: inline-block; padding: 15px 35px; background: white; color: #3b82f6; text-decoration: none; border-radius: 25px; font-weight: 700; font-size: 1.1em; box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);">
+                💬 Solicitar Sitio Web
+              </a>
+            </div>
+          `
+        },
+        en: {
+          title: '💼 5 Reasons to Invest in a Professional Website',
+          date: 'January 5, 2025',
+          content: `
+            <img src="https://i.imgur.com/MkS2ZA0.jpg" alt="Professional Website" style="width: 100%; height: 400px; object-fit: cover; border-radius: 20px; margin-bottom: 30px;" onerror="this.style.display='none';">
+            <h2 style="color: #ffffff; font-size: 2.2em; margin-bottom: 20px;">5 Reasons to Invest in a Professional Website</h2>
+            <p style="color: #a5b4fc; margin-bottom: 30px; font-size: 1.1em;">📅 January 5, 2025 • ⏱️ 7 min read</p>
+            
+            <p style="color: #e8edf5; line-height: 1.8; margin-bottom: 25px; font-size: 1.1em;">
+              In 2025, not having a professional website is like not existing. It's your digital business card and works 24/7 for your business.
+            </p>
+
+            <div style="background: rgba(99, 102, 241, 0.1); padding: 25px; border-radius: 15px; border-left: 4px solid #6366f1; margin-bottom: 25px;">
+              <h3 style="color: #a5b4fc; font-size: 1.6em; margin-bottom: 15px;">1️⃣ Credibility and Trust</h3>
+              <p style="color: #e8edf5; line-height: 1.8; font-size: 1.05em;">75% of users judge a company's credibility by its website. Professional design generates instant trust.</p>
+            </div>
+
+            <div style="background: rgba(16, 185, 129, 0.1); padding: 25px; border-radius: 15px; border-left: 4px solid #10b981; margin-bottom: 25px;">
+              <h3 style="color: #10b981; font-size: 1.6em; margin-bottom: 15px;">2️⃣ 24/7 Availability</h3>
+              <p style="color: #e8edf5; line-height: 1.8; font-size: 1.05em;">Your website works while you sleep. Potential customers can learn about your services, see prices and contact you anytime.</p>
+            </div>
+
+            <div style="background: rgba(139, 92, 246, 0.1); padding: 25px; border-radius: 15px; border-left: 4px solid #8b5cf6; margin-bottom: 25px;">
+              <h3 style="color: #a78bfa; font-size: 1.6em; margin-bottom: 15px;">3️⃣ Cost-Effective Marketing</h3>
+              <p style="color: #e8edf5; line-height: 1.8; font-size: 1.05em;">Compared to traditional advertising, a website offers superior ROI. SEO + content = free organic traffic.</p>
+            </div>
+
+            <div style="background: rgba(236, 72, 153, 0.1); padding: 25px; border-radius: 15px; border-left: 4px solid #ec4899; margin-bottom: 25px;">
+              <h3 style="color: #ec4899; font-size: 1.6em; margin-bottom: 15px;">4️⃣ Global Reach</h3>
+              <p style="color: #e8edf5; line-height: 1.8; font-size: 1.05em;">Break geographical barriers. Your local business can expand nationally or internationally from day one.</p>
+            </div>
+
+            <div style="background: rgba(234, 179, 8, 0.1); padding: 25px; border-radius: 15px; border-left: 4px solid #eab308; margin-bottom: 25px;">
+              <h3 style="color: #eab308; font-size: 1.6em; margin-bottom: 15px;">5️⃣ Total Brand Control</h3>
+              <p style="color: #e8edf5; line-height: 1.8; font-size: 1.05em;">Unlike social media, your website is YOURS. You're not subject to changing algorithms or third-party policies.</p>
+            </div>
+
+            <h3 style="color: #ffffff; font-size: 1.8em; margin-top: 40px; margin-bottom: 20px;">📊 Important Data</h3>
+            <ul style="color: #e8edf5; line-height: 2; margin-left: 25px; margin-bottom: 25px; font-size: 1.05em;">
+              <li>🔍 <strong>Google:</strong> 46% of all searches have local intent</li>
+              <li>📱 <strong>Mobile:</strong> 60% of web traffic comes from mobile devices</li>
+              <li>⚡ <strong>Speed:</strong> 53% of users abandon sites that take +3 seconds</li>
+              <li>💰 <strong>ROI:</strong> Websites generate 5x more ROI than traditional advertising</li>
+            </ul>
+
+            <div style="background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%); padding: 30px; border-radius: 20px; margin-top: 40px; text-align: center;">
+              <h3 style="color: #ffffff; font-size: 1.6em; margin-bottom: 15px;">🌐 Create Your Professional Website</h3>
+              <p style="color: #ffffff; margin-bottom: 25px; opacity: 0.95;">Modern Design + Hosting + Domain included</p>
+              <a href="https://wa.me/584147825840?text=Hello!%20I%20want%20a%20professional%20website%20for%20my%20business%20🌐" target="_blank" rel="noopener noreferrer" style="display: inline-block; padding: 15px 35px; background: white; color: #3b82f6; text-decoration: none; border-radius: 25px; font-weight: 700; font-size: 1.1em; box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);">
+                💬 Request Website
+              </a>
+            </div>
+          `
+        }
       }
-    });
+    };
+
+    let currentBlogPost = null;
+
+    function openBlogPost(postId) {
+      currentBlogPost = postId;
+      const post = blogPosts[postId][currentLanguage];
+      if (!post) return;
+
+      document.getElementById('blogGrid').style.display = 'none';
+      document.getElementById('backToBlogBtn').style.display = 'block';
+      document.getElementById('blogPostView').style.display = 'block';
+      document.getElementById('blogPostContent').innerHTML = post.content;
+
+      const blogSection = document.getElementById('blog');
+      blogSection.scrollIntoView({ behavior: 'smooth' });
+    }
+
+    function showBlogList(event) {
+      if (event) event.preventDefault();
+      
+      document.getElementById('blogGrid').style.display = 'grid';
+      document.getElementById('backToBlogBtn').style.display = 'none';
+      document.getElementById('blogPostView').style.display = 'none';
+
+      const blogSection = document.getElementById('blog');
+      blogSection.scrollIntoView({ behavior: 'smooth' });
+    }
   </script>
- <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9a5ae851e024cdcb',t:'MTc2NDM0MzgzNi4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+ <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9a6ce30244f8cdcb',t:'MTc2NDUzMjM2My4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
