@@ -1,0 +1,30 @@
+{
+  "producer_account_name": "datacloudly1",
+  "org": {
+    "candidate_name": "DataCloudly",
+    "website": "https://pages.dev",
+    "code_of_conduct": "https://pages.dev/code-of-conduct",
+    "ownership_disclosure": "https://pages.dev/ownership",
+    "email": "datacloudly@gmail.com",
+    "branding": {
+      "logo_256": "https://pages.dev/assets/logo.png",
+      "logo_1024": "https://pages.dev/assets/logo.png",
+      "logo_svg": "https://pages.dev/assets/logo.svg"
+    }
+  },
+  "nodes": [
+    {
+      "location": {
+        "name": "Montreal",
+        "country": "CA",
+        "latitude": 45.5017,
+        "longitude": -73.5673
+      },
+      "node_type": "seed",
+      "is_producer": true,
+      "p2p_endpoint": "0.0.0.0:9876",
+      "api_endpoint": "http://0.0.0",
+      "ssl_endpoint": "https://0.0.0"
+    }
+  ]
+}
