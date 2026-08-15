@@ -7,9 +7,12 @@
     "ownership_disclosure": "https://datacloudly.pages.dev/ownership",
     "email": "datacloudly@gmail.com",
     "branding": {
-      "logo_256": "https://datacloudly.pages.dev/assets/logo.png",
-      "logo_1024": "https://datacloudly.pages.dev/assets/logo.png",
-      "logo_svg": "https://datacloudly.pages.dev/assets/logo.svg"
+     
+
+            "logo_256": "https://imgur.com",
+      "logo_1024": "https://imgur.com",
+      "logo_svg": "https://imgur.com"
+
     }
   },
   "nodes": [
