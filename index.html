@@ -11,284 +11,225 @@
     :root {
       --ink: #060a10;
       --panel: #0d1723;
-      --panel-bright: #122234;
       --line: rgba(106, 203, 255, .16);
       --electric: #31b4ff;
       --mint: #63f4b0;
       --text: #edf7ff;
       --muted: #9bb2c3;
     }
-
     * { box-sizing: border-box; }
     html { scroll-behavior: smooth; }
     body {
-      margin: 0;
       width: 100%;
+      margin: 0;
       overflow-x: hidden;
       background: var(--ink);
       color: var(--text);
       font-family: "DM Sans", sans-serif;
     }
-
     .mono { font-family: "DM Mono", monospace; }
-    .focus-ring:focus-visible {
-      outline: 2px solid var(--mint);
-      outline-offset: 4px;
-    }
-
+    .focus-ring:focus-visible { outline: 2px solid var(--mint); outline-offset: 4px; }
     .grid-atmosphere {
       background-image:
-        linear-gradient(rgba(49, 180, 255, .06) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(49, 180, 255, .06) 1px, transparent 1px);
+        linear-gradient(rgba(49,180,255,.06) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(49,180,255,.06) 1px, transparent 1px);
       background-size: 46px 46px;
     }
-
     .hero-shade {
-      background: linear-gradient(90deg, rgba(6,10,16,.42) 0%, rgba(6,10,16,.22) 48%, rgba(6,10,16,.06) 100%);
+      background: linear-gradient(90deg, rgba(6,10,16,.91) 0%, rgba(6,10,16,.72) 48%, rgba(6,10,16,.48) 100%);
     }
-
-    /* Keep the hero readable outside Canva, where config.json styles are unavailable. */
-    #hero-status { color: #63f4b0; font-family: "DM Mono", monospace; font-size: .75rem; font-weight: 500; letter-spacing: .08em; }
-    [data-template-id="hero-title-en"], [data-template-id="hero-title-es"] { color: #f4faff; font-size: clamp(2.25rem, 5vw, 3.75rem); font-weight: 700; line-height: 1.03; letter-spacing: -.04em; }
-    [data-template-id="hero-copy-en"], [data-template-id="hero-copy-es"] { color: #e1edf4; font-size: clamp(1.05rem, 2vw, 1.25rem); line-height: 1.6; }
-    [data-template-id="hero-cta-en"], [data-template-id="hero-cta-es"] { color: #06121c; font-weight: 700; }
-    #hero-note { color: #d0e5ef; font-family: "DM Mono", monospace; font-size: .75rem; font-weight: 500; letter-spacing: .04em; }
-
-    .orb {
-      position: absolute;
-      border-radius: 999px;
-      filter: blur(8px);
-      pointer-events: none;
-    }
-
-    .orb-one {
-      width: 460px;
-      height: 460px;
-      top: -180px;
-      right: -140px;
-      background: rgba(49, 180, 255, .17);
-    }
-
-    .orb-two {
-      width: 280px;
-      height: 280px;
-      bottom: -180px;
-      left: 18%;
-      background: rgba(99, 244, 176, .10);
-    }
-
+    .orb { position:absolute; border-radius:999px; filter:blur(8px); pointer-events:none; }
+    .orb-one { width:460px; height:460px; top:-180px; right:-140px; background:rgba(49,180,255,.16); }
+    .orb-two { width:280px; height:280px; bottom:-180px; left:18%; background:rgba(99,244,176,.10); }
     .glass-panel {
-      background: linear-gradient(145deg, rgba(17, 35, 53, .88), rgba(7, 14, 23, .91));
-      border: 1px solid rgba(119, 209, 255, .2);
-      box-shadow: 0 24px 70px rgba(0,0,0,.3), inset 0 1px rgba(255,255,255,.04);
+      background: linear-gradient(145deg, rgba(17,35,53,.91), rgba(7,14,23,.94));
+      border: 1px solid rgba(119,209,255,.23);
+      box-shadow: 0 24px 70px rgba(0,0,0,.38), inset 0 1px rgba(255,255,255,.04);
     }
-
     .corner-mark::after {
-      content: "";
-      position: absolute;
-      width: 38px;
-      height: 38px;
-      top: -1px;
-      right: -1px;
-      border-top: 2px solid var(--mint);
-      border-right: 2px solid var(--mint);
-      opacity: .75;
+      content:""; position:absolute; width:38px; height:38px; top:-1px; right:-1px;
+      border-top:2px solid var(--mint); border-right:2px solid var(--mint); opacity:.75;
     }
-
     .tech-card {
-      background: rgba(13, 23, 35, .85);
-      border: 1px solid var(--line);
-      transition: transform .25s ease, border-color .25s ease, background .25s ease, box-shadow .25s ease;
+      background: rgba(13,23,35,.92);
+      border:1px solid var(--line);
+      transition:transform .25s ease, border-color .25s ease, background .25s ease;
     }
-
     .tech-card:hover {
-      transform: translateY(-5px);
-      border-color: rgba(99, 244, 176, .6);
-      background: rgba(18, 34, 52, .96);
-      box-shadow: 0 18px 34px rgba(0,0,0,.2);
+      transform:translateY(-5px);
+      border-color:rgba(99,244,176,.62);
+      background:rgba(18,34,52,.98);
     }
-
     .resource-card {
-      background: linear-gradient(135deg, rgba(17, 38, 57, .96), rgba(9, 16, 25, .96));
-      border: 1px solid rgba(49, 180, 255, .22);
-      transition: transform .25s ease, border-color .25s ease;
+      background:linear-gradient(135deg, rgba(17,38,57,.98), rgba(9,16,25,.98));
+      border:1px solid rgba(49,180,255,.22);
+      transition:transform .25s ease, border-color .25s ease;
     }
+    .resource-card:hover { transform:translateY(-4px); border-color:rgba(99,244,176,.65); }
+    .reveal { animation:rise .7s ease both; }
+    .delay-1 { animation-delay:.12s; }
+    .delay-2 { animation-delay:.24s; }
+    .delay-3 { animation-delay:.36s; }
+    @keyframes rise { from { opacity:0; transform:translateY(18px); } to { opacity:1; transform:translateY(0); } }
+    .pulse-dot { animation:pulse 2s infinite; }
+    @keyframes pulse { 0%,100% { opacity:1; transform:scale(1); } 50% { opacity:.45; transform:scale(.7); } }
 
-    .resource-card:hover {
-      transform: translateY(-4px);
-      border-color: rgba(99, 244, 176, .65);
-    }
-
-    .reveal { animation: rise .7s ease both; }
-    .delay-1 { animation-delay: .12s; }
-    .delay-2 { animation-delay: .24s; }
-    .delay-3 { animation-delay: .36s; }
-
-    @keyframes rise {
-      from { opacity: 0; transform: translateY(18px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    .pulse-dot { animation: pulse 2s infinite; }
-    @keyframes pulse {
-      0%, 100% { opacity: 1; transform: scale(1); }
-      50% { opacity: .45; transform: scale(.7); }
-    }
-
-    [data-language] { display: none; }
-    body.language-en [data-language="en"] { display: inline; }
-    body.language-es [data-language="es"] { display: inline; }
-    body.language-en [data-language="en-block"] { display: block; }
-    body.language-es [data-language="es-block"] { display: block; }
-    body.language-en [data-language="en-flex"] { display: flex; }
-    body.language-es [data-language="es-flex"] { display: flex; }
-
-    .language-button[aria-pressed="true"] {
-      color: #06121c;
-      background: var(--mint);
-    }
+    [data-language] { display:none; }
+    body.language-en [data-language="en"],
+    body.language-es [data-language="es"] { display:inline; }
+    body.language-en [data-language="en-block"],
+    body.language-es [data-language="es-block"] { display:block; }
+    .language-button[aria-pressed="true"] { color:#06121c; background:var(--mint); }
   </style>
   <script src="/_sdk/0e8d3a91e1c6f495.data_sdk.js" type="text/javascript" integrity="sha512-c00oDoGjsMgluCLLEyVl3suwEkgjOGGplVFbsilUoBg4aMKNmsL3mwsc9r0dPn95qiSZyjBousQXgROkAW7p/w=="></script>
   <script src="/_sdk/eba18683f23e5798.resizing_sdk.js" type="text/javascript" integrity="sha512-E0UWUllhwPXaNJtjyTKXWKrIE+FruPfFpO4mRmMDP2LI+U9bOizy5npCq6xx/JyWcvSK7D3TFf2wFR2Mha9kbA=="></script>
  </head>
  <body data-template-id="__page-root" class="language-en w-full">
   <header class="sticky top-0 z-50 border-b border-sky-300/10 bg-[#060a10]/90 backdrop-blur-xl">
-   <nav class="mx-auto flex max-w-7xl items-center justify-between px-5 py-3.5 lg:px-8" aria-label="Primary navigation"><a href="#top" class="focus-ring flex items-center gap-3 rounded-sm" aria-label="DataCloudly home"> <img data-template-id="brand-logo" loading="lazy" class="canva-image h-10 w-16 rounded-lg object-contain ring-1 ring-[#63f4b0]/40"> <span data-template-id="brand-name" class="canva-text font-bold tracking-tight"></span> </a>
-    <div class="hidden items-center gap-6 md:flex"><a href="#about" class="focus-ring rounded-sm text-sm text-[#bdd1df] transition hover:text-[#63f4b0]"> <span data-template-id="nav-about-en" class="canva-link" data-language="en"></span> <span data-template-id="nav-about-es" class="canva-link" data-language="es"></span> </a> <a href="#infrastructure" class="focus-ring rounded-sm text-sm text-[#bdd1df] transition hover:text-[#63f4b0]"> <span data-template-id="nav-infra-en" class="canva-link" data-language="en"></span> <span data-template-id="nav-infra-es" class="canva-link" data-language="es"></span> </a> <a href="#resources" class="focus-ring rounded-sm text-sm text-[#bdd1df] transition hover:text-[#63f4b0]"> <span data-template-id="nav-resources-en" class="canva-link" data-language="en"></span> <span data-template-id="nav-resources-es" class="canva-link" data-language="es"></span> </a> <a href="#contact" class="focus-ring rounded-sm text-sm text-[#bdd1df] transition hover:text-[#63f4b0]"> <span data-template-id="nav-contact-en" class="canva-link" data-language="en"></span> <span data-template-id="nav-contact-es" class="canva-link" data-language="es"></span> </a>
-     <div class="flex rounded-md border border-sky-300/20 p-1 mono text-xs"><button id="lang-en" type="button" class="language-button focus-ring rounded px-2 py-1 transition" aria-pressed="true">EN</button> <button id="lang-es" type="button" class="language-button focus-ring rounded px-2 py-1 text-[#9bb2c3] transition" aria-pressed="false">ES</button>
+   <nav class="mx-auto flex max-w-7xl items-center justify-between px-5 py-3.5 lg:px-8" aria-label="Primary navigation">
+    <a href="#top" class="focus-ring flex items-center gap-3 rounded-sm" aria-label="DataCloudly home"> <img data-template-id="brand-logo" loading="lazy" class="canva-image h-10 w-16 rounded-lg object-contain ring-1 ring-[#63f4b0]/40"> <span data-template-id="brand-name" class="canva-text font-bold tracking-tight text-[#edf7ff]">DataCloudly</span> </a>
+    <div class="hidden items-center gap-6 md:flex">
+     <a href="#about" class="focus-ring rounded-sm text-sm text-[#bdd1df] transition hover:text-[#63f4b0]"> <span data-template-id="nav-about-en" class="canva-link" data-language="en">About</span> <span data-template-id="nav-about-es" class="canva-link" data-language="es">Nosotros</span> </a> <a href="#infrastructure" class="focus-ring rounded-sm text-sm text-[#bdd1df] transition hover:text-[#63f4b0]"> <span data-template-id="nav-infra-en" class="canva-link" data-language="en">Infrastructure</span> <span data-template-id="nav-infra-es" class="canva-link" data-language="es">Infraestructura</span> </a> <a href="#resources" class="focus-ring rounded-sm text-sm text-[#bdd1df] transition hover:text-[#63f4b0]"> <span data-template-id="nav-resources-en" class="canva-link" data-language="en">Resources</span> <span data-template-id="nav-resources-es" class="canva-link" data-language="es">Recursos</span> </a> <a href="#contact" class="focus-ring rounded-sm text-sm text-[#bdd1df] transition hover:text-[#63f4b0]"> <span data-template-id="nav-contact-en" class="canva-link" data-language="en">Contact</span> <span data-template-id="nav-contact-es" class="canva-link" data-language="es">Contacto</span> </a>
+     <div class="flex rounded-md border border-sky-300/20 p-1 mono text-xs">
+      <button id="lang-en" type="button" class="language-button focus-ring rounded px-2 py-1 transition" aria-pressed="true">EN</button> <button id="lang-es" type="button" class="language-button focus-ring rounded px-2 py-1 text-[#9bb2c3] transition" aria-pressed="false">ES</button>
      </div>
     </div><button id="menu-button" type="button" class="focus-ring rounded p-2 text-[#edf7ff] md:hidden" aria-label="Open navigation menu" aria-expanded="false" aria-controls="mobile-menu"> <i data-lucide="menu" width="22" height="22"></i> </button>
    </nav>
    <div id="mobile-menu" class="hidden border-t border-sky-300/10 bg-[#09111a] px-5 py-5 md:hidden">
-    <div class="flex flex-col gap-4"><a href="#about" class="mobile-link focus-ring rounded-sm text-sm text-[#d9e8f1]"> <span data-template-id="mobile-about-en" class="canva-link" data-language="en"></span> <span data-template-id="mobile-about-es" class="canva-link" data-language="es"></span> </a> <a href="#infrastructure" class="mobile-link focus-ring rounded-sm text-sm text-[#d9e8f1]"> <span data-template-id="mobile-infra-en" class="canva-link" data-language="en"></span> <span data-template-id="mobile-infra-es" class="canva-link" data-language="es"></span> </a> <a href="#resources" class="mobile-link focus-ring rounded-sm text-sm text-[#d9e8f1]"> <span data-template-id="mobile-resources-en" class="canva-link" data-language="en"></span> <span data-template-id="mobile-resources-es" class="canva-link" data-language="es"></span> </a> <a href="#contact" class="mobile-link focus-ring rounded-sm text-sm text-[#d9e8f1]"> <span data-template-id="mobile-contact-en" class="canva-link" data-language="en"></span> <span data-template-id="mobile-contact-es" class="canva-link" data-language="es"></span> </a>
-     <div class="flex w-fit rounded-md border border-sky-300/20 p-1 mono text-xs"><button id="mobile-lang-en" type="button" class="language-button focus-ring rounded px-3 py-1.5 transition" aria-pressed="true">EN</button> <button id="mobile-lang-es" type="button" class="language-button focus-ring rounded px-3 py-1.5 text-[#9bb2c3] transition" aria-pressed="false">ES</button>
+    <div class="flex flex-col gap-4">
+     <a href="#about" class="mobile-link focus-ring rounded-sm text-sm text-[#d9e8f1]"><span data-language="en">About</span><span data-language="es">Nosotros</span></a> <a href="#infrastructure" class="mobile-link focus-ring rounded-sm text-sm text-[#d9e8f1]"><span data-language="en">Infrastructure</span><span data-language="es">Infraestructura</span></a> <a href="#resources" class="mobile-link focus-ring rounded-sm text-sm text-[#d9e8f1]"><span data-language="en">Resources</span><span data-language="es">Recursos</span></a> <a href="#contact" class="mobile-link focus-ring rounded-sm text-sm text-[#d9e8f1]"><span data-language="en">Contact</span><span data-language="es">Contacto</span></a>
+     <div class="flex w-fit rounded-md border border-sky-300/20 p-1 mono text-xs">
+      <button id="mobile-lang-en" type="button" class="language-button focus-ring rounded px-3 py-1.5 transition" aria-pressed="true">EN</button> <button id="mobile-lang-es" type="button" class="language-button focus-ring rounded px-3 py-1.5 text-[#9bb2c3] transition" aria-pressed="false">ES</button>
      </div>
     </div>
    </div>
   </header>
   <main id="top">
    <section class="grid-atmosphere relative isolate overflow-hidden border-b border-sky-300/10">
-    <video class="absolute inset-0 -z-30 h-full w-full object-cover opacity-85" autoplay muted loop playsinline preload="metadata" aria-hidden="true"><source src="https://raw.githubusercontent.com/datacloudly/datacloudly/main/video.mp4" type="video/mp4">
+    <video class="absolute inset-0 -z-30 h-full w-full object-cover opacity-85" autoplay muted loop playsinline preload="metadata" aria-hidden="true">
+     <source src="https://raw.githubusercontent.com/datacloudly/datacloudly/main/video.mp4" type="video/mp4">
     </video>
     <div class="hero-shade absolute inset-0 -z-20"></div>
     <div class="orb orb-one -z-10"></div>
     <div class="orb orb-two -z-10"></div>
     <div class="mx-auto grid max-w-7xl gap-14 px-5 py-20 sm:py-28 lg:grid-cols-[1.25fr_.75fr] lg:items-end lg:px-8 lg:py-36">
      <div>
-      <div data-template-id="hero-status" class="canva-tag reveal mb-7 inline-flex items-center gap-2 rounded-full border border-[#63f4b0]/35 bg-[#0c241f]/80 px-4 py-2 mono text-xs tracking-wider"><span class="pulse-dot h-2 w-2 rounded-full bg-[#63f4b0]"></span>
-      </div>
-      <h1 class="reveal delay-1 max-w-3xl font-bold leading-[1.03] tracking-tight"><span data-template-id="hero-title-en" class="canva-text" data-language="en"></span> <span data-template-id="hero-title-es" class="canva-text" data-language="es"></span></h1>
-      <p class="reveal delay-2 mt-7 max-w-2xl text-lg leading-8 text-[#c5d8e4] sm:text-xl"><span data-template-id="hero-copy-en" class="canva-text" data-language="en"></span> <span data-template-id="hero-copy-es" class="canva-text" data-language="es"></span></p>
-      <div class="reveal delay-3 mt-10 flex flex-wrap items-center gap-4"><a href="#resources" class="focus-ring inline-flex items-center gap-2 rounded-sm bg-[#31b4ff] px-6 py-3.5 font-bold text-[#06121c] transition hover:brightness-110"> <span data-template-id="hero-cta-en" class="canva-button" data-language="en"></span> <span data-template-id="hero-cta-es" class="canva-button" data-language="es"></span> <i data-lucide="arrow-down-right" width="18" height="18"></i> </a> <span data-template-id="hero-note" class="canva-text mono text-xs tracking-wide text-[#a1c0d2]"></span>
+      <h1 class="reveal delay-1 max-w-3xl font-bold leading-[1.03] tracking-[-.04em] text-[#f4faff]" style="font-size:clamp(2.25rem,5vw,3.75rem)"><span data-template-id="hero-title-en" class="canva-text" data-language="en">Solid infrastructure. Transparent code. Telos’s future.</span> <span data-template-id="hero-title-es" class="canva-text" data-language="es">Infraestructura sólida. Código transparente. El futuro de Telos.</span></h1>
+      <p class="reveal delay-2 mt-7 max-w-2xl text-lg leading-8 text-[#e1edf4] sm:text-xl"><span data-template-id="hero-copy-en" class="canva-text" data-language="en">DataCloudly delivers independent, secure, and low-latency infrastructure for a more resilient Telos network.</span> <span data-template-id="hero-copy-es" class="canva-text" data-language="es">DataCloudly ofrece infraestructura independiente, segura y de baja latencia para una red Telos más resiliente.</span></p>
+      <div class="reveal delay-3 mt-10 flex flex-wrap items-center gap-4">
+       <a href="#resources" class="focus-ring inline-flex items-center gap-2 rounded-sm bg-[#31b4ff] px-6 py-3.5 font-bold text-[#06121c] transition hover:brightness-110"> <span data-template-id="hero-cta-en" class="canva-button" data-language="en">Explore technical resources</span> <span data-template-id="hero-cta-es" class="canva-button" data-language="es">Explorar recursos técnicos</span> <i data-lucide="arrow-down-right" width="18" height="18"></i> </a> <span data-template-id="hero-note" class="canva-text mono text-xs font-medium tracking-wide text-[#d0e5ef]">NETWORK FIRST · ALWAYS ONLINE</span>
       </div>
      </div>
      <aside class="glass-panel corner-mark relative overflow-hidden rounded-sm p-6 sm:p-7">
       <div class="mb-8 flex items-start justify-between">
        <div>
-        <p data-template-id="node-panel-label" class="canva-text mono text-xs tracking-[.16em] text-[#76a9c4]"></p>
-        <p data-template-id="node-panel-name" class="canva-text mt-2 font-semibold text-[#edf7ff]"></p>
+        <p data-template-id="node-panel-label" class="canva-text mono text-xs font-medium tracking-[.16em] text-[#76a9c4]">NODE TELEMETRY</p>
+        <p data-template-id="node-panel-name" class="canva-text mt-2 font-semibold text-[#edf7ff]">DataCloudly / Telos BP</p>
        </div><i data-lucide="radio-tower" class="text-[#63f4b0]" width="27" height="27"></i>
       </div>
       <div class="space-y-4 mono text-xs">
-       <div class="flex justify-between border-b border-sky-300/10 pb-3"><span data-template-id="node-status-label" class="canva-text text-[#8eaabb]"></span> <span data-template-id="node-status-value" class="canva-text text-[#63f4b0]"></span>
+       <div class="flex justify-between border-b border-sky-300/10 pb-3"><span data-template-id="node-status-label" class="canva-text text-[#8eaabb]">STATUS</span><span data-template-id="node-status-value" class="canva-text font-medium text-[#63f4b0]">OPERATIONAL</span>
        </div>
-       <div class="flex justify-between border-b border-sky-300/10 pb-3"><span data-template-id="node-network-label" class="canva-text text-[#8eaabb]"></span> <span data-template-id="node-network-value" class="canva-text text-[#eaf6ff]"></span>
+       <div class="flex justify-between border-b border-sky-300/10 pb-3"><span data-template-id="node-network-label" class="canva-text text-[#8eaabb]">NETWORK</span><span data-template-id="node-network-value" class="canva-text font-medium text-[#eaf6ff]">TELOS MAINNET</span>
        </div>
-       <div class="flex justify-between"><span data-template-id="node-location-label" class="canva-text text-[#8eaabb]"></span> <span data-template-id="node-location-value" class="canva-text text-[#eaf6ff]"></span>
+       <div class="flex justify-between"><span data-template-id="node-location-label" class="canva-text text-[#8eaabb]">LOCATION</span><span data-template-id="node-location-value" class="canva-text font-medium text-[#eaf6ff]">MONTREAL, CANADA</span>
        </div>
       </div>
      </aside>
     </div>
    </section>
-   <section id="about" class="relative overflow-hidden"><img data-template-id="about-background" loading="lazy" class="canva-image absolute right-0 top-0 h-full w-full object-cover opacity-[.10] lg:w-1/2">
+   <section id="about" class="relative overflow-hidden">
+    <img data-template-id="about-background" loading="lazy" class="canva-image absolute right-0 top-0 h-full w-full object-cover opacity-[.10] lg:w-1/2">
     <div class="relative mx-auto grid max-w-7xl gap-10 px-5 py-20 lg:grid-cols-[1.1fr_.9fr] lg:items-center lg:px-8">
      <div>
-      <p data-template-id="about-eyebrow" class="canva-text mono text-xs font-medium uppercase tracking-[.2em] text-[#63f4b0]"></p>
-      <h2 class="mt-4 font-bold leading-tight tracking-tight"><span data-template-id="about-title-en" class="canva-text" data-language="en"></span> <span data-template-id="about-title-es" class="canva-text" data-language="es"></span></h2>
+      <p data-template-id="about-eyebrow" class="canva-text mono text-xs font-medium uppercase tracking-[.2em] text-[#63f4b0]">01 / DATA_CLOUDLY</p>
+      <h2 class="mt-4 font-bold leading-tight tracking-tight text-[#f1f7fb]" style="font-size:clamp(1.8rem,3vw,2.4rem)"><span data-template-id="about-title-en" class="canva-text" data-language="en">Built for uptime. Committed to decentralization.</span> <span data-template-id="about-title-es" class="canva-text" data-language="es">Diseñados para disponibilidad. Comprometidos con la descentralización.</span></h2>
       <div class="mt-7 h-px w-24 bg-gradient-to-r from-[#63f4b0] to-transparent"></div>
-      <p class="mt-7 max-w-2xl text-lg leading-8 text-[#b8cad6]"><span data-template-id="about-copy-en" class="canva-text" data-language="en"></span> <span data-template-id="about-copy-es" class="canva-text" data-language="es"></span></p>
+      <p class="mt-7 max-w-2xl text-lg leading-8 text-[#b8cad6]"><span data-template-id="about-copy-en" class="canva-text" data-language="en">DataCloudly is a digital solutions team with deep frontend, backend, and cloud infrastructure experience. We are stepping up to help secure and strengthen the Telos decentralization ecosystem.</span> <span data-template-id="about-copy-es" class="canva-text" data-language="es">DataCloudly es un equipo de soluciones digitales con amplia experiencia en frontend, backend e infraestructura cloud. Nos sumamos para ayudar a proteger y fortalecer el ecosistema descentralizado de Telos.</span></p>
      </div>
-     <aside data-template-id="about-panel" class="canva-panel glass-panel corner-mark relative rounded-sm p-7 sm:p-8"><i data-lucide="shield-check" class="mb-6 text-[#63f4b0]" width="35" height="35"></i>
-      <h3 class="font-bold"><span data-template-id="about-panel-title-en" class="canva-text" data-language="en"></span> <span data-template-id="about-panel-title-es" class="canva-text" data-language="es"></span></h3>
-      <p class="mt-3 leading-7 text-[#b8cad6]"><span data-template-id="about-panel-copy-en" class="canva-text" data-language="en"></span> <span data-template-id="about-panel-copy-es" class="canva-text" data-language="es"></span></p>
+     <aside data-template-id="about-panel" class="canva-panel glass-panel corner-mark relative rounded-sm p-7 sm:p-8">
+      <i data-lucide="shield-check" class="mb-6 text-[#63f4b0]" width="35" height="35"></i>
+      <h3 class="font-bold text-[#f1f7fb]" style="font-size:1.25rem"><span data-template-id="about-panel-title-en" class="canva-text" data-language="en">Independent by design</span> <span data-template-id="about-panel-title-es" class="canva-text" data-language="es">Independientes por diseño</span></h3>
+      <p class="mt-3 leading-7 text-[#b8cad6]"><span data-template-id="about-panel-copy-en" class="canva-text" data-language="en">Our goal is clear: operate dependable infrastructure that serves the network, its builders, and its global community.</span> <span data-template-id="about-panel-copy-es" class="canva-text" data-language="es">Nuestro objetivo es claro: operar infraestructura confiable que sirva a la red, a sus creadores y a su comunidad global.</span></p>
      </aside>
     </div>
    </section>
-   <section id="infrastructure" data-template-id="infrastructure-section" class="canva-section border-y border-sky-300/10 py-20">
+   <section id="infrastructure" data-template-id="infrastructure-section" class="canva-section border-y border-sky-300/10 bg-[#09111a] py-20">
     <div class="mx-auto max-w-7xl px-5 lg:px-8">
      <div class="max-w-2xl">
-      <p data-template-id="infrastructure-eyebrow" class="canva-text mono text-xs font-medium uppercase tracking-[.2em] text-[#63f4b0]"></p>
-      <h2 class="mt-4 font-bold leading-tight tracking-tight"><span data-template-id="infrastructure-title-en" class="canva-text" data-language="en"></span> <span data-template-id="infrastructure-title-es" class="canva-text" data-language="es"></span></h2>
+      <p data-template-id="infrastructure-eyebrow" class="canva-text mono text-xs font-medium uppercase tracking-[.2em] text-[#63f4b0]">02 / INFRASTRUCTURE</p>
+      <h2 class="mt-4 font-bold leading-tight tracking-tight text-[#f1f7fb]" style="font-size:clamp(1.8rem,3vw,2.4rem)"><span data-template-id="infrastructure-title-en" class="canva-text" data-language="en">Dedicated hardware. Predictable performance.</span> <span data-template-id="infrastructure-title-es" class="canva-text" data-language="es">Hardware dedicado. Rendimiento predecible.</span></h2>
      </div>
      <div class="mt-11 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
       <article data-template-id="cpu-card" class="canva-card tech-card rounded-sm p-6"><i data-lucide="cpu" class="mb-9 text-[#31b4ff]" width="28" height="28"></i>
-       <p data-template-id="cpu-value" class="canva-text mono font-medium text-[#f1f8fc]"></p>
-       <p data-template-id="cpu-label" class="canva-text mt-2 font-semibold text-[#91adbe]"></p>
+       <p data-template-id="cpu-value" class="canva-text mono text-2xl font-medium text-[#f1f8fc]">4 Cores</p>
+       <p data-template-id="cpu-label" class="canva-text mt-2 font-semibold text-[#91adbe]">Dedicated CPU</p>
       </article>
       <article data-template-id="ram-card" class="canva-card tech-card rounded-sm p-6"><i data-lucide="memory-stick" class="mb-9 text-[#31b4ff]" width="28" height="28"></i>
-       <p data-template-id="ram-value" class="canva-text mono font-medium text-[#f1f8fc]"></p>
-       <p data-template-id="ram-label" class="canva-text mt-2 font-semibold text-[#91adbe]"></p>
+       <p data-template-id="ram-value" class="canva-text mono text-2xl font-medium text-[#f1f8fc]">16 GB</p>
+       <p data-template-id="ram-label" class="canva-text mt-2 font-semibold text-[#91adbe]">RAM</p>
       </article>
       <article data-template-id="storage-card" class="canva-card tech-card rounded-sm p-6"><i data-lucide="database" class="mb-9 text-[#31b4ff]" width="28" height="28"></i>
-       <p data-template-id="storage-value" class="canva-text mono font-medium text-[#f1f8fc]"></p>
-       <p data-template-id="storage-label" class="canva-text mt-2 font-semibold text-[#91adbe]"></p>
+       <p data-template-id="storage-value" class="canva-text mono text-2xl font-medium text-[#f1f8fc]">500 GB</p>
+       <p data-template-id="storage-label" class="canva-text mt-2 font-semibold text-[#91adbe]">NVMe Storage</p>
       </article>
       <article data-template-id="network-card" class="canva-card tech-card rounded-sm p-6"><i data-lucide="activity" class="mb-9 text-[#31b4ff]" width="28" height="28"></i>
-       <p data-template-id="network-value" class="canva-text mono font-medium text-[#f1f8fc]"></p>
-       <p data-template-id="network-label" class="canva-text mt-2 font-semibold text-[#91adbe]"></p>
+       <p data-template-id="network-value" class="canva-text mono text-2xl font-medium text-[#f1f8fc]">1 Gbps</p>
+       <p data-template-id="network-label" class="canva-text mt-2 font-semibold text-[#91adbe]">Uncapped Bandwidth</p>
       </article>
      </div>
-     <div data-template-id="location-banner" class="canva-banner mt-4 flex flex-wrap items-center gap-3 rounded-sm border border-[#31b4ff]/20 bg-[#31b4ff]/[.06] px-5 py-4"><i data-lucide="map-pin" class="text-[#63f4b0]" width="18" height="18"></i> <span data-template-id="location-text" class="canva-text mono text-sm"></span>
+     <div data-template-id="location-banner" class="canva-banner mt-4 flex flex-wrap items-center gap-3 rounded-sm border border-[#31b4ff]/20 bg-[#31b4ff]/[.06] px-5 py-4">
+      <i data-lucide="map-pin" class="text-[#63f4b0]" width="18" height="18"></i> <span data-template-id="location-text" class="canva-text mono text-sm font-medium text-[#b9d9e9]">PRIMARY NODE LOCATION // MONTREAL, CANADA</span>
      </div>
     </div>
    </section>
    <section id="resources" class="mx-auto max-w-7xl px-5 py-20 lg:px-8">
     <div class="flex flex-col justify-between gap-6 md:flex-row md:items-end">
      <div class="max-w-2xl">
-      <p data-template-id="resources-eyebrow" class="canva-text mono text-xs font-medium uppercase tracking-[.2em] text-[#63f4b0]"></p>
-      <h2 class="mt-4 font-bold leading-tight tracking-tight"><span data-template-id="resources-title-en" class="canva-text" data-language="en"></span> <span data-template-id="resources-title-es" class="canva-text" data-language="es"></span></h2>
+      <p data-template-id="resources-eyebrow" class="canva-text mono text-xs font-medium uppercase tracking-[.2em] text-[#63f4b0]">03 / TECHNICAL RESOURCES</p>
+      <h2 class="mt-4 font-bold leading-tight tracking-tight text-[#f1f7fb]" style="font-size:clamp(1.8rem,3vw,2.4rem)"><span data-template-id="resources-title-en" class="canva-text" data-language="en">Inspect the operation.</span> <span data-template-id="resources-title-es" class="canva-text" data-language="es">Conoce la operación.</span></h2>
      </div>
-     <p class="max-w-md leading-7 text-[#9bb2c3]"><span data-template-id="resources-copy-en" class="canva-text" data-language="en"></span> <span data-template-id="resources-copy-es" class="canva-text" data-language="es"></span></p>
+     <p class="max-w-md leading-7 text-[#9bb2c3]"><span data-template-id="resources-copy-en" class="canva-text" data-language="en">Download the public materials published with our GitHub Pages site.</span><span data-template-id="resources-copy-es" class="canva-text" data-language="es">Descarga los materiales públicos publicados en nuestro sitio de GitHub Pages.</span></p>
     </div>
     <div class="mt-11 grid gap-5 md:grid-cols-2">
      <article data-template-id="config-resource-card" class="canva-card resource-card rounded-sm p-7 sm:p-8">
       <div class="flex items-start justify-between gap-4">
        <div class="flex h-12 w-12 items-center justify-center rounded-md border border-[#31b4ff]/30 bg-[#31b4ff]/10 text-[#31b4ff]"><i data-lucide="braces" width="24" height="24"></i>
-       </div><span data-template-id="config-file-tag" class="canva-tag rounded-full border border-[#63f4b0]/25 px-3 py-1 mono text-xs text-[#63f4b0]"></span>
+       </div><span data-template-id="config-file-tag" class="canva-tag rounded-full border border-[#63f4b0]/25 px-3 py-1 mono text-xs font-medium text-[#63f4b0]">JSON</span>
       </div>
-      <h3 class="mt-8 font-bold"><span data-template-id="config-title-en" class="canva-text" data-language="en"></span> <span data-template-id="config-title-es" class="canva-text" data-language="es"></span></h3>
-      <p class="mt-3 leading-7 text-[#a8becd]"><span data-template-id="config-copy-en" class="canva-text" data-language="en"></span> <span data-template-id="config-copy-es" class="canva-text" data-language="es"></span></p><a href="bp.json" download="bp.json" class="focus-ring mt-7 inline-flex items-center gap-2 rounded-sm bg-[#63f4b0] px-5 py-3 font-bold text-[#06121c] transition hover:brightness-110"> <span data-template-id="config-download-en" class="canva-button" data-language="en"></span> <span data-template-id="config-download-es" class="canva-button" data-language="es"></span> <i data-lucide="download" width="17" height="17"></i> </a>
+      <h3 class="mt-8 font-bold text-[#f1f7fb]" style="font-size:1.3rem"><span data-template-id="config-title-en" class="canva-text" data-language="en">Node configuration</span><span data-template-id="config-title-es" class="canva-text" data-language="es">Configuración del nodo</span></h3>
+      <p class="mt-3 leading-7 text-[#a8becd]"><span data-template-id="config-copy-en" class="canva-text" data-language="en">Review or download the bp.json file containing DataCloudly public node information.</span><span data-template-id="config-copy-es" class="canva-text" data-language="es">Consulta o descarga el archivo bp.json con la información pública del nodo DataCloudly.</span></p><a href="bp.json" download="bp.json" class="focus-ring mt-7 inline-flex items-center gap-2 rounded-sm bg-[#63f4b0] px-5 py-3 font-bold text-[#06121c] transition hover:brightness-110"><span data-template-id="config-download-en" class="canva-button" data-language="en">Download bp.json</span><span data-template-id="config-download-es" class="canva-button" data-language="es">Descargar bp.json</span><i data-lucide="download" width="17" height="17"></i></a>
      </article>
      <article data-template-id="dossier-resource-card" class="canva-card resource-card rounded-sm p-7 sm:p-8">
       <div class="flex items-start justify-between gap-4">
        <div class="flex h-12 w-12 items-center justify-center rounded-md border border-[#31b4ff]/30 bg-[#31b4ff]/10 text-[#31b4ff]"><i data-lucide="file-text" width="24" height="24"></i>
-       </div><span data-template-id="dossier-file-tag" class="canva-tag rounded-full border border-[#31b4ff]/25 px-3 py-1 mono text-xs text-[#78caff]"></span>
+       </div><span data-template-id="dossier-file-tag" class="canva-tag rounded-full border border-[#31b4ff]/25 px-3 py-1 mono text-xs font-medium text-[#78caff]">PDF</span>
       </div>
-      <h3 class="mt-8 font-bold"><span data-template-id="dossier-title-en" class="canva-text" data-language="en"></span> <span data-template-id="dossier-title-es" class="canva-text" data-language="es"></span></h3>
-      <p class="mt-3 leading-7 text-[#a8becd]"><span data-template-id="dossier-copy-en" class="canva-text" data-language="en"></span> <span data-template-id="dossier-copy-es" class="canva-text" data-language="es"></span></p><a href="dossier-tecnologico.pdf" download="dossier-tecnologico.pdf" class="focus-ring mt-7 inline-flex items-center gap-2 rounded-sm border border-[#31b4ff]/55 px-5 py-3 font-bold text-[#cceeff] transition hover:bg-[#31b4ff]/10"> <span data-template-id="dossier-download-en" class="canva-button" data-language="en"></span> <span data-template-id="dossier-download-es" class="canva-button" data-language="es"></span> <i data-lucide="download" width="17" height="17"></i> </a>
+      <h3 class="mt-8 font-bold text-[#f1f7fb]" style="font-size:1.3rem"><span data-template-id="dossier-title-en" class="canva-text" data-language="en">Technology dossier</span><span data-template-id="dossier-title-es" class="canva-text" data-language="es">Dossier tecnológico</span></h3>
+      <p class="mt-3 leading-7 text-[#a8becd]"><span data-template-id="dossier-copy-en" class="canva-text" data-language="en">Download the detailed overview of our technical approach, infrastructure, and operating principles.</span><span data-template-id="dossier-copy-es" class="canva-text" data-language="es">Descarga el resumen detallado de nuestro enfoque técnico, infraestructura y principios operativos.</span></p><a href="dossier-tecnologico.pdf" download="dossier-tecnologico.pdf" class="focus-ring mt-7 inline-flex items-center gap-2 rounded-sm border border-[#31b4ff]/55 px-5 py-3 font-bold text-[#cceeff] transition hover:bg-[#31b4ff]/10"><span data-template-id="dossier-download-en" class="canva-button" data-language="en">Download technology dossier</span><span data-template-id="dossier-download-es" class="canva-button" data-language="es">Descargar dossier tecnológico</span><i data-lucide="download" width="17" height="17"></i></a>
      </article>
     </div>
    </section>
    <section class="border-y border-sky-300/10 bg-[#09111a] py-20">
     <div class="mx-auto max-w-7xl px-5 lg:px-8">
-     <p data-template-id="values-eyebrow" class="canva-text mono text-xs font-medium uppercase tracking-[.2em] text-[#63f4b0]"></p>
-     <h2 class="mt-4 max-w-2xl font-bold leading-tight tracking-tight"><span data-template-id="values-title-en" class="canva-text" data-language="en"></span> <span data-template-id="values-title-es" class="canva-text" data-language="es"></span></h2>
+     <p data-template-id="values-eyebrow" class="canva-text mono text-xs font-medium uppercase tracking-[.2em] text-[#63f4b0]">04 / OPERATING PRINCIPLES</p>
+     <h2 class="mt-4 max-w-2xl font-bold leading-tight tracking-tight text-[#f1f7fb]" style="font-size:clamp(1.8rem,3vw,2.4rem)"><span data-template-id="values-title-en" class="canva-text" data-language="en">A stronger Telos starts with responsible operators.</span><span data-template-id="values-title-es" class="canva-text" data-language="es">Un Telos más fuerte comienza con operadores responsables.</span></h2>
      <div class="mt-11 grid gap-4 md:grid-cols-2 lg:grid-cols-4">
       <article data-template-id="value-one-card" class="canva-card tech-card rounded-sm p-6"><i data-lucide="scan-eye" class="text-[#63f4b0]" width="26" height="26"></i>
-       <h3 data-template-id="value-one-title" class="canva-text mt-7 font-bold"></h3>
-       <p data-template-id="value-one-copy" class="canva-text mt-3 text-sm leading-6 text-[#aebfcd]"></p>
+       <h3 data-template-id="value-one-title" class="canva-text mt-7 font-bold text-[#f1f7fb]">Transparency</h3>
+       <p data-template-id="value-one-copy" class="canva-text mt-3 text-sm leading-6 text-[#aebfcd]">Straightforward communication and accountable operations.</p>
       </article>
       <article data-template-id="value-two-card" class="canva-card tech-card rounded-sm p-6"><i data-lucide="radar" class="text-[#63f4b0]" width="26" height="26"></i>
-       <h3 data-template-id="value-two-title" class="canva-text mt-7 font-bold"></h3>
-       <p data-template-id="value-two-copy" class="canva-text mt-3 text-sm leading-6 text-[#aebfcd]"></p>
+       <h3 data-template-id="value-two-title" class="canva-text mt-7 font-bold text-[#f1f7fb]">24/7 Monitoring</h3>
+       <p data-template-id="value-two-copy" class="canva-text mt-3 text-sm leading-6 text-[#aebfcd]">Continuous oversight helps keep the node responsive and available.</p>
       </article>
       <article data-template-id="value-three-card" class="canva-card tech-card rounded-sm p-6"><i data-lucide="lock-keyhole" class="text-[#63f4b0]" width="26" height="26"></i>
-       <h3 data-template-id="value-three-title" class="canva-text mt-7 font-bold"></h3>
-       <p data-template-id="value-three-copy" class="canva-text mt-3 text-sm leading-6 text-[#aebfcd]"></p>
+       <h3 data-template-id="value-three-title" class="canva-text mt-7 font-bold text-[#f1f7fb]">Security</h3>
+       <p data-template-id="value-three-copy" class="canva-text mt-3 text-sm leading-6 text-[#aebfcd]">A hardened infrastructure mindset from deployment to daily operations.</p>
       </article>
       <article data-template-id="value-four-card" class="canva-card tech-card rounded-sm p-6"><i data-lucide="network" class="text-[#63f4b0]" width="26" height="26"></i>
-       <h3 data-template-id="value-four-title" class="canva-text mt-7 font-bold"></h3>
-       <p data-template-id="value-four-copy" class="canva-text mt-3 text-sm leading-6 text-[#aebfcd]"></p>
+       <h3 data-template-id="value-four-title" class="canva-text mt-7 font-bold text-[#f1f7fb]">Community Growth</h3>
+       <p data-template-id="value-four-copy" class="canva-text mt-3 text-sm leading-6 text-[#aebfcd]">We support the builders and users moving the Telos ecosystem forward.</p>
       </article>
      </div>
     </div>
@@ -298,20 +239,22 @@
    <div class="mx-auto max-w-7xl px-5 py-16 lg:px-8">
     <div class="grid gap-12 md:grid-cols-[1.25fr_.75fr_.75fr]">
      <div>
-      <p data-template-id="footer-eyebrow" class="canva-text mono text-xs uppercase tracking-[.2em] text-[#63f4b0]"></p>
-      <h2 class="mt-4 font-bold leading-tight tracking-tight"><span data-template-id="footer-title-en" class="canva-text" data-language="en"></span> <span data-template-id="footer-title-es" class="canva-text" data-language="es"></span></h2>
-      <p class="mt-4 max-w-md leading-7 text-[#aebfcd]"><span data-template-id="footer-copy-en" class="canva-text" data-language="en"></span> <span data-template-id="footer-copy-es" class="canva-text" data-language="es"></span></p>
+      <p data-template-id="footer-eyebrow" class="canva-text mono text-xs font-medium uppercase tracking-[.2em] text-[#63f4b0]">05 / CONTACT</p>
+      <h2 class="mt-4 font-bold leading-tight tracking-tight text-[#f1f7fb]" style="font-size:clamp(1.8rem,3vw,2.4rem)"><span data-template-id="footer-title-en" class="canva-text" data-language="en">Let’s build resilient infrastructure.</span><span data-template-id="footer-title-es" class="canva-text" data-language="es">Construyamos infraestructura resiliente.</span></h2>
+      <p class="mt-4 max-w-md leading-7 text-[#aebfcd]"><span data-template-id="footer-copy-en" class="canva-text" data-language="en">Follow the work, inspect the code, or contact DataCloudly directly.</span><span data-template-id="footer-copy-es" class="canva-text" data-language="es">Sigue nuestro trabajo, revisa el código o contacta directamente a DataCloudly.</span></p>
      </div>
      <div>
-      <h3 data-template-id="contact-heading" class="canva-text mono text-xs uppercase tracking-[.16em] text-[#718a9d]"></h3><a data-template-id="contact-email" href="mailto:datacloudly@gmail.com" class="canva-link focus-ring mt-5 inline-block rounded-sm font-semibold text-[#31b4ff] transition hover:text-[#63f4b0]"></a>
+      <h3 data-template-id="contact-heading" class="canva-text mono text-xs font-medium uppercase tracking-[.16em] text-[#718a9d]">EMAIL</h3><a data-template-id="contact-email" href="mailto:datacloudly@gmail.com" class="canva-link focus-ring mt-5 inline-block rounded-sm font-semibold text-[#31b4ff] transition hover:text-[#63f4b0]">datacloudly@gmail.com</a>
      </div>
      <div>
-      <h3 data-template-id="channels-heading" class="canva-text mono text-xs uppercase tracking-[.16em] text-[#718a9d]"></h3>
-      <div class="mt-5 flex flex-col items-start gap-3"><a data-template-id="github-link" href="https://github.com/datacloudly" target="_blank" rel="noopener noreferrer" class="canva-link focus-ring inline-flex items-center gap-2 rounded-sm text-sm text-[#c4d4e0] transition hover:text-[#63f4b0]"> <i data-lucide="github" width="17" height="17"></i> </a> <a data-template-id="telegram-link" href="https://t.me/marcelo182" target="_blank" rel="noopener noreferrer" class="canva-link focus-ring inline-flex items-center gap-2 rounded-sm text-sm text-[#c4d4e0] transition hover:text-[#63f4b0]"> <i data-lucide="send" width="17" height="17"></i> </a> <a data-template-id="website-link" href="https://Danielmarcelo.info" target="_blank" rel="noopener noreferrer" class="canva-link focus-ring inline-flex items-center gap-2 rounded-sm text-sm text-[#c4d4e0] transition hover:text-[#63f4b0]"></a>
+      <h3 data-template-id="channels-heading" class="canva-text mono text-xs font-medium uppercase tracking-[.16em] text-[#718a9d]">CHANNELS</h3>
+      <div class="mt-5 flex flex-col items-start gap-3">
+       <a data-template-id="github-link" href="https://github.com/datacloudly" target="_blank" rel="noopener noreferrer" class="canva-link focus-ring inline-flex items-center gap-2 rounded-sm text-sm font-medium text-[#c4d4e0] transition hover:text-[#63f4b0]"><i data-lucide="github" width="17" height="17"></i>GitHub repositories</a> <a data-template-id="telegram-link" href="https://t.me/marcelo182" target="_blank" rel="noopener noreferrer" class="canva-link focus-ring inline-flex items-center gap-2 rounded-sm text-sm font-medium text-[#c4d4e0] transition hover:text-[#63f4b0]"><i data-lucide="send" width="17" height="17"></i>Telegram community</a> <a data-template-id="website-link" href="https://danielmarcelo.info" target="_blank" rel="noopener noreferrer" class="canva-link focus-ring inline-flex items-center gap-2 rounded-sm text-sm font-medium text-[#c4d4e0] transition hover:text-[#63f4b0]">Danielmarcelo.info</a>
       </div>
      </div>
     </div>
-    <div class="mt-14 flex flex-col justify-between gap-3 border-t border-sky-300/10 pt-6 sm:flex-row"><span data-template-id="footer-copyright" class="canva-text mono text-xs text-[#718a9d]"></span> <span data-template-id="footer-statement" class="canva-text mono text-xs text-[#63f4b0]"></span>
+    <div class="mt-14 flex flex-col justify-between gap-3 border-t border-sky-300/10 pt-6 sm:flex-row">
+     <span data-template-id="footer-copyright" class="canva-text mono text-xs font-medium text-[#718a9d]">© 2026 DATACLOUDLY</span> <span data-template-id="footer-statement" class="canva-text mono text-xs font-medium text-[#63f4b0]">OPERATING FOR A DECENTRALIZED TELOS</span>
     </div>
    </div>
   </footer>
@@ -331,16 +274,12 @@
         body.classList.toggle("language-es", language === "es");
         document.documentElement.lang = language;
 
-        languageButtons.en.forEach((button) => {
-          button.setAttribute("aria-pressed", String(language === "en"));
-        });
-        languageButtons.es.forEach((button) => {
-          button.setAttribute("aria-pressed", String(language === "es"));
-        });
+        languageButtons.en.forEach(button => button.setAttribute("aria-pressed", String(language === "en")));
+        languageButtons.es.forEach(button => button.setAttribute("aria-pressed", String(language === "es")));
       }
 
-      languageButtons.en.forEach((button) => button.addEventListener("click", () => setLanguage("en")));
-      languageButtons.es.forEach((button) => button.addEventListener("click", () => setLanguage("es")));
+      languageButtons.en.forEach(button => button.addEventListener("click", () => setLanguage("en")));
+      languageButtons.es.forEach(button => button.addEventListener("click", () => setLanguage("es")));
 
       const menuButton = document.getElementById("menu-button");
       const mobileMenu = document.getElementById("mobile-menu");
@@ -351,7 +290,7 @@
         menuButton.setAttribute("aria-expanded", String(willOpen));
       });
 
-      document.querySelectorAll(".mobile-link").forEach((link) => {
+      document.querySelectorAll(".mobile-link").forEach(link => {
         link.addEventListener("click", () => {
           mobileMenu.classList.add("hidden");
           menuButton.setAttribute("aria-expanded", "false");
