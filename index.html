@@ -44,8 +44,15 @@
     }
 
     .hero-shade {
-      background: linear-gradient(90deg, rgba(6,10,16,.68) 0%, rgba(6,10,16,.48) 40%, rgba(6,10,16,.18) 100%);
+      background: linear-gradient(90deg, rgba(6,10,16,.42) 0%, rgba(6,10,16,.22) 48%, rgba(6,10,16,.06) 100%);
     }
+
+    /* Keep the hero readable outside Canva, where config.json styles are unavailable. */
+    #hero-status { color: #63f4b0; font-family: "DM Mono", monospace; font-size: .75rem; font-weight: 500; letter-spacing: .08em; }
+    [data-template-id="hero-title-en"], [data-template-id="hero-title-es"] { color: #f4faff; font-size: clamp(2.25rem, 5vw, 3.75rem); font-weight: 700; line-height: 1.03; letter-spacing: -.04em; }
+    [data-template-id="hero-copy-en"], [data-template-id="hero-copy-es"] { color: #e1edf4; font-size: clamp(1.05rem, 2vw, 1.25rem); line-height: 1.6; }
+    [data-template-id="hero-cta-en"], [data-template-id="hero-cta-es"] { color: #06121c; font-weight: 700; }
+    #hero-note { color: #d0e5ef; font-family: "DM Mono", monospace; font-size: .75rem; font-weight: 500; letter-spacing: .04em; }
 
     .orb {
       position: absolute;
@@ -161,7 +168,7 @@
   </header>
   <main id="top">
    <section class="grid-atmosphere relative isolate overflow-hidden border-b border-sky-300/10">
-    <video class="absolute inset-0 -z-30 h-full w-full object-cover opacity-60" autoplay muted loop playsinline preload="metadata" aria-hidden="true"><source src="https://raw.githubusercontent.com/datacloudly/datacloudly/main/video.mp4" type="video/mp4">
+    <video class="absolute inset-0 -z-30 h-full w-full object-cover opacity-85" autoplay muted loop playsinline preload="metadata" aria-hidden="true"><source src="https://raw.githubusercontent.com/datacloudly/datacloudly/main/video.mp4" type="video/mp4">
     </video>
     <div class="hero-shade absolute inset-0 -z-20"></div>
     <div class="orb orb-one -z-10"></div>
