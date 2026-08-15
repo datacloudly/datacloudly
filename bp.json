@@ -22,9 +22,9 @@
       },
       "node_type": "seed",
       "is_producer": true,
-      "p2p_endpoint": "0.0.0.0:9876",
-      "api_endpoint": "http://0.0.0",
-      "ssl_endpoint": "https://0.0.0"
+      "p2p_endpoint": "38.49.212.246:9876",
+      "api_endpoint": "http://38.49.212.246:8888",
+      "ssl_endpoint": "https://38.49.212.246:443"
     }
   ]
 }
