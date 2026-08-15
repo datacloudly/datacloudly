@@ -2,14 +2,14 @@
   "producer_account_name": "datacloudly1",
   "org": {
     "candidate_name": "DataCloudly",
-    "website": "https://pages.dev",
-    "code_of_conduct": "https://pages.dev/code-of-conduct",
-    "ownership_disclosure": "https://pages.dev/ownership",
+    "website": "https://datacloudly.pages.dev",
+    "code_of_conduct": "https://datacloudly.pages.dev/code-of-conduct",
+    "ownership_disclosure": "https://datacloudly.pages.dev/ownership",
     "email": "datacloudly@gmail.com",
     "branding": {
-      "logo_256": "https://pages.dev/assets/logo.png",
-      "logo_1024": "https://pages.dev/assets/logo.png",
-      "logo_svg": "https://pages.dev/assets/logo.svg"
+      "logo_256": "https://datacloudly.pages.dev/assets/logo.png",
+      "logo_1024": "https://datacloudly.pages.dev/assets/logo.png",
+      "logo_svg": "https://datacloudly.pages.dev/assets/logo.svg"
     }
   },
   "nodes": [
@@ -23,8 +23,7 @@
       "node_type": "seed",
       "is_producer": true,
       "p2p_endpoint": "38.49.212.246:9876",
-      "api_endpoint": "http://38.49.212.246:8888",
-      "ssl_endpoint": "https://38.49.212.246:443"
+      "api_endpoint": "http://38.49.212.246:8888"
     }
   ]
 }
