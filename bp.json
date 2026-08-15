@@ -6,12 +6,15 @@
     "code_of_conduct": "https://datacloudly.pages.dev/code-of-conduct",
     "ownership_disclosure": "https://datacloudly.pages.dev/ownership",
     "email": "datacloudly@gmail.com",
-    "branding": {
-     
+ 
+"branding": {
+  "logo_256": "https://datacloudly.pages.dev/logo_256.png",
+  "logo_1024": "https://datacloudly.pages.dev/logo_1024.png",
+  "logo_svg": "https://datacloudly.pages.dev/logo.svg"
 
-            "logo_256": "https://imgur.com",
-      "logo_1024": "https://imgur.com",
-      "logo_svg": "https://imgur.com"
+
+
+      
 
     }
   },
